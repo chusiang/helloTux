@@ -1,7 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw">
 <head>
-	<link rel="Stylesheet" type="text/css" href="style.css">
 	<title>AptURL for Ubuntu 11.10</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
@@ -38,16 +37,13 @@
 
 			// click install button.
 			$("#btnInstall").click(function() {
-				var varAptList = "";
-				$("input[name='chkbox[]']").each(function() {
-					if ($(this).attr("checked")) {
-						varAptList += $(this).val();
-						varAptList += ',';				// 以 ',' 做間格。
-					}
+				var varAptList = [];
+				$("input[name='chkbox[]']:checked").each(function() {
+					varAptList.push( $(this).val() );
 				});
-				// 由於 + ',' 的動作最後會多做一次的關係，故以只列出 0 ~ length -1 的方式處理，也可在遞迴時丟入 Array 再一個個讀出。
-				alert("apt://" + varAptList.substr(0,varAptList.length - 1));			//對話視窗。
-				location.href="apt://" + varAptList.substr(0,varAptList.length - 1);	//導向至 URL。
+
+				alert("apt://" + varAptList.join(','));			//對話視窗。
+				location.href="apt://" + varAptList.join(',');	//導向至 URL。
 			});
 		});
 	</script>
