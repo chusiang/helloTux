@@ -1,0 +1,20 @@
+pre { font-family: monospace; color: #d0d0d0; background-color: #1c1c1c; }
+
+body { font-family: monospace; color: #d0d0d0; background-color: #1c1c1c; }
+
+A:link {color: #9c9ce0}
+
+A:visited {color: #cc0000}
+
+A:active {color: #ff0000}
+
+A:hover {color: #ffdb00}
+
+.Comment { color: #808080; }
+
+.h1 { color: #ff0000; }
+
+.h2 { color: #ffdb00; }
+
+.lnr { color: #a8a8a8; background-color: #080808; }
+
