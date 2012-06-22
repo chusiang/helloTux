@@ -8,7 +8,7 @@
 
 * 其中文名稱尚未定案，目前有「企鵝您好」、「塔克斯您好」...
 
-* 測試網址為 [http://hellotux.dev.drx.tw/dev/](http://hellotux.dev.drx.tw/dev/)，其舊版網址為 [./ubuntu-11.10.html](http://hellotux.dev.drx.tw/ubuntu-11.10.html)。
+* 測試網址為 [http://hellotux.dev.drx.tw/dev/](http://hellotux.dev.drx.tw/dev/)，而舊版網址為 [./ubuntu-11.10.html](http://hellotux.dev.drx.tw/ubuntu-11.10.html)。
 
 * 目前使用到的技術有 Linux, Apache, MySQL, PHP, jQuery, CSS。
 
