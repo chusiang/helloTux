@@ -38,6 +38,13 @@ while (list($pkg, $name, $info_tw, $info_en) = mysql_fetch_row($result)) {
 	<input name="btnInstall" id="btnInstall" type="button" value="&nbsp;安裝&nbsp;">
 </div>
 </form>
+<br>
+<div>
+	<span class="Comment">&quot; ---------------------------------- </span><br>
+	<span class="Comment">&quot; 凍仁翔 (Chu-Siang, Lai)</span><br>
+	<span class="Comment">&quot; <a href="https://github.com/chusaing/helloTux" target="_blank">https://github.com/chusaing/helloTux</a></span><br>
+	<span class="Comment">&quot; ---------------------------------- </span><br>
+</div>
 
 </body>
 <html>
