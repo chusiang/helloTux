@@ -22,11 +22,12 @@
 
 <?php
 
-$sql = "select name, info_tw, info_en from main";
+#$sql = "select name, info_tw, info_en from main";
+$sql = "select ubuntu.package, name, info_en from main, ubuntu where ssn=pid";
 $result = mysql_query($sql);
 
-while (list($name, $info_tw, $info_en) = mysql_fetch_row($result)) {
-	echo "<input name='chkbox[]' type='checkbox'' value=fpm2> <a href=apt://fpm2>$name</a> - $info_en <br>";
+while (list($pkg, $name, $info_tw, $info_en) = mysql_fetch_row($result)) {
+	echo "<input name='chkbox[]' type='checkbox'' value=$pkg> <a href=apt://$pkg>$name</a> - $info_en <br>";
 }
 
 ?>
