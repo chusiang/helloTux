@@ -22,7 +22,7 @@
 
 <?php
 
-$sql = "select ubuntu.package, name, info_tw, info_en from main, ubuntu where ssn=pid";
+$sql = "select ubuntu.package, name, info_tw, info_en from main, ubuntu where ssn=pid order by name asc";
 $result = mysql_query($sql);
 
 while (list($pkg, $name, $info_tw, $info_en) = mysql_fetch_row($result)) {
