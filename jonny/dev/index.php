@@ -91,7 +91,7 @@ function fnLoad($lang){
 <h1><span class="h1">= helloTux dev =</span></h1>
 
 <div>
-	<span class="Comment"># 目前只支援有預裝 AptURL 的 Ubuntu。</span>
+	<span class="Comment"># 目前只支援有預裝 AptURL 的 Ubuntu。</span> <br>
 <div>
 
 <div>
