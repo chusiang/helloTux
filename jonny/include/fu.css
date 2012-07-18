@@ -18,3 +18,30 @@ A:hover {color: #ffdb00}
 
 .lnr { color: #a8a8a8; background-color: #080808; }
 
+.lang {
+	text-align: right;
+}
+
+/* =============================================================================
+	table 表格
+   ========================================================================== */
+
+.table_dark		{
+				width: 96%;
+				border: 1px;
+				/*border-collapse: collapse;*/
+				border-style: solid;
+
+}
+.table_dark th{
+				padding: 5px;
+				color: #1c1c1c;
+				background-color: #d0d0d0;
+}
+
+.table_dark td		{
+				border-bottom: 1px solid;*/
+				/*border-bottom: 1px dotted;*/
+				padding: 5px;
+}
+

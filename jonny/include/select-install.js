@@ -1,7 +1,8 @@
 jQuery(document).ready(function() {
+
 	// click select all chkbox.
-	$("#chkboxClickAll").click(function() {
-		if ($("#chkboxClickAll").attr("checked")) {
+	$("#chkClick_all").click(function() {
+		if ($("#chkClick_all").attr("checked")) {
 			$("input[name='chkbox[]']").each(function() {
 				$(this).attr("checked", true);
 			});
