@@ -12,7 +12,7 @@ if (isset($_POST["lang"])){
 
 function fnLoad($lang){
 
-	$sql = "select pkg_name, name, info_en, info_tw from ubuntu order by name asc";
+	$sql = "select pkg_name, name, info_en, info_tw from ubuntu where status = 1 order by name asc";
 	$result = mysql_query($sql);
 
 	echo "<table class=table_dark>";
@@ -25,7 +25,7 @@ function fnLoad($lang){
 
 		# 列出所有套件資訊。
 		while (list($pkg, $name, $info_en, $info_tw) = mysql_fetch_row($result)) {
-			echo "<tr><td><input name='chkbox[]' type='checkbox'' value=$pkg></td> <td><a href=apt://$pkg>$name</a></td> <td>$info_tw </td></tr>";
+			echo "<tr><td><input name='chkbox[]' type='checkbox' value=$pkg></td> <td><a href=apt://$pkg>$name</a></td> <td>$info_tw </td></tr>";
 		}
 
 		$chkbox_click_all = " 全選/取消 ";
@@ -38,7 +38,7 @@ function fnLoad($lang){
 
 		# list all package record.
 		while (list($pkg, $name, $info_en, $info_tw) = mysql_fetch_row($result)) {
-			echo "<tr><td><input name='chkbox[]' type='checkbox'' value=$pkg></td> <td><a href=apt://$pkg>$name</a></td> <td>$info_en </td></tr>";
+			echo "<tr><td><input name='chkbox[]' type='checkbox' value=$pkg></td> <td><a href=apt://$pkg>$name</a></td> <td>$info_en </td></tr>";
 		}
 
 		$chkbox_click_all = " Select All/Cancel ";
@@ -96,9 +96,11 @@ function fnLoad($lang){
 
 <div>
 	<form name="form_main" method="post" action="" enctype="text/plain">
+
 <?php
 fnLoad($lang);
 ?>
+
 	</form>
 </div>
 
