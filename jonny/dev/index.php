@@ -14,6 +14,8 @@ function fnLoad($lang){
 
 	$sql = "select pkg_name, name, info_en, info_tw from ubuntu where status = 1 order by name asc";
 	$result = mysql_query($sql);
+	$chkbox_click_all = " 全選/取消 ";
+	$btnInstall = " 安裝 ";
 
 	echo "<table class=table_dark>";
 

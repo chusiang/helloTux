@@ -31,6 +31,9 @@ function fnLoad($lang, $sql){
 	$sql_record = $sql;
 	$result_record = mysql_query($sql_record);
 
+	$chkbox_click_all = " 全選/取消 ";
+	$btnInstall = " 安裝 ";
+
 	echo "<table class=table_dark>";
 
 	switch ($lang) {
