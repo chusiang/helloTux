@@ -14,54 +14,41 @@ if (isset($_SESSION["ID"])) {
 
 # 若 $_POST["lang"] 存在，則將其值丟入 $lang。
 $lang = "正體中文";
+$btnSearch = "搜尋";
 
 if (isset($_POST["lang"])){
 	$lang = $_POST["lang"]; 
 }
 
-# - 取得使用者相關資料。
-$sql_uid = "select uid, nick, mail, link from account where id = '$ID'";
-$result_uid = mysql_query($sql_uid);
-list($uid, $nick, $mail, $link) = mysql_fetch_row($result_uid);
-
-# Display all record.
-function fnLoad($lang, $sql_record){
-
-	$result_record = mysql_query($sql_record);
+function fnLoad($lang){
 
 	$btnInstall = " 安裝 ";
 	$btnAdd = " 新增 ";
 	$btnDel = " 刪除 ";
 
-	echo "<table class=table_dark>";
+	echo "<form name=search_record method=post action=>";
 
 	switch ($lang) {
 
 	case '正體中文':
+		$btnSearch = "搜尋";
 		$btnInstall = " 安裝 ";
 		$btnAdd = " 新增 ";
 		$btnDel = " 刪除 ";
 
-		echo "<tr><th><input type=checkbox name=chkClick_all id=chkClick_all></th> <th>套件</th> <th>敘述</th> <th>備註</th></tr>";
-
-		# 列出所有套件資訊。
-		while (list($rid, $uid, $pid, $note, $pid2, $pkg, $name, $status ,$info_en, $info_tw) = mysql_fetch_row($result_record)) {
-			echo "<tr><td><input name='chkbox[]' type='checkbox' value=$pkg></td> <td><a href=apt://$pkg>$name</a></td> <td>$info_tw </td><td>$note</td></tr>";
-		}
+		echo "<input type=text name=search_txt id=search_txt>
+			<input type=submit name=btnSearch id=btnSearch value=$btnSearch";
 
 		break;
 
 	case 'English':
+		$btnSearch = " Search ";
 		$btnInstall = " Install ";
 		$btnAdd = " Add ";
 		$btnDel = " Delete ";
 
-		echo "<tr><th><input type=checkbox name=chkClick_all id=chkClick_all></th> <th>Package</th> <th>Info</th> <th>Note</th></tr>";
-
-		# list all package record.
-		while (list($rid, $uid, $pid, $note, $pid2, $pkg, $name, $status ,$info_en, $info_tw) = mysql_fetch_row($result_record)) {
-			echo "<tr><td><input name='chkbox[]' type='checkbox' value=$pkg></td> <td><a href=apt://$pkg>$name</a></td> <td>$info_en </td> <td>$note</td> </tr>";
-		}
+		echo "<input type=text name=search_txt id=search_txt>
+			<input type=submit name=btnSearch id=btnSearch value=$btnSearch";
 
 		break;
 
@@ -71,20 +58,48 @@ function fnLoad($lang, $sql_record){
 	}
 
 	echo "
-		</table>
 		<div>
-		<p>
-		<form name=add_record method=post action=search.php>
-		<input type=submit name=btnAdd id=btnAdd value=$btnAdd>
 		<!--
 		<input type=button name=btnInstall id=btnInstall value=$btnInstall>
 		<input type=button name=btnDel id=btnDel value=$btnDel>
 		-->
 		</form>
-		</p>
 		</div>";
 
+	if (isset($_POST["search_txt"])) {
+		$search_txt = $_POST["search_txt"];
+
+		$sql_search = "select pid, pkg_name, name, info_en, info_tw from ubuntu where pkg_name like '%" . $search_txt . "%' and status = 1";
+		$result_search = mysql_query($sql_search);
+
+		# 列出所有套件資訊。
+		echo "<br>";
+		echo "<form name=add_record method=post action=record_add.php>";
+		echo "<table class=table_dark>";
+		echo "<tr><th></th> <th>套件</th> <th>Info</th> <th>敘述</th> </tr>";
+
+		while (list($pid, $pkg, $name, $info_en, $info_tw) = mysql_fetch_row($result_search)) {
+			echo "<tr>
+				<td><input type=radio name=pid id=pid value=$pid></td>
+				<td><a href=apt://$pkg>$name</a></td>
+				<td>$info_en</td>
+				<td>$info_tw</td>
+				</tr>";
+		}
+
+		echo "</table>";
+
+
+		echo "<br>
+
+			<input type=submit name=btnAdd id=btnAdd value=$btnAdd> <br> <br>
+			<span class=Comment># 備註: </span> <br>
+			<textarea name=note id=note cols=30 rows=2></textarea> 
+		</form>";
+	}
+
 }
+
 
 ?>
 
@@ -117,15 +132,10 @@ function fnLoad($lang, $sql_record){
 <h2><span class="h2">== Admin ==</span></h2>
 
 <?php
-
-fnLoad($lang, "select a.*, b.* from record as a left join ubuntu as b on a.pid = b.pid where uid = $uid");
-
+fnLoad($lang);
 ?>
-<!--
 
-# view, add, del of package list ......
-
--->
+<br><br>
 
 <div>
 	<span class="Comment">&quot; -------------------------------------------------------------- </span><br>
