@@ -4,7 +4,7 @@ session_start();
 
 # - Initialization
 $ID="";
-$pid="";
+$pid="0";	# 若無傳遞 $pid 過來時將會等於 0。
 $note="";
 
 # - 未登入時導回 login.php。
@@ -33,9 +33,24 @@ if (isset($_POST["note"])){
 	//echo $note;
 }
 
-$sql_insert = "INSERT INTO record VALUES (NULL, '$uid', '$pid', '$note')";
-$result_insert = mysql_query($sql_insert, $connection) or die("錯誤訊息: " . mysql_error());
+if ($pid > 0) {
+	# selected package.
+	$rkey = sha1($uid . $pid);		# record password with sha1sum.
 
+	$sql_insert = "INSERT INTO record VALUES (NULL, '$uid', '$pid', '$note', '$rkey')";
+	$result_insert = mysql_query($sql_insert, $connection) or die("錯誤訊息: " . mysql_error());
+
+	//echo "UID = " . $uid . ", PID = " . $pid . ", NOTE = " . $note . "<br>";
+	//echo $tmp . "<br>";
+	//echo $rkey;
+} else {
+	# no select package.
+	//echo "<script> alert('請選擇套件！') </script>";
+}
+
+mysql_close($connection);
+
+# 導回管理頁面。
 header("Location:adm.php");
 
 ?>
