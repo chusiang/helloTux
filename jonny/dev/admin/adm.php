@@ -31,8 +31,11 @@ function fnLoad($lang, $sql_record){
 
 	$btnInstall = " 安裝 ";
 	$btnAdd = " 新增 ";
+	$btnModify = " 修改 ";
 	$btnDel = " 刪除 ";
+	$aryRid = array();
 
+	echo "<form name=del_record method=post action=>";
 	echo "<table class=table_dark>";
 
 	switch ($lang) {
@@ -40,27 +43,55 @@ function fnLoad($lang, $sql_record){
 	case '正體中文':
 		$btnInstall = " 安裝 ";
 		$btnAdd = " 新增 ";
+		$btnModify = " 修改 ";
 		$btnDel = " 刪除 ";
 
 		echo "<tr><th><input type=checkbox name=chkClick_all id=chkClick_all></th> <th>套件</th> <th>敘述</th> <th>備註</th></tr>";
 
+		$i = 0;
+
 		# 列出所有套件資訊。
-		while (list($rid, $uid, $pid, $note, $pid2, $pkg, $name, $status ,$info_en, $info_tw) = mysql_fetch_row($result_record)) {
-			echo "<tr><td><input name='chkbox[]' type='checkbox' value=$pkg></td> <td><a href=apt://$pkg>$name</a></td> <td>$info_tw </td><td>$note</td></tr>";
+		while (list($rid, $uid, $pid, $note, $rkey, $pid2, $pkg, $name, $status ,$info_en, $info_tw) = mysql_fetch_row($result_record)) {
+
+			$aryRid[$i] = $rid;
+
+			echo "<tr>
+				<td><input name='chkbox[]' type='checkbox' value=$rid></td>
+				<td><a href=apt://$pkg>$name</a></td>
+				<td>$info_tw</td>
+				<td>$note</td>
+				</tr>";
+
+			//echo $aryRid[$i];		#debug
+			$i ++;
 		}
 
+		//echo count($aryRid);		#debug
 		break;
 
 	case 'English':
 		$btnInstall = " Install ";
 		$btnAdd = " Add ";
+		$btnModify = " Modify ";
 		$btnDel = " Delete ";
 
 		echo "<tr><th><input type=checkbox name=chkClick_all id=chkClick_all></th> <th>Package</th> <th>Info</th> <th>Note</th></tr>";
 
+		$i = 0;
+
 		# list all package record.
 		while (list($rid, $uid, $pid, $note, $pid2, $pkg, $name, $status ,$info_en, $info_tw) = mysql_fetch_row($result_record)) {
-			echo "<tr><td><input name='chkbox[]' type='checkbox' value=$pkg></td> <td><a href=apt://$pkg>$name</a></td> <td>$info_en </td> <td>$note</td> </tr>";
+
+			$aryRid[$i] = $rid;
+
+			echo "<tr>
+				<td><input name='chkbox[]' type='checkbox' value=$rid></td>
+				<td><a href=apt://$pkg>$name</a></td>
+				<td>$info_en</td>
+				<td>$note</td>
+				</tr>";
+
+			$i ++;
 		}
 
 		break;
@@ -70,21 +101,32 @@ function fnLoad($lang, $sql_record){
 		break;
 	}
 
+
 	echo "
 		</table>
-		<div>
-		<p>
-		<form name=add_record method=post action=search.php>
-		<input type=submit name=btnAdd id=btnAdd value=$btnAdd>
-		<!--
-		<input type=button name=btnInstall id=btnInstall value=$btnInstall>
-		<input type=button name=btnDel id=btnDel value=$btnDel>
-		-->
-		</form>
-		</p>
-		</div>";
+		<br>";
+
+	echo "
+		<input type=submit name=btnDel id=btnDel value=$btnDel>
+		<input type=button name=btnAdd id=btnAdd value=$btnAdd onClick=location.href='search.php'; />
+		<input type=button name=btnModify id=btnModify value=$btnModify onClick=location.href='modify.php'; />
+		</form>";
 
 }
+
+# - 當 chkbox 被選取(checked)，且按下(click) 刪除 按鈕時，會將其 rid 傳入 $value。
+if(isset($_POST['chkbox'])) {
+	foreach($_POST['chkbox'] as $key => $value){
+
+		# 批次刪除
+		if(isset($_POST['btnDel'])) {
+			$sql_del = "DELETE FROM `record` WHERE `rid` = $value";
+			$result_del = mysql_query($sql_del) or die(mysql_error());
+		}
+	}
+}
+
+
 
 ?>
 
@@ -120,12 +162,9 @@ function fnLoad($lang, $sql_record){
 
 fnLoad($lang, "select a.*, b.* from record as a left join ubuntu as b on a.pid = b.pid where uid = $uid");
 
+mysql_close($connection);
+
 ?>
-<!--
-
-# view, add, del of package list ......
-
--->
 
 <div>
 	<span class="Comment">&quot; -------------------------------------------------------------- </span><br>
