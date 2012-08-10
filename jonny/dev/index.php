@@ -3,7 +3,7 @@
 <?php
 
 # Initialization.
-$lang = "";
+$lang = "正體中文";
 
 # 若 $_POST["lang"] 存在，則將其值丟入 $lang。
 if (isset($_POST["lang"])){
@@ -14,7 +14,6 @@ function fnLoad($lang){
 
 	$sql = "select pkg_name, name, info_en, info_tw from ubuntu where status = 1 order by name asc";
 	$result = mysql_query($sql);
-	$chkbox_click_all = " 全選/取消 ";
 	$btnInstall = " 安裝 ";
 
 	echo "<table class=table_dark>";
@@ -22,29 +21,25 @@ function fnLoad($lang){
 	switch ($lang) {
 
 	case '正體中文':
+		$btnInstall = " 安裝 ";
 
-		echo "<tr><th></th> <th>套件</th> <th>敘述</th></tr>";
+		echo "<tr><th><input type=checkbox name=chkClick_all id=chkClick_all></th> <th>套件</th> <th>敘述</th></tr>";
 
 		# 列出所有套件資訊。
 		while (list($pkg, $name, $info_en, $info_tw) = mysql_fetch_row($result)) {
 			echo "<tr><td><input name='chkbox[]' type='checkbox' value=$pkg></td> <td><a href=apt://$pkg>$name</a></td> <td>$info_tw </td></tr>";
 		}
-
-		$chkbox_click_all = " 全選/取消 ";
-		$btnInstall = " 安裝 ";
 		break;
 
 	case 'English':
+		$btnInstall = " Install ";
 
-		echo "<tr><th></th> <th>Package</th> <th>Info</th></tr>";
+		echo "<tr><th><input type=checkbox name=chkClick_all id=chkClick_all></th> <th>Package</th> <th>Info</th></tr>";
 
 		# list all package record.
 		while (list($pkg, $name, $info_en, $info_tw) = mysql_fetch_row($result)) {
 			echo "<tr><td><input name='chkbox[]' type='checkbox' value=$pkg></td> <td><a href=apt://$pkg>$name</a></td> <td>$info_en </td></tr>";
 		}
-
-		$chkbox_click_all = " Select All/Cancel ";
-		$btnInstall = " Install ";
 		break;
 
 	default:
@@ -56,8 +51,6 @@ function fnLoad($lang){
 		</table>
 		<div>
 		<p>
-		<input type=checkbox name=chkClick_all id=chkClick_all> $chkbox_click_all
-		<br>
 		<input type=button name=btnInstall id=btnInstall value=$btnInstall>
 		</p>
 		</div>";
