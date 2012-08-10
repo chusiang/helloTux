@@ -19,8 +19,9 @@ if(isset($_POST["ID"])){
 
 	if($ID !="" && $passwd!="" ){
 		$passwd = substr(md5($passwd),0,32);
-		$SQL = "SELECT id, password, level, nick FROM account WHERE id = '$ID' AND password = '$passwd'";
-		$result = mysql_query($SQL, $connection) or die(mysql_error());
+		$sql_check_account = "SELECT id, password, level, nick FROM account WHERE id = '$ID' AND password = '$passwd'";
+		$result = mysql_query($sql_check_account, $connection) or die(mysql_error());
+		mysql_close($connection);
 
 		if(mysql_num_rows($result) == 1 ) {
 			$row_result = mysql_fetch_array($result);
