@@ -93,8 +93,13 @@ function fnLoad($lang){
 		echo "<br>
 
 			<input type=submit name=btnAdd id=btnAdd value=$btnAdd> <br> <br>
-			<span class=Comment># 備註: </span> <br>
+			<span class=Comment># 備註: </span>
+
+			<input type=text name=note id=note size=40></textarea> 
+
+			<!--
 			<textarea name=note id=note cols=30 rows=2></textarea> 
+			-->
 		</form>";
 	}
 
@@ -132,10 +137,14 @@ function fnLoad($lang){
 <h2><span class="h2">== Admin ==</span></h2>
 
 <?php
+
 fnLoad($lang);
+
+mysql_close($connection);
+
 ?>
 
-<br><br>
+<br>
 
 <div>
 	<span class="Comment">&quot; -------------------------------------------------------------- </span><br>
