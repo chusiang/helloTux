@@ -33,14 +33,14 @@ if(isset($_POST["ID"])){
 			if($temp == '0'){
 				$_SESSION['login_switch']=true;
 				$_SESSION['ID']=$ID;
-				header("Location:adm.php");
+				header("Location:view.php");
 			}
 
 			//  - users
 			if($temp == '1'){ 
 				$_SESSION['login_switch']=true;
 				$_SESSION['ID']=$ID;
-				header("Location:adm.php");
+				header("Location:view.php");
 			}
 		}
 		else{	  	  

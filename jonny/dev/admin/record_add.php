@@ -51,6 +51,6 @@ if ($pid > 0) {
 mysql_close($connection);
 
 # 導回管理頁面。
-header("Location:adm.php");
+header("Location:view.php");
 
 ?>

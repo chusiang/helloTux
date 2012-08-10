@@ -80,7 +80,7 @@ function fnLoad($lang, $sql_record){
 		$i = 0;
 
 		# list all package record.
-		while (list($rid, $uid, $pid, $note, $pid2, $pkg, $name, $status ,$info_en, $info_tw) = mysql_fetch_row($result_record)) {
+		while (list($rid, $uid, $pid, $note, $rkey, $pid2, $pkg, $name, $status ,$info_en, $info_tw) = mysql_fetch_row($result_record)) {
 
 			$aryRid[$i] = $rid;
 
