@@ -46,7 +46,7 @@ function fnLoad($lang, $sql_record){
 		$btnModify = " 修改 ";
 		$btnDel = " 刪除 ";
 
-		echo "<tr><th><input type=checkbox name=chkClick_all id=chkClick_all></th> <th>套件</th> <th>敘述</th> <th>備註</th></tr>";
+		echo "<tr><th><input type=checkbox name=chkClick_all id=chkClick_all></th> <th>套件</th> <th>敘述</th> <th colspan=2>備註</th></tr>";
 
 		$i = 0;
 
@@ -60,6 +60,8 @@ function fnLoad($lang, $sql_record){
 				<td><a href=apt://$pkg>$name</a></td>
 				<td>$info_tw</td>
 				<td>$note</td>
+				<td><input type=button name=btnModify id=btnModify value=$btnModify onClick=location.href='modify.php?rid=$rid&rkey=$rkey'; /></td>
+		
 				</tr>";
 
 			//echo $aryRid[$i];		#debug
@@ -89,6 +91,7 @@ function fnLoad($lang, $sql_record){
 				<td><a href=apt://$pkg>$name</a></td>
 				<td>$info_en</td>
 				<td>$note</td>
+				<td><input type=button name=btnModify id=btnModify value=$btnModify onClick=location.href='modify.php?rid=$rid&rkey=$rkey'; /></td>
 				</tr>";
 
 			$i ++;
@@ -102,14 +105,12 @@ function fnLoad($lang, $sql_record){
 	}
 
 
-	echo "
-		</table>
-		<br>";
+	echo "</table>";
 
-	echo "
-		<input type=submit name=btnDel id=btnDel value=$btnDel>
+	echo "<br>
+		<input type=submit name=btnDel id=btnDel value=$btnDel> <br>
+		<span class=Comment> ---- </span><br>
 		<input type=button name=btnAdd id=btnAdd value=$btnAdd onClick=location.href='search.php'; />
-		<input type=button name=btnModify id=btnModify value=$btnModify onClick=location.href='modify.php'; />
 		</form>";
 
 }
@@ -125,8 +126,6 @@ if(isset($_POST['chkbox'])) {
 		}
 	}
 }
-
-
 
 ?>
 
@@ -166,6 +165,7 @@ mysql_close($connection);
 
 ?>
 
+<br>
 <div>
 	<span class="Comment">&quot; -------------------------------------------------------------- </span><br>
 	<span class="Comment">&quot; Now, you can manage your package list with helloTux, enjoy it. </span><br>
