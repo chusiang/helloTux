@@ -7,19 +7,18 @@ if (isset($_GET["id"])) {
 }
 
 # - 取得使用者相關資料。
-$sql_uid="select uid, nick, mail, link from account where id = '$id'";
+$sql_uid = "select uid, nick, mail, link from account where id = '$id'";
 $result_uid = mysql_query($sql_uid);
 list($uid, $nick, $mail, $link) = mysql_fetch_row($result_uid);
 
-
 function fnLoad_record() {
 	while (list($rid, $uid, $pid, $note, $pid2, $pkg, $name, $info_en, $info_tw) = mysql_fetch_row($result_record)) {
-		echo "<input name='chkbox[]' type='checkbox'' value=$pkg> <a href=apt://$pkg>$name</a> - $info_tw <br>";
+		echo "<input name='chkbox[]' type='checkbox' value=$pkg> <a href=apt://$pkg>$name</a> - $info_tw <br>";
 	}
 }
 
 # Initialization.
-$lang = "";
+$lang = "正體中文";
 
 # 若 $_POST["lang"] 存在，則將其值丟入 $lang。
 if (isset($_POST["lang"])){
@@ -39,29 +38,27 @@ function fnLoad($lang, $sql){
 	switch ($lang) {
 
 	case '正體中文':
+		$btnInstall = " 安裝 ";
 
-		echo "<tr><th></th> <th>套件</th> <th>敘述</th> <th>備註</th></tr>";
+		echo "<tr><th><input type=checkbox name=chkClick_all id=chkClick_all></th> <th>套件</th> <th>敘述</th> <th>備註</th></tr>";
 
 		# 列出所有套件資訊。
 		while (list($rid, $uid, $pid, $note, $pid2, $pkg, $name, $status ,$info_en, $info_tw) = mysql_fetch_row($result_record)) {
 			echo "<tr><td><input name='chkbox[]' type='checkbox' value=$pkg></td> <td><a href=apt://$pkg>$name</a></td> <td>$info_tw </td><td>$note</td></tr>";
 		}
 
-		$chkbox_click_all = " 全選/取消 ";
-		$btnInstall = " 安裝 ";
 		break;
 
 	case 'English':
+		$btnInstall = " Install ";
 
-		echo "<tr><th></th> <th>Package</th> <th>Info</th> <th>Note</th></tr>";
+		echo "<tr><th><input type=checkbox name=chkClick_all id=chkClick_all></th> <th>Package</th> <th>Info</th> <th>Note</th></tr>";
 
 		# list all package record.
 		while (list($rid, $uid, $pid, $note, $pid2, $pkg, $name, $status ,$info_en, $info_tw) = mysql_fetch_row($result_record)) {
 			echo "<tr><td><input name='chkbox[]' type='checkbox' value=$pkg></td> <td><a href=apt://$pkg>$name</a></td> <td>$info_en </td> <td>$note</td> </tr>";
 		}
 
-		$chkbox_click_all = " Select All/Cancel ";
-		$btnInstall = " Install ";
 		break;
 
 	default:
@@ -73,8 +70,6 @@ function fnLoad($lang, $sql){
 		</table>
 		<div>
 		<p>
-		<input type=checkbox name=chkClick_all id=chkClick_all> $chkbox_click_all
-		<br>
 		<input type=button name=btnInstall id=btnInstall value=$btnInstall>
 		</p>
 		</div>";
