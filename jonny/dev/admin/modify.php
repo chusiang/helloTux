@@ -12,9 +12,18 @@ if (isset($_SESSION["ID"])) {
 	$ID=$_SESSION["ID"];
 }
 
+# - 取得 rid 及 rkey，若資料庫無符合的資料將導回 view.php。
 if (isset($_GET["rid"]) && isset($_GET["rkey"])) {
 	$rid = $_GET["rid"];
 	$rkey = $_GET["rkey"];
+
+	$sql_check = "SELECT rid, rkey FROM record WHERE rid = '$rid' AND rkey = '$rkey'";
+	$result_check = mysql_query($sql_check, $connection) or die(mysql_error());
+
+	if (mysql_num_rows($result_check) == 0) {
+		header("Location:view.php");
+	}
+
 }
 
 # 若 $_POST["lang"] 存在，則將其值丟入 $lang。
@@ -44,6 +53,7 @@ if (isset($_POST["btnModify"])){
 
 function fnLoad($lang, $sql_get){
 
+	$result_get = mysql_query($sql_get);
 	$btnModify = " 修改 ";
 
 	echo "<form name=modify_record method=post action=>";
@@ -52,7 +62,6 @@ function fnLoad($lang, $sql_get){
 
 	case '正體中文':
 		$btnModify = " 修改 ";
-		$result_get = mysql_query($sql_get);
 
 		# 列出所有套件資訊。
 		echo "<br>";
@@ -82,7 +91,6 @@ function fnLoad($lang, $sql_get){
 
 	case 'English':
 		$btnModify = " Modify ";
-		$result_get = mysql_query($sql_get);
 
 		# 列出所有套件資訊。
 		echo "<br>";
