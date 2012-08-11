@@ -23,8 +23,9 @@ if (isset($_POST["lang"])){
 function fnLoad($lang){
 
 	$btnInstall = " 安裝 ";
+	$btnSearch = "搜尋";
+	$btnCancel = " 取消 ";
 	$btnAdd = " 新增 ";
-	$btnDel = " 刪除 ";
 
 	echo "<form name=search_record method=post action=>";
 
@@ -32,39 +33,26 @@ function fnLoad($lang){
 
 	case '正體中文':
 		$btnSearch = "搜尋";
+		$btnCancel = " 取消 ";
 		$btnInstall = " 安裝 ";
 		$btnAdd = " 新增 ";
-		$btnDel = " 刪除 ";
-
-		echo "<input type=text name=search_txt id=search_txt>
-			<input type=submit name=btnSearch id=btnSearch value=$btnSearch";
-
 		break;
 
 	case 'English':
 		$btnSearch = " Search ";
+		$btnCancel = " Cancel ";
 		$btnInstall = " Install ";
 		$btnAdd = " Add ";
-		$btnDel = " Delete ";
-
-		echo "<input type=text name=search_txt id=search_txt>
-			<input type=submit name=btnSearch id=btnSearch value=$btnSearch";
-
 		break;
 
 	default:
-
 		break;
 	}
 
-	echo "
-		<div>
-		<!--
-		<input type=button name=btnInstall id=btnInstall value=$btnInstall>
-		<input type=button name=btnDel id=btnDel value=$btnDel>
-		-->
-		</form>
-		</div>";
+	echo "<input type=text name=search_txt id=search_txt>
+		<input type=submit name=btnSearch id=btnSearch value=$btnSearch>
+		<input type=button name=btnCancel id=btnCancel value=$btnCancel onClick=location.href='view.php'; />
+		</form>";
 
 	if (isset($_POST["search_txt"])) {
 		$search_txt = $_POST["search_txt"];
@@ -87,14 +75,9 @@ function fnLoad($lang){
 				</tr>";
 		}
 
-		echo "</table>";
-
-
-		echo "<br>
-
+		echo "</table><br>
 			<input type=submit name=btnAdd id=btnAdd value=$btnAdd> <br> <br>
 			<span class=Comment># 備註: </span>
-
 			<input type=text name=note id=note size=40></textarea> 
 
 			<!--
@@ -102,7 +85,6 @@ function fnLoad($lang){
 			-->
 		</form>";
 	}
-
 }
 
 

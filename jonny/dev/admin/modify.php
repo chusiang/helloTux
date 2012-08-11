@@ -55,6 +55,7 @@ function fnLoad($lang, $sql_get){
 
 	$result_get = mysql_query($sql_get);
 	$btnModify = " 修改 ";
+	$btnCancel = " 取消 ";
 
 	echo "<form name=modify_record method=post action=>";
 
@@ -62,6 +63,7 @@ function fnLoad($lang, $sql_get){
 
 	case '正體中文':
 		$btnModify = " 修改 ";
+		$btnCancel = " 取消 ";
 
 		# 列出所有套件資訊。
 		echo "<br>";
@@ -82,15 +84,11 @@ function fnLoad($lang, $sql_get){
 				</tr>";
 		}
 
-		echo "</table>";
-
-		echo "<br>
-			<input type=submit name=btnModify id=btnModify value=$btnModify> <br> <br>
-		</form>";
 		break;
 
 	case 'English':
 		$btnModify = " Modify ";
+		$btnCancel = " Cancel ";
 
 		# 列出所有套件資訊。
 		echo "<br>";
@@ -111,15 +109,18 @@ function fnLoad($lang, $sql_get){
 				</tr>";
 		}
 
-		echo "</table>";
-		echo "<br>
-			<input type=submit name=btnModify id=btnModify value=$btnModify> <br> <br>
-		</form>";
 		break;
 
 	default:
 		break;
 	}
+
+	echo "</table>";
+	echo "<br>
+		<input type=submit name=btnModify id=btnModify value=$btnModify>
+		<input type=button name=btnCancel id=btnCancel value=$btnCancel onClick=location.href='view.php'; />
+		<br> <br>
+		</form>";
 }
 
 ?>
