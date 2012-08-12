@@ -9,7 +9,7 @@ $note="";
 
 # - 未登入時導回 login.php。
 if($_SESSION["login_switch"] != true) {
-	header("Location:login.php");
+	header("Location:../login.php");
 }
 
 # - 取得使用者 ID。

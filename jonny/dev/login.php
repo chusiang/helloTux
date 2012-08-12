@@ -1,5 +1,5 @@
 <?php
-require_once('../../include/configure.php');
+require_once('../include/configure.php');
 session_start();
 $_SESSION['login_switch']=false;
 $_SESSION['ID']="";
@@ -33,14 +33,14 @@ if(isset($_POST["ID"])){
 			if($temp == '0'){
 				$_SESSION['login_switch']=true;
 				$_SESSION['ID']=$ID;
-				header("Location:view.php");
+				header("Location:admin/view.php");
 			}
 
 			//  - users
 			if($temp == '1'){ 
 				$_SESSION['login_switch']=true;
 				$_SESSION['ID']=$ID;
-				header("Location:view.php");
+				header("Location:admin/view.php");
 			}
 		}
 		else{	  	  
@@ -55,9 +55,11 @@ if(isset($_POST["ID"])){
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link type="text/css" href="../../include/fu.css" rel="stylesheet">
-<script type="text/javascript" src="../../include/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="../../include/select-install.js"></script>
+<link type="text/css" href="../include/fu.css" rel="stylesheet">
+<!--
+<script type="text/javascript" src="../include/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../include/select-install.js"></script>
+-->
 
 <title>helloTux dev</title>
 </head>
