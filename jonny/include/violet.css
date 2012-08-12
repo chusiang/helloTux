@@ -1,0 +1,409 @@
+﻿/*@charset "utf-8";
+
+@import url("reset.css");
+
+/* == Base 基底 == */
+html {
+	overflow-y: scroll;		/*縱向顯示捲軸(滾動條)*/
+}
+
+body { 
+font-family: sans-serif, 微軟正黑體, 文泉驛微米黑, 新細明體;
+color: #d0d0d0;
+background: #000000 url(../images/body_background_dark.png) repeat scroll top left;
+}
+html body .content-outer {
+min-width: 0;
+max-width: 100%;
+width: 100%;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+	margin:0;
+	padding:0;
+}
+
+body, button, input, select, textarea {
+	color: #222;
+	font-family: sans-serif, 微軟正黑體, 文泉驛微米黑, 新細明體;
+}
+
+/* == Links 連結 == */
+
+/* 【標準連結】藍/無底線 */
+
+A:link {
+	color: #9c9ce0;
+	text-decoration: none;					/*刪除標準底線*/;
+	outline: none;				/*去除超連結的虛線外框for Firefox Google Chrome*/;
+	behavior: expression(this.onFocus=this.blur()); /*去除超連結的虛線外框for IE*/
+}
+
+A:visited {
+	color: #cc0000;				/*拜訪過的連結顏色*/
+}
+
+A:hover	{
+	color: #ffdb00;				/*滑鼠移入連結顏色*/
+	text-decoration: underline;				/*滑鼠移入顯示底線*/
+}
+
+A:focus	{
+	outline: thin dotted;
+}
+
+A:active {
+	color: #ff0000;
+}
+
+
+/* == Layout 版面配置 == */
+
+/* 
+《版面黃金分割率原理》
+a:b=(a+b)，a為長邊，b為短邊
+664:332=664+332
+747:249=747+249
+830:166=830+166
+ */
+
+/* 【二欄式】垂直延伸側邊欄 */
+#container {
+	width: 996px;							/*指定容器整體寬度*/
+	margin: auto;							/*指定容器四周的空白尺寸*/
+	background-color: #141414;
+}
+
+#header {
+	width: auto;
+	height: 200px;							/*指定頁首盒子高度*/
+	background-image: url('../images/header-bg.png');/*指定頁首背景圖像*/
+}
+
+#wrapper {
+	background-color:#141414;
+}
+
+#sidebar {
+	width: 302px;							/*指定側邊欄寬度*/
+	float: left;							/*指定側邊欄版面配置:左邊*/
+	margin: 0;								/*指定側邊欄四周的空白尺寸*/
+}
+
+#content {
+	width: 694px;							/*指定內容寬度*/
+	float: right;							/*指定內容版面配置:右邊*/
+	margin: 30px 0;							/*指定內容四周的空白尺寸*/
+	background-color:#141414;
+
+}
+
+#footer {
+	clear: both;							/*解除頁尾的文繞圖配置，解除元素兩邊的浮動*/
+}
+
+/* == Header 頁首 == */
+
+/* 【導覽選單靠標題上對齊】 */
+
+#header_inner {
+	padding: 20px;
+}
+
+#header_title {
+	float: left;
+}
+
+#header h1 {
+	font-size: 2em;
+}
+
+#header p {
+	margin-top: 10px;
+	font-size: 1em;
+}
+
+#header_menu {
+	float: right;
+} 
+
+.navigation_menu {
+	width: auto;
+	border-top: none;
+	border-bottom: none;
+}
+
+.navigation_menu li {
+	list-style-type: none;					/*刪除標準項目符號*/
+	float: left;
+	margin-right: 20px;						/*指定超連結間距*/
+	font-size: 0.9em;
+}
+
+.navigation_menu li a {
+	display: lnline-block;					/*將資料顯示在同一行,並且可設定元素的寬與高*/
+}
+
+/* 【導覽選單靠標題下對齊】 */
+#header_title {
+	float: left;
+}
+
+#header h1 {
+	font-size: 2em;
+}
+
+#header p {
+	margin-top: 10px;
+	font-size: 1em;
+}
+
+#header_menu {
+	float: right;
+} 
+
+.navigation_menu{
+	width: auto;
+	border-top: none;
+	border-bottom: none;
+}
+
+.navigation_menu li{
+	list-style-type: none;					/*刪除標準項目符號*/
+	float: left;
+	margin-right: 20px;						/*指定超連結間距*/
+	font-size: 0.9em;
+}
+
+.navigation_menu li a{
+	display: lnline-block;					/*將資料顯示在同一行,並且可設定元素的寬與高*/
+}
+
+/* == menu 選單 == */
+
+/* 【垂直選單】清單顯示無項目符號*/
+
+.menu_vertical	{
+	width: auto;
+	font-size: 1.2em;
+}
+
+.menu_vertical li {
+	margin-bottom: 10px;					/*指定選單各項目的間距*/
+	line-height: 1.2;						/*指定選單各項目的單行高度*/
+	list-style-type: none;
+}	
+
+.menu_vertical li a {
+	color: #000000;
+	text-decoration: none;					/*刪除顯示超連結時固定出現的標準底線*/
+}
+
+.menu_vertical li a:hover {
+	color: #006600;
+	border-bottom: 2px #006600 dotted;
+}
+
+/* 【垂直選單】圖像顯示項目符號*/
+.menu_vertical	{
+	width: auto;
+	font-size: 1.5em;
+}
+.menu_vertical li {
+	margin-bottom: 10px;					/*指定選單各項目的間距*/
+	line-height: 1.2;						/*指定選單各項目的單行高度*/
+	list-style-type: none;
+	background-image: url('images/icon_01.jpg');
+	background-repeat: no-repeat;
+	padding-left: 20px;
+}	
+.menu_vertical li a {
+	color: #000000;
+	text-decoration: none;					/*刪除顯示超連結時固定出現的標準底線*/
+}
+.menu_vertical li a:hover {
+	color: #006600;
+	border-bottom: 2px #006600 dotted;
+}
+
+
+/* == text 文字 == */
+/* 快捷鍵 */
+
+.accesskey {
+	color: #ffffff;
+}
+
+/* 麵包屑 */
+.breadcrumbs {
+	font-family: 微軟正黑體, "Times New Roman";
+	font-size: 0.9em;
+	color: #888888;
+}
+
+.breadcrumbs a {
+	text-decoration: none;					/*刪除顯示超連結時固定出現的標準底線*/				
+}
+.breadcrumbs a:hover {
+	color: #006600;
+}
+
+/* 段落 */
+.paragraph {
+	padding: 0 30px;
+	line-height: 1.5;
+	color: #d0d0d0;
+}
+.paragraph h1 {
+	margin: 0;
+	font-size: 1.2em;
+	text-align: center;
+	color: #ff0000;
+}
+.paragraph h2 {
+	margin: 0;
+	margin-bottom: 10px;
+	font-size: 1em;
+	text-align: center;
+	color: #ffdb00;
+}
+.paragraph p {
+	margin: 0;
+	margin-bottom: 10px;
+	text-indent: 2em;							/*首行縮排*/
+}
+.paragraph li {
+	list-style-type: none;
+	background-image: url('images/icon_new2.gif');
+	background-repeat: no-repeat;
+	background-position: 0 6px;
+	padding-left: 16px;
+}
+
+
+
+/*重點字*/
+.p-red			{
+	color: #FF0000;
+}
+.p-green		{
+	color: #006600;
+}
+/*圖片水平置中*/
+.img-center	{
+	text-align: center;
+}
+/*文字圖片垂直置中*/
+.img-middle	{
+	vertical-align: middle;
+}
+/* Top按鈕 */
+.top {
+	text-align:right;
+}
+.top a:hover {
+	border: 1px #ffffff solid;
+}
+
+/* == table 表格 == */
+
+/* - 主要為套件列表所使用。*/
+.table_dark	{
+	width: 96%;
+	border: 1px;
+	/*border-collapse: collapse;*/
+	border-style: solid;
+
+}
+.table_dark th {
+	padding: 5px;
+	color: #1c1c1c;
+	background-color: #d0d0d0;
+}
+
+.table_dark td {
+	border-bottom: 1px solid;*/
+	/*border-bottom: 1px dotted;*/
+padding: 5px;
+}
+
+.table1		{
+	width: 800px;
+	border: none;
+}
+.table1 th		{
+	width: 10%;
+	color: #006600;
+}
+
+.table2		{
+	width: 90%;
+	border: 0;
+	border-collapse: collapse;
+}
+.table2 th{
+	padding: 5px;
+	background-color: #FFCC66;
+}
+.table2 td		{
+	border-bottom: 2px #FFCC66 dotted;
+	padding: 5px;
+}
+
+.table3		{
+	width: 80%;
+	border: 1px #006600 solid;
+}
+.table3 td		{
+	padding: 5px;
+}
+
+.table4		{
+	width: 90%;
+	border: 1px #FFCC66 solid;
+}
+.table4 th{
+	padding: 5px;
+	background-color: #FFCC66;
+}
+.table4 td		{
+	border-bottom: 2px #FFCC66 dotted;
+	padding: 5px;
+}
+
+/* == footer 頁尾 == */
+
+#footer	{
+	width: auto;
+	border-top: solid 5px #1c1c1c;
+	padding: 0 10px;
+}
+
+#footer p {
+	font-size: 0.75em;
+	color: #666666;
+	text-align: center;						/*指定文章靠左對齊*/
+}
+
+/* == lang == */
+
+.lang {
+	text-align: right;
+}
+
+/* == fu.vim == */
+
+pre {
+	font-family: sans-serif, 微軟正黑體, 文泉驛微米黑, 新細明體;
+	color: #d0d0d0;
+	background-color: #1c1c1c;
+}
+
+.Comment {
+	color: #808080;
+}
+
+.lnr {
+	color: #a8a8a8; background-color: #080808;
+}
+
