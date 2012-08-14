@@ -17,8 +17,11 @@
 	<div id="header">
 		<div id="header_menu">
 			<ul class="navigation_menu">
-				<li><a href="#" accesskey="U" title="上方功能區塊">:::</a> 回首頁</li>
-				<li>網站導覽</li>
+				<li><a href="#" accesskey="U" title="上方功能區塊">:::</a> </li>
+				<!--
+				<li><a href="index.html">回首頁</a></li>
+				-->
+				<li><a href="#">網站導覽</a></li>
 			</ul>
 		</div>
 	</div>
@@ -29,14 +32,19 @@
 		<div id="menu_main">
 			<div class="menu_level">
 				<ul>
-					<li class="selected"><a href="index.html">About</a></li>
+					<li class="selected">About</li>
 					<li><a href="dev/index.php">Package</a></li>
+					<li><a href="dev/login.php">Login</a></li>
 				</ul>
 			</div>
 		</div>
 
 		<!--側邊欄-->
 		<div id="sidebar">
+<?php
+include 'sidebar.php';
+?>
+<!--
 			<a class="accesskey" href="#" accesskey="R" title="左方相關連結區塊">:::</a><br/>
 			<div class="menu_vertical">
 				<ul>
@@ -48,6 +56,7 @@
 					<li><a href="#">選單連結6</a></li>
 				</ul>
 			</div>
+-->
 		</div>
 
 		<!--內容-->
@@ -80,11 +89,9 @@
 		</div>
 
 		<div id="footer">
-			<p>
-			<span class="Comment">凍仁翔 (Chu-Siang, Lai)</span> / 
-			<span class="Comment"><a href="http://jonny.ubuntu-tw.net" target="_blank">http://jonny.ubuntu-tw.net</a></span><br>
-			<span class="Comment"><a href="https://github.com/chusaing/helloTux" target="_blank">https://github.com/chusaing/helloTux</a></span>
-			</p>
+<?php
+include 'footer.php';
+?>
 		</div>
 	</div>
 </div>
