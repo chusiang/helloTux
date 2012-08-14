@@ -86,7 +86,7 @@ a:b=(a+b)，a為長邊，b為短邊
 }
 
 #menu_main {
-	width:			996px;		/*指定側邊欄寬度*/
+	width:			994px;		/*指定側邊欄寬度*/
 	float:			left;		/*指定內容版面配置:右邊*/
 	margin:			0px -15px 0px 0px;	/*指定側邊欄四周的空白尺寸*/
 	/*padding:		7px 15px 0;*/
@@ -186,6 +186,11 @@ a:b=(a+b)，a為長邊，b為短邊
 
 .navigation_menu li a {
 	display:		lnline-block;	/*將資料顯示在同一行,並且可設定元素的寬與高*/
+	color: #ffffff;
+}
+
+.navigation_menu li a:hover {
+	color: #FFDB00;
 }
 
 /* == menu 選單 == */
@@ -197,30 +202,32 @@ a:b=(a+b)，a為長邊，b為短邊
 
 .menu_level ul {
 	list-style-type:	none;
+	font-weight: bold;
 	margin:			0;	/* 清除項目清單的外間距 */
 	padding:		0;	/* 清除項目清單的內間距 */
+	/*
+	border:			solid 1px #222222;
+	*/
 }
 
 .menu_level li {
 	float:			left;				/*讓條例項目呈現水平排列*/
-	border:			solid 1px #222222;
 	padding-top:	10px;				/*刪除插入於第一個超連結左邊的空白*/
 	padding-bottom:	10px;				/*刪除插入於第一個超連結左邊的空白*/
 }
 
 .menu_level li a {
 	text-decoration:	none;		/*刪除顯示超連結時固定出現的標準底線*/
-　　display: block;　　/*將超連結設定為區塊模式*/
+　　/*display: block;　　/*將超連結設定為區塊模式*/
 	background-color:	#141414;
-	font-weight: bold;
-	padding-top:	10px;				/*刪除插入於第一個超連結左邊的空白*/
-	padding-bottom:	10px;				/*刪除插入於第一個超連結左邊的空白*/
 	padding-left:	20px;				/*刪除插入於第一個超連結左邊的空白*/
 	padding-right:	20px;				/*刪除插入於第一個超連結左邊的空白*/
+	padding-top:	11px;				/*刪除插入於第一個超連結左邊的空白*/
+	padding-bottom:	11px;				/*刪除插入於第一個超連結左邊的空白*/
 	color: #DDDDDD;
 }
-.menu_level li a:hover, li.selected {
-	color:			#FF0000;
+.menu_level li a:hover  {
+	color:			#CC0000;
 	background-color: #262626;
 	/*border-bottom:	2px #cc0000 dotted;*/
 }
@@ -228,6 +235,15 @@ a:b=(a+b)，a為長邊，b為短邊
 	border-left:	none;			/*刪除插入於第一個超連結左邊的邊框*/
 	margin-left:	0;				/*刪除插入於第一個超連結左邊的空白*/
 	/*padding-left:	0;*/				/*刪除插入於第一個超連結左邊的空白*/
+}
+
+.selected {
+	padding-top:	10px;				/*刪除插入於第一個超連結左邊的空白*/
+	padding-bottom:	10px;				/*刪除插入於第一個超連結左邊的空白*/
+	padding-left:	20px;				/*刪除插入於第一個超連結左邊的空白*/
+	padding-right:	20px;				/*刪除插入於第一個超連結左邊的空白*/
+	color:			#CC0000;
+	background-color: #262626;
 }
 
 /* 【垂直選單】圖像顯示項目符號*/
