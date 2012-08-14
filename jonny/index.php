@@ -32,7 +32,7 @@
 		<div id="menu_main">
 			<div class="menu_level">
 				<ul>
-					<li class="selected">About</li>
+					<li class="selected">Home</li>
 					<li><a href="dev/index.php">Package</a></li>
 					<li><a href="dev/login.php">Login</a></li>
 				</ul>
