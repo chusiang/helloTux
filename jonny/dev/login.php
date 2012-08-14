@@ -1,6 +1,7 @@
 <?php
 require_once('../include/configure.php');
 session_start();
+
 $_SESSION['login_switch']=false;
 $_SESSION['ID']="";
 $_SESSION['passwd']="";
@@ -11,6 +12,7 @@ $passwd="";
 if(isset($_POST["ID"])) {
 	$ID =$_POST["ID"];
 }
+
 if(isset($_POST["passwd"])) {
 	$passwd=$_POST["passwd"];
 }
@@ -51,45 +53,93 @@ if(isset($_POST["ID"])){
 
 ?>
 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw">
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link type="text/css" href="../include/fu.css" rel="stylesheet">
-<!--
-<script type="text/javascript" src="../include/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="../include/select-install.js"></script>
--->
-
-<title>helloTux dev</title>
+<meta name="keyword" content="ubuntu, apt, apturl"/>
+<meta name="author" content="凍仁翔 (Chu-Siang, Lai) - jonny (at) drx.tw, CSS: Violet - violet (at) drx.tw"/>
+<title>helloTux</title>
+<link href="../include/violet.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
 
-<h1><span class="h1">= helloTux dev =</span></h1>
+<div id="container">
 
-<h2><span class="h2">== Login ==</span></h2>
+	<!--頁首-->
+	<div id="header">
+		<div id="header_menu">
+			<ul class="navigation_menu">
+				<li><a href="#" accesskey="U" title="上方功能區塊">:::</a> </li>
+				<li><a href="../index.php">回首頁</a></li>
+				<li><a href="#">網站導覽</a></li>
+			</ul>
+		</div>
+	</div>
 
-<form id="form_adm" name="form_adm" method="post" action="login.php">
+	<!--外框架圍繞內容-->
+	<div id="wrapper">
 
-	<table>
-		<tr>
-			<td>帳戶 <input type="text" name="ID" id="ID"></td>
-		</tr>
-		<tr>
-			<td>密碼 <input type="password" name="passwd" id="passwd"></td>
-		</tr>
-		<tr>
-			<td><center><input type="submit" name="btn_login" id="btn_login" value="登 入"></center></td>
-		</tr>
-	</table>
-</form>
+		<div id="menu_main">
+			<div class="menu_level">
+				<ul>
+					<li><a href="../index.php">Home</a></li>
+					<li><a href="dev/index.php">Package</a></li>
+					<li class="selected">Login</li>
+				</ul>
+			</div>
+		</div>
 
-<div>
-	<span class="Comment">&quot; ----------------------------------------------------------- </span><br>
-	<span class="Comment">&quot; Welcome to helloTux, and please enter your ID and password. </span><br>
-	<span class="Comment">&quot; ----------------------------------------------------------- </span><br>
+		<!--側邊欄-->
+		<div id="sidebar">
+<?php
+include '../sidebar.php';
+?>
+		</div>
+
+		<!--內容-->
+		<div id="content">
+			<!--麵包屑-->
+			<div class="breadcrumbs">
+				<a class="accesskey" href="#" accesskey="C" title="中央內容區塊">:::</a> 現在位置：<a href="../index.php">首頁</a> / 登入 <br/><br/>
+			</div>
+			<!--段落-->
+			<div class="paragraph">
+
+				<h1>Login</h1>
+
+				<div style='text-align: center;'>
+					<form id="form_adm" name="form_adm" method="post" action="login.php">
+
+						<table align="center">
+							<tr>
+								<td>帳戶 <input type="text" name="ID" id="ID"></td>
+							</tr>
+							<tr>
+								<td>密碼 <input type="password" name="passwd" id="passwd"></td>
+							</tr>
+							<tr>
+								<td align="center">
+									<input type="submit" name="btn_login" id="btn_login" value="登 入">
+									<input type="reset" name="btn_cancel" id="btn_cancel" value="清 除">
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div id="footer">
+<?php
+include '../footer.php';
+?>
+		</div>
+	</div>
 </div>
 
 </body>
-<html>
+</html>
