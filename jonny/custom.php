@@ -1,5 +1,5 @@
 <?php
-require("../include/configure.php");
+require("include/configure.php");
 
 # - 取得使用者名稱(id)。
 if (isset($_GET["id"])) {
@@ -44,7 +44,7 @@ function fnLoad($lang, $sql){
 
 		# 列出所有套件資訊。
 		while (list($rid, $uid, $pid, $note, $rkey, $pid2, $pkg, $name, $status ,$info_en, $info_tw) = mysql_fetch_row($result_record)) {
-			echo "<tr><td><input name='chkbox[]' type='checkbox' value=$pkg></td> <td><a href=apt://$pkg>$name</a></td> <td>$info_tw </td><td>$note</td></tr>";
+			echo "<tr><td align=center><input name='chkbox[]' type='checkbox' value=$pkg></td> <td><a href=apt://$pkg>$name</a></td> <td>$info_tw </td><td>$note</td></tr>";
 		}
 
 		break;
@@ -56,7 +56,7 @@ function fnLoad($lang, $sql){
 
 		# list all package record.
 		while (list($rid, $uid, $pid, $note, $rkey, $pid2, $pkg, $name, $status ,$info_en, $info_tw) = mysql_fetch_row($result_record)) {
-			echo "<tr><td><input name='chkbox[]' type='checkbox' value=$pkg></td> <td><a href=apt://$pkg>$name</a></td> <td>$info_en </td> <td>$note</td> </tr>";
+			echo "<tr><td align=center><input name='chkbox[]' type='checkbox' value=$pkg></td> <td><a href=apt://$pkg>$name</a></td> <td>$info_en </td> <td>$note</td> </tr>";
 		}
 
 		break;
@@ -80,40 +80,81 @@ function fnLoad($lang, $sql){
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw">
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link type="text/css" href="../include/fu.css" rel="stylesheet">
-<script type="text/javascript" src="../include/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="../include/select-install.js"></script>
-
-<title>helloTux dev</title>
+<meta name="keyword" content="ubuntu, apt, apturl"/>
+<meta name="author" content="凍仁翔 (Chu-Siang, Lai) - jonny (at) drx.tw, CSS: Violet - violet (at) drx.tw"/>
+<title>helloTux</title>
+<link href="include/violet.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="include/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="include/select-install.js"></script>
 </head>
 
 <body>
 
-<div class="lang">
-<form name="lang_switch" method="post" action="custom.php?id=<?php echo $id; ?>">
+<div id="container">
 
-		<select name="lang" size="1">
-			<option>----</option>
-			<option>正體中文</option>
-			<option>English</option>
-		</select>
-		<input type="submit" name="lang_switch" value="切換語系">
-	</form>
-</div>
+	<!--頁首-->
+	<div id="header">
+		<div id="header_menu">
+<?php
+include 'frame_header.php';
+?>
+		</div>
+	</div>
 
-<h1><span class="h1">= helloTux dev =</span></h1>
+	<!--外框架圍繞內容-->
+	<div id="wrapper">
 
-<h2><span class="h2">== <?php echo $id; ?>`s Package List ==</span></h2>
+		<div id="menu_main">
+			<div class="menu_level">
+				<ul>
+					<li><a href="index.php">Home</a></li>
+					<li><a href="pkg.php">Package</a></li>
+					<li class="selected">Custom</li>
+					<li><a href="login.php">Login</a></li>
+				</ul>
+			</div>
+		</div>
 
-<div>
-	<span class="Comment"># 目前只支援有預裝 AptURL 的 Ubuntu。</span> <br>
-<div>
+		<!--側邊欄-->
+		<div id="sidebar">
+<?php
+include 'frame_sidebar.php';
+?>
+		</div>
 
-<form name="form_main" method="post" action="" enctype="text/plain">
+		<!--內容-->
+		<div id="content">
 
-	<div>
+			<!--麵包屑-->
+			<div class="breadcrumbs">
+				<a class="accesskey" href="#" accesskey="C" title="中央內容區塊">:::</a> 現在位置：<a href="index.php">首頁</a> / 個人套件清單 <br/><br/>
+			</div>
+
+			<!--段落-->
+			<div class="paragraph">
+
+				<h1>Custom</h1>
+				<h2><?php echo $id; ?>`s Package List</h2>
+
+				<p>
+				<div class="lang">
+					<form name="lang_switch" method="post" action="custom.php?id=<?php echo $id; ?>">
+
+						<select name="lang" size="1">
+							<option>----</option>
+							<option>正體中文</option>
+							<option>English</option>
+						</select>
+						<input type="submit" name="lang_switch" value="切換語系">
+					</form>
+				</div>
+				</p>
+
+				<p>
+				<form name="form_main" method="post" action="" enctype="text/plain">
 
 <?php
 
@@ -121,23 +162,21 @@ function fnLoad($lang, $sql){
 fnLoad($lang, "select a.*, b.* from record as a left join ubuntu as b on a.pid = b.pid where uid = $uid");
 
 ?>
-	</div>
+				</form>
 
-	<!--
-	<div>
-		<span class="Comment">&quot; ---------------------------------- </span><br>
-		<input name="chkboxClickAll" id="chkboxClickAll" type="checkbox"> 全選/取消 <br><br>
-		<input name="btnInstall" id="btnInstall" type="button" value="&nbsp;安裝&nbsp;">
-	</div>
--->
-</form>
+				<!-- -->
 
-<div>
-	<span class="Comment">&quot; ---------------------------------- </span><br>
-	<span class="Comment">&quot; <?php echo $nick; ?> </span><br>
-	<span class="Comment">&quot; <a href=<?php echo $link; ?> target="_blank"><?php echo $link; ?></a></span><br>
-	<span class="Comment">&quot; ---------------------------------- </span><br>
+				</p>
+			</div>
+		</div>
+
+		<div id="footer">
+<?php
+include 'frame_footer.php';
+?>
+		</div>
+	</div>
 </div>
 
 </body>
-<html>
+</html>
