@@ -2,7 +2,7 @@
 
 if (isset($_POST["custom_id"])) {
 	$custom_id = $_POST["custom_id"];
-	header("Location:custom.php?id=$custom_id");
+	header("Location:http://hellotux.dev.drx.tw/custom.php?id=$custom_id");
 }
 
 echo "
