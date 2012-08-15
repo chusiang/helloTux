@@ -38,12 +38,12 @@ if (isset($_POST["lang"])){
 if (isset($_POST["btnModify"])){
 	$rid = $_POST["rid"];
 	$rkey = $_POST["rkey"];
-	$note_modify = $_POST["note_modify"];
+	$comment_modify = $_POST["comment_modify"];
 
-	$sql_modify = "UPDATE `record` SET `note` = '$note_modify' WHERE `rid` = $rid and rkey = '$rkey'";
+	$sql_modify = "UPDATE `record` SET `comment` = '$comment_modify' WHERE `rid` = $rid and rkey = '$rkey'";
 	$result_modify = mysql_query($sql_modify);
 
-	//echo $note_modify . "<br>" . $sql_modify;
+	//echo $comment_modify . "<br>" . $sql_modify;
 
 	# 導回管理頁面。
 	header("Location:view.php");
@@ -72,13 +72,13 @@ function fnLoad($lang, $sql_get){
 			<th>備註</th>
 			</tr>";
 
-		while (list($rid, $uid, $pid, $note, $rkey, $pid2, $pkg, $name, $status ,$info_en, $info_tw) = mysql_fetch_row($result_get)) {
+		while (list($rid, $uid, $pid, $comment, $rkey, $pid2, $pkg, $name, $status ,$info_en, $info_tw) = mysql_fetch_row($result_get)) {
 			echo "<tr>
 				<input type=hidden name=rid id=rid value=$rid>
 				<input type=hidden name=rkey id=rkey value=$rkey>
 				<td><a href=apt://$pkg>$name</a></td>
 				<td>$info_tw</td>
-				<td><textarea name=note_modify id=note_modify cols=30 rows=3>$note</textarea></td>
+				<td><textarea name=comment_modify id=comment_modify cols=30 rows=3>$comment</textarea></td>
 				</tr>";
 		}
 
@@ -93,16 +93,16 @@ function fnLoad($lang, $sql_get){
 		echo "<tr>
 			<th>Package</th>
 			<th>Info</th>
-			<th>Note</th>
+			<th>Comment</th>
 			</tr>";
 
-		while (list($rid, $uid, $pid, $note, $rkey, $pid2, $pkg, $name, $status ,$info_en, $info_tw) = mysql_fetch_row($result_get)) {
+		while (list($rid, $uid, $pid, $comment, $rkey, $pid2, $pkg, $name, $status ,$info_en, $info_tw) = mysql_fetch_row($result_get)) {
 			echo "<tr>
 				<input type=hidden name=rid id=rid value=$rid>
 				<input type=hidden name=rkey id=rkey value=$rkey>
 				<td><a href=apt://$pkg>$name</a></td>
 				<td>$info_en</td>
-				<td><textarea name=note_modify id=note_modify cols=30 rows=3>$note</textarea></td>
+				<td><textarea name=comment_modify id=comment_modify cols=30 rows=3>$comment</textarea></td>
 				</tr>";
 		}
 

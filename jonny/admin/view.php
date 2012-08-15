@@ -51,7 +51,7 @@ function fnLoad($lang, $sql_record){
 		$i = 0;
 
 		# 列出所有套件資訊。
-		while (list($rid, $uid, $pid, $note, $rkey, $pid2, $pkg, $name, $status ,$info_en, $info_tw) = mysql_fetch_row($result_record)) {
+		while (list($rid, $uid, $pid, $comment, $rkey, $pid2, $pkg, $name, $status ,$info_en, $info_tw) = mysql_fetch_row($result_record)) {
 
 			$aryRid[$i] = $rid;
 
@@ -59,7 +59,7 @@ function fnLoad($lang, $sql_record){
 				<td align=center><input name='chkbox[]' type='checkbox' value=$rid></td>
 				<td><a href=apt://$pkg>$name</a></td>
 				<td>$info_tw</td>
-				<td>$note</td>
+				<td>$comment</td>
 				<td><input type=button name=btnModify id=btnModify value=$btnModify onClick=location.href='modify.php?rid=$rid&rkey=$rkey'; /></td>
 
 				</tr>";
@@ -77,12 +77,12 @@ function fnLoad($lang, $sql_record){
 		$btnModify = " Modify ";
 		$btnDel = " Delete ";
 
-		echo "<tr><th><input type=checkbox name=chkClick_all id=chkClick_all></th> <th>Package</th> <th>Info</th> <th colspan=2>Note</th></tr>";
+		echo "<tr><th><input type=checkbox name=chkClick_all id=chkClick_all></th> <th>Package</th> <th>Info</th> <th colspan=2>comment</th></tr>";
 
 		$i = 0;
 
 		# list all package record.
-		while (list($rid, $uid, $pid, $note, $rkey, $pid2, $pkg, $name, $status ,$info_en, $info_tw) = mysql_fetch_row($result_record)) {
+		while (list($rid, $uid, $pid, $comment, $rkey, $pid2, $pkg, $name, $status ,$info_en, $info_tw) = mysql_fetch_row($result_record)) {
 
 			$aryRid[$i] = $rid;
 
@@ -90,7 +90,7 @@ function fnLoad($lang, $sql_record){
 				<td align=center><input name='chkbox[]' type='checkbox' value=$rid></td>
 				<td><a href=apt://$pkg>$name</a></td>
 				<td>$info_en</td>
-				<td>$note</td>
+				<td>$comment</td>
 				<td><input type=button name=btnModify id=btnModify value=$btnModify onClick=location.href='modify.php?rid=$rid&rkey=$rkey'; /></td>
 				</tr>";
 

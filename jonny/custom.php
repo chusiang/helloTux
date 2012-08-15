@@ -12,7 +12,7 @@ $result_uid = mysql_query($sql_uid);
 list($uid, $nick, $mail, $link) = mysql_fetch_row($result_uid);
 
 function fnLoad_record() {
-	while (list($rid, $uid, $pid, $note, $pid2, $pkg, $name, $info_en, $info_tw) = mysql_fetch_row($result_record)) {
+	while (list($rid, $uid, $pid, $comment, $pid2, $pkg, $name, $info_en, $info_tw) = mysql_fetch_row($result_record)) {
 		echo "<input name='chkbox[]' type='checkbox' value=$pkg> <a href=apt://$pkg>$name</a> - $info_tw <br>";
 	}
 }
@@ -43,8 +43,8 @@ function fnLoad($lang, $sql){
 		echo "<tr><th><input type=checkbox name=chkClick_all id=chkClick_all></th> <th>套件</th> <th>敘述</th> <th>備註</th></tr>";
 
 		# 列出所有套件資訊。
-		while (list($rid, $uid, $pid, $note, $rkey, $pid2, $pkg, $name, $status ,$info_en, $info_tw) = mysql_fetch_row($result_record)) {
-			echo "<tr><td align=center><input name='chkbox[]' type='checkbox' value=$pkg></td> <td><a href=apt://$pkg>$name</a></td> <td>$info_tw </td><td>$note</td></tr>";
+		while (list($rid, $uid, $pid, $comment, $rkey, $pid2, $pkg, $name, $status ,$info_en, $info_tw) = mysql_fetch_row($result_record)) {
+			echo "<tr><td align=center><input name='chkbox[]' type='checkbox' value=$pkg></td> <td><a href=apt://$pkg>$name</a></td> <td>$info_tw </td><td>$comment</td></tr>";
 		}
 
 		break;
@@ -52,11 +52,11 @@ function fnLoad($lang, $sql){
 	case 'English':
 		$btnInstall = " Install ";
 
-		echo "<tr><th><input type=checkbox name=chkClick_all id=chkClick_all></th> <th>Package</th> <th>Info</th> <th>Note</th></tr>";
+		echo "<tr><th><input type=checkbox name=chkClick_all id=chkClick_all></th> <th>Package</th> <th>Info</th> <th>comment</th></tr>";
 
 		# list all package record.
-		while (list($rid, $uid, $pid, $note, $rkey, $pid2, $pkg, $name, $status ,$info_en, $info_tw) = mysql_fetch_row($result_record)) {
-			echo "<tr><td align=center><input name='chkbox[]' type='checkbox' value=$pkg></td> <td><a href=apt://$pkg>$name</a></td> <td>$info_en </td> <td>$note</td> </tr>";
+		while (list($rid, $uid, $pid, $comment, $rkey, $pid2, $pkg, $name, $status ,$info_en, $info_tw) = mysql_fetch_row($result_record)) {
+			echo "<tr><td align=center><input name='chkbox[]' type='checkbox' value=$pkg></td> <td><a href=apt://$pkg>$name</a></td> <td>$info_en </td> <td>$comment</td> </tr>";
 		}
 
 		break;
@@ -68,11 +68,10 @@ function fnLoad($lang, $sql){
 
 	echo "
 		</table>
-		<div>
-		<p>
+		<br>
+		<p align='center'>
 		<input type=button name=btnInstall id=btnInstall value=$btnInstall>
-		</p>
-		</div>";
+		</p>";
 
 }
 
