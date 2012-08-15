@@ -12,7 +12,7 @@ if (isset($_POST["lang"])){
 
 function fnLoad($lang){
 
-	$sql = "select pkg_name, name, info_en, info_tw from ubuntu where status = 1 order by name asc";
+	$sql = "select pkg_name, name, desc_en, desc_tw from ubuntu where status = 1 order by name asc";
 	$result = mysql_query($sql);
 	$btnInstall = " 安裝 ";
 	//$btnReset = " 清除 ";
@@ -30,8 +30,8 @@ function fnLoad($lang){
 		echo "<tr><th><input type=checkbox name=chkClick_all id=chkClick_all></th> <th>套件</th> <th>敘述</th></tr>";
 
 		# 列出所有套件資訊。
-		while (list($pkg, $name, $info_en, $info_tw) = mysql_fetch_row($result)) {
-			echo "<tr><td align=center><input name='chkbox[]' type='checkbox' value=$pkg></td> <td><a href=apt://$pkg>$name</a></td> <td>$info_tw </td></tr>";
+		while (list($pkg, $name, $desc_en, $desc_tw) = mysql_fetch_row($result)) {
+			echo "<tr><td align=center><input name='chkbox[]' type='checkbox' value=$pkg></td> <td><a href=apt://$pkg>$name</a></td> <td>$desc_tw </td></tr>";
 		}
 		break;
 
@@ -41,11 +41,11 @@ function fnLoad($lang){
 
 		echo "<span class=Comment># Now, The site only support Ubuntu with AptURL.</span> <br>";
 		echo "<table class=table_dark>";
-		echo "<tr><th><input type=checkbox name=chkClick_all id=chkClick_all></th> <th>Package</th> <th>Info</th></tr>";
+		echo "<tr><th><input type=checkbox name=chkClick_all id=chkClick_all></th> <th>Package</th> <th>Description</th></tr>";
 
 		# list all package record.
-		while (list($pkg, $name, $info_en, $info_tw) = mysql_fetch_row($result)) {
-			echo "<tr><td align=center><input name='chkbox[]' type='checkbox' value=$pkg></td> <td><a href=apt://$pkg>$name</a></td> <td>$info_en </td></tr>";
+		while (list($pkg, $name, $desc_en, $desc_tw) = mysql_fetch_row($result)) {
+			echo "<tr><td align=center><input name='chkbox[]' type='checkbox' value=$pkg></td> <td><a href=apt://$pkg>$name</a></td> <td>$desc_en </td></tr>";
 		}
 		break;
 

@@ -59,21 +59,21 @@ function fnLoad($lang){
 	if (isset($_POST["search_txt"])) {
 		$search_txt = $_POST["search_txt"];
 
-		$sql_search = "select pid, pkg_name, name, info_en, info_tw from ubuntu where pkg_name like '%" . $search_txt . "%' and status = 1";
+		$sql_search = "select pid, pkg_name, name, desc_en, desc_tw from ubuntu where pkg_name like '%" . $search_txt . "%' and status = 1";
 		$result_search = mysql_query($sql_search);
 
 		# 列出所有套件資訊。
 		echo "<br><hr>";
 		echo "<form name=add_record method=post action=record_add.php>";
 		echo "<table class=table_dark>";
-		echo "<tr><th></th> <th>套件</th> <th>Info</th> <th>敘述</th> </tr>";
+		echo "<tr><th></th> <th>套件</th> <th>Description</th> <th>敘述</th> </tr>";
 
-		while (list($pid, $pkg, $name, $info_en, $info_tw) = mysql_fetch_row($result_search)) {
+		while (list($pid, $pkg, $name, $desc_en, $desc_tw) = mysql_fetch_row($result_search)) {
 			echo "<tr>
 				<td><input type=radio name=pid id=pid value=$pid></td>
 				<td><a href=apt://$pkg>$name</a></td>
-				<td>$info_en</td>
-				<td>$info_tw</td>
+				<td>$desc_en</td>
+				<td>$desc_tw</td>
 				</tr>";
 		}
 

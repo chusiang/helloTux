@@ -72,12 +72,12 @@ function fnLoad($lang, $sql_get){
 			<th>備註</th>
 			</tr>";
 
-		while (list($rid, $uid, $pid, $comment, $rkey, $pid2, $pkg, $name, $status ,$info_en, $info_tw) = mysql_fetch_row($result_get)) {
+		while (list($rid, $uid, $pid, $comment, $rkey, $pid2, $pkg, $name, $status ,$desc_en, $desc_tw) = mysql_fetch_row($result_get)) {
 			echo "<tr>
 				<input type=hidden name=rid id=rid value=$rid>
 				<input type=hidden name=rkey id=rkey value=$rkey>
 				<td><a href=apt://$pkg>$name</a></td>
-				<td>$info_tw</td>
+				<td>$desc_tw</td>
 				<td><textarea name=comment_modify id=comment_modify cols=30 rows=3>$comment</textarea></td>
 				</tr>";
 		}
@@ -92,16 +92,16 @@ function fnLoad($lang, $sql_get){
 		echo "<table class=table_dark>";
 		echo "<tr>
 			<th>Package</th>
-			<th>Info</th>
+			<th>Description</th>
 			<th>Comment</th>
 			</tr>";
 
-		while (list($rid, $uid, $pid, $comment, $rkey, $pid2, $pkg, $name, $status ,$info_en, $info_tw) = mysql_fetch_row($result_get)) {
+		while (list($rid, $uid, $pid, $comment, $rkey, $pid2, $pkg, $name, $status ,$desc_en, $desc_tw) = mysql_fetch_row($result_get)) {
 			echo "<tr>
 				<input type=hidden name=rid id=rid value=$rid>
 				<input type=hidden name=rkey id=rkey value=$rkey>
 				<td><a href=apt://$pkg>$name</a></td>
-				<td>$info_en</td>
+				<td>$desc_en</td>
 				<td><textarea name=comment_modify id=comment_modify cols=30 rows=3>$comment</textarea></td>
 				</tr>";
 		}

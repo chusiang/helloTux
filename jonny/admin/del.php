@@ -30,11 +30,11 @@ function fnLoad($lang, $sql_record){
 	$result_record = mysql_query($sql_record);
 
 	# 列出所有套件資訊。
-	while (list($rid, $uid, $pid, $comment, $rkey, $pid2, $pkg, $name, $status ,$info_en, $info_tw) = mysql_fetch_row($result_record)) {
+	while (list($rid, $uid, $pid, $comment, $rkey, $pid2, $pkg, $name, $status ,$desc_en, $desc_tw) = mysql_fetch_row($result_record)) {
 		echo "<tr>
 			<td><input name='chkbox[]' type='checkbox' value=$rid></td>
 			<td><a href=apt://$pkg>$name</a></td>
-			<td>$info_tw </td>
+			<td>$desc_tw </td>
 			<td>$comment</td>
 			</tr>";
 	}
