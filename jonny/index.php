@@ -18,9 +18,6 @@
 		<div id="header_menu">
 			<ul class="navigation_menu">
 				<li><a href="#" accesskey="U" title="上方功能區塊">:::</a> </li>
-				<!--
-				<li><a href="index.html">回首頁</a></li>
-				-->
 				<li><a href="#">網站導覽</a></li>
 			</ul>
 		</div>
@@ -33,8 +30,8 @@
 			<div class="menu_level">
 				<ul>
 					<li class="selected">Home</li>
-					<li><a href="dev/index.php">Package</a></li>
-					<li><a href="dev/login.php">Login</a></li>
+					<li><a href="pkg.php">Package</a></li>
+					<li><a href="login.php">Login</a></li>
 				</ul>
 			</div>
 		</div>
@@ -42,21 +39,8 @@
 		<!--側邊欄-->
 		<div id="sidebar">
 <?php
-include 'sidebar.php';
+include 'frame_sidebar.php';
 ?>
-<!--
-			<a class="accesskey" href="#" accesskey="R" title="左方相關連結區塊">:::</a><br/>
-			<div class="menu_vertical">
-				<ul>
-					<li><a href="#">選單連結1</a></li>
-					<li><a href="#">選單連結2</a></li>
-					<li><a href="#">選單連結3</a></li>
-					<li><a href="#">選單連結4</a></li>
-					<li><a href="#">選單連結5</a></li>
-					<li><a href="#">選單連結6</a></li>
-				</ul>
-			</div>
--->
 		</div>
 
 		<!--內容-->
@@ -90,7 +74,7 @@ include 'sidebar.php';
 
 		<div id="footer">
 <?php
-include 'footer.php';
+include 'frame_footer.php';
 ?>
 		</div>
 	</div>
