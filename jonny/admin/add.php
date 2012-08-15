@@ -79,13 +79,13 @@ function fnLoad($lang){
 
 		echo "</table><br>
 			<span class=Comment># 備註: </span>
-			<input type=text name=note id=note size=40></textarea> <br><br>
+			<input type=text name=comment id=comment size=40></textarea> <br><br>
 			<center>
 				<input type=submit name=btnAdd id=btnAdd value=$btnAdd>
 				<input type=button name=btnCancel id=btnCancel value=$btnCancel onClick=location.href='view.php'; />
 			</center>
 			<!--
-			<textarea name=note id=note cols=30 rows=2></textarea> 
+			<textarea name=comment id=comment cols=30 rows=2></textarea> 
 			-->
 			</form>";
 	}

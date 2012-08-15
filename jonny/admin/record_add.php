@@ -5,7 +5,7 @@ session_start();
 # - Initialization
 $ID="";
 $pid="0";	# 若無傳遞 $pid 過來時將會等於 0。
-$note="";
+$comment="";
 
 # - 未登入時導回 login.php。
 if($_SESSION["login_switch"] != true) {
@@ -28,19 +28,19 @@ if (isset($_POST["pid"])){
 	//echo $pid . "<br>";
 }
 
-if (isset($_POST["note"])){
-	$note = $_POST["note"]; 
-	//echo $note;
+if (isset($_POST["comment"])){
+	$comment = $_POST["comment"]; 
+	//echo $comment;
 }
 
 if ($pid > 0) {
 	# selected package.
 	$rkey = sha1($uid . $pid);		# record password with sha1sum.
 
-	$sql_insert = "INSERT INTO record VALUES (NULL, '$uid', '$pid', '$note', '$rkey')";
+	$sql_insert = "INSERT INTO record VALUES (NULL, '$uid', '$pid', '$comment', '$rkey')";
 	$result_insert = mysql_query($sql_insert, $connection) or die("錯誤訊息: " . mysql_error());
 
-	//echo "UID = " . $uid . ", PID = " . $pid . ", NOTE = " . $note . "<br>";
+	//echo "UID = " . $uid . ", PID = " . $pid . ", Comment = " . $comment . "<br>";
 	//echo $tmp . "<br>";
 	//echo $rkey;
 } else {
