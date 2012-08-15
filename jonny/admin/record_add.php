@@ -1,5 +1,5 @@
 <?php
-require_once('../../include/configure.php');
+require_once('../include/configure.php');
 session_start();
 
 # - Initialization
