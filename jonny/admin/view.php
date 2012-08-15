@@ -181,7 +181,7 @@ include '../frame_sidebar.php';
 
 			<!--麵包屑-->
 			<div class="breadcrumbs">
-				<a class="accesskey" href="#" accesskey="C" title="中央內容區塊">:::</a> 現在位置：<a href="../index.php">首頁</a> / 管理 / 套件清單 <br/><br/>
+				<a class="accesskey" href="#" accesskey="C" title="中央內容區塊">:::</a> 現在位置：<a href="../index.php">首頁</a> / 套件管理 <br/><br/>
 			</div>
 
 			<!--段落-->
