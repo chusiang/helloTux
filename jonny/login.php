@@ -9,43 +9,42 @@ $_SESSION['passwd']="";
 $ID ="";
 $passwd="";
 
-if(isset($_POST["ID"])) {
+if (isset($_POST["ID"])) {
 	$ID =$_POST["ID"];
 }
 
-if(isset($_POST["passwd"])) {
+if (isset($_POST["passwd"])) {
 	$passwd=$_POST["passwd"];
 }
 
-if(isset($_POST["ID"])){  
+if (isset($_POST["ID"])) {
 
-	if($ID !="" && $passwd!="" ){
+	if ($ID !="" && $passwd!="" ) {
 		$passwd = substr(md5($passwd),0,32);
 		$sql_check_account = "SELECT id, password, level, nick FROM account WHERE id = '$ID' AND password = '$passwd'";
 		$result = mysql_query($sql_check_account, $connection) or die(mysql_error());
 		mysql_close($connection);
 
-		if(mysql_num_rows($result) == 1 ) {
+		if (mysql_num_rows($result) == 1) {
 			$row_result = mysql_fetch_array($result);
 
 			// - Checkout level.
-			$temp=$row_result[2];	
+			$temp=$row_result[2];
 
 			//  - Administrator
-			if($temp == '0'){
-				$_SESSION['login_switch']=true;
-				$_SESSION['ID']=$ID;
+			if ($temp == '0') {
+				$_SESSION['login_switch'] = true;
+				$_SESSION['ID'] = $ID;
 				header("Location:admin/view.php");
 			}
 
 			//  - users
-			if($temp == '1'){ 
-				$_SESSION['login_switch']=true;
-				$_SESSION['ID']=$ID;
+			if ($temp == '1') {
+				$_SESSION['login_switch'] = true;
+				$_SESSION['ID'] = $ID;
 				header("Location:admin/view.php");
 			}
-		}
-		else{	  	  
+		} else {
 			echo "<script> alert('帳號或密碼錯誤') </script>";
 		}
 	}
@@ -128,7 +127,7 @@ include 'frame_sidebar.php';
 						</tr>
 					</table>
 				</form>
-				<p>
+				</p>
 			</div>
 		</div>
 
