@@ -1,5 +1,5 @@
 <?php
-require_once('../../include/configure.php');
+require_once('../include/configure.php');
 session_start();
 
 # - 未登入時導回 login.php。
@@ -47,7 +47,6 @@ if (isset($_POST["btnModify"])){
 
 	# 導回管理頁面。
 	header("Location:view.php");
-
 }
 
 
@@ -66,7 +65,6 @@ function fnLoad($lang, $sql_get){
 		$btnCancel = " 取消 ";
 
 		# 列出所有套件資訊。
-		echo "<br>";
 		echo "<table class=table_dark>";
 		echo "<tr>
 			<th>套件</th>
@@ -91,7 +89,6 @@ function fnLoad($lang, $sql_get){
 		$btnCancel = " Cancel ";
 
 		# 列出所有套件資訊。
-		echo "<br>";
 		echo "<table class=table_dark>";
 		echo "<tr>
 			<th>Package</th>
@@ -125,34 +122,80 @@ function fnLoad($lang, $sql_get){
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link type="text/css" href="../../include/fu.css" rel="stylesheet">
-<script type="text/javascript" src="../../include/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="../../include/select-install.js"></script>
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="keyword" content="ubuntu, apt, apturl"/>
+	<meta name="author" content="凍仁翔 (Chu-Siang, Lai) - jonny (at) drx.tw, CSS: Violet - violet (at) drx.tw"/>
+	<link type="text/css" href="../include/violet.css" rel="stylesheet">
+	<script type="text/javascript" src="../include/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="../include/select-install.js"></script>
+	<title>helloTux</title>
+	</head>
 
-<title>helloTux dev</title>
-</head>
+	<body>
 
-<body>
+	<div id="container">
 
-<div class="lang">
-	<form name="lang_switch" method="post" action="">
-		<select name="lang" size="1">
-			<option>----</option>
-			<option>正體中文</option>
-			<option>English</option>
-		</select>
-		<input type="submit" name="lang_switch" value="切換語系">
-	</form>
-</div>
+		<!--頁首-->
+		<div id="header">
+			<div id="header_menu">
+<?php
+include '../frame_header.php';
+?>
+			</div>
+		</div>
 
-<h1><span class="h1">= helloTux dev =</span></h1>
+		<!--外框架圍繞內容-->
+		<div id="wrapper">
 
-<h2><span class="h2">== Admin ==</span></h2>
+			<div id="menu_main">
+				<div class="menu_level">
+					<ul>
+						<li><a href="../index.php">Home</a></li>
+						<li><a href="../pkg.php">Package</a></li>
+						<li><a href="view.php">View</a></li>
+						<li><a href="add.php">Add</a></li>
+						<li class="selected">Modify</li>
+					</ul>
+				</div>
+			</div>
 
+			<!--側邊欄-->
+			<div id="sidebar">
+<?php
+include '../frame_sidebar.php';
+?>
+			</div>
+
+			<!--內容-->
+			<div id="content">
+
+				<!--麵包屑-->
+				<div class="breadcrumbs">
+					<a class="accesskey" href="#" accesskey="C" title="中央內容區塊">:::</a> 現在位置：<a href="../index.php">首頁</a> / <a href="view.php">套件管理</a> / 修改備註 <br/><br/>
+				</div>
+
+				<!--段落-->
+				<div class="paragraph">
+
+					<h1>Modify of Admin</h1>
+
+					<p>
+					<div class="lang">
+						<form name="lang_switch" method="post" action="">
+							<select name="lang" size="1">
+								<option>----</option>
+								<option>正體中文</option>
+								<option>English</option>
+							</select>
+							<input type="submit" name="lang_switch" value="切換語系">
+						</form>
+					</div>
+					</p>
+
+					<p>
 <?php
 
 fnLoad($lang, "select a.*, b.* from record as a left join ubuntu as b on a.pid = b.pid where rid = $rid and rkey = '$rkey'");
@@ -160,14 +203,17 @@ fnLoad($lang, "select a.*, b.* from record as a left join ubuntu as b on a.pid =
 mysql_close($connection);
 
 ?>
+					</p>
+				</div>
+			</div>
 
-<br>
+			<div id="footer">
+<?php
+include '../frame_footer.php';
+?>
+			</div>
+		</div>
+	</div>
 
-<div>
-	<span class="Comment">&quot; -------------------------------------------------------------- </span><br>
-	<span class="Comment">&quot; Now, you can manage your package list with helloTux, enjoy it. </span><br>
-	<span class="Comment">&quot; -------------------------------------------------------------- </span><br>
-</div>
-
-</body>
-<html>
+	</body>
+	</html>
