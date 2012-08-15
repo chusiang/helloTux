@@ -62,7 +62,7 @@ include 'frame_sidebar.php';
 
 					<li>其中文名稱尚未定案，目前有「企鵝您好」、「塔克斯您好」...</li>
 
-					<li>測試網址為 <a href="/dev/" target="_blank">./dev/</a>，而舊版網址為 <a href="ubuntu-11.10.html" target="_blank">./ubuntu-11.10.html</a>。</li>
+					<li>舊版網址為 <a href="old/ubuntu-11.10.html" target="_blank">old/ubuntu-11.10.html</a>。</li>
 
 					<li>目前使用到的技術有 Linux, Apache, MySQL, PHP, jQuery, CSS。</li>
 				</ul>
