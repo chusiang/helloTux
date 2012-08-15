@@ -1,5 +1,5 @@
 <?php
-require_once('../../include/configure.php');
+require_once('../include/configure.php');
 session_start();
 
 # - 未登入時導回 login.php。
@@ -56,12 +56,12 @@ function fnLoad($lang, $sql_record){
 			$aryRid[$i] = $rid;
 
 			echo "<tr>
-				<td><input name='chkbox[]' type='checkbox' value=$rid></td>
+				<td align=center><input name='chkbox[]' type='checkbox' value=$rid></td>
 				<td><a href=apt://$pkg>$name</a></td>
 				<td>$info_tw</td>
 				<td>$note</td>
 				<td><input type=button name=btnModify id=btnModify value=$btnModify onClick=location.href='modify.php?rid=$rid&rkey=$rkey'; /></td>
-		
+
 				</tr>";
 
 			//echo $aryRid[$i];		#debug
@@ -77,7 +77,7 @@ function fnLoad($lang, $sql_record){
 		$btnModify = " Modify ";
 		$btnDel = " Delete ";
 
-		echo "<tr><th><input type=checkbox name=chkClick_all id=chkClick_all></th> <th>Package</th> <th>Info</th> <th>Note</th></tr>";
+		echo "<tr><th><input type=checkbox name=chkClick_all id=chkClick_all></th> <th>Package</th> <th>Info</th> <th colspan=2>Note</th></tr>";
 
 		$i = 0;
 
@@ -87,7 +87,7 @@ function fnLoad($lang, $sql_record){
 			$aryRid[$i] = $rid;
 
 			echo "<tr>
-				<td><input name='chkbox[]' type='checkbox' value=$rid></td>
+				<td align=center><input name='chkbox[]' type='checkbox' value=$rid></td>
 				<td><a href=apt://$pkg>$name</a></td>
 				<td>$info_en</td>
 				<td>$note</td>
@@ -100,7 +100,6 @@ function fnLoad($lang, $sql_record){
 		break;
 
 	default:
-
 		break;
 	}
 
@@ -108,10 +107,11 @@ function fnLoad($lang, $sql_record){
 	echo "</table>";
 
 	echo "<br>
-		<input type=submit name=btnDel id=btnDel value=$btnDel> <br>
-		<span class=Comment> ---- </span><br>
-		<input type=button name=btnAdd id=btnAdd value=$btnAdd onClick=location.href='search.php'; />
+		<center><input type=submit name=btnDel id=btnDel value=$btnDel></center>
 		</form>";
+
+	//<span class=Comment> ---- </span><br>
+	//<input type=button name=btnAdd id=btnAdd value=$btnAdd onClick=location.href='add.php'; />
 
 }
 
@@ -129,34 +129,80 @@ if(isset($_POST['chkbox'])) {
 
 ?>
 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link type="text/css" href="../../include/fu.css" rel="stylesheet">
-<script type="text/javascript" src="../../include/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="../../include/select-install.js"></script>
-
-<title>helloTux dev</title>
+<meta name="keyword" content="ubuntu, apt, apturl"/>
+<meta name="author" content="凍仁翔 (Chu-Siang, Lai) - jonny (at) drx.tw, CSS: Violet - violet (at) drx.tw"/>
+<link type="text/css" href="../include/violet.css" rel="stylesheet">
+<script type="text/javascript" src="../include/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../include/select-install.js"></script>
+<title>helloTux</title>
 </head>
 
 <body>
 
-<div class="lang">
-	<form name="lang_switch" method="post" action="">
-		<select name="lang" size="1">
-			<option>----</option>
-			<option>正體中文</option>
-			<option>English</option>
-		</select>
-		<input type="submit" name="lang_switch" value="切換語系">
-	</form>
-</div>
+<div id="container">
 
-<h1><span class="h1">= helloTux dev =</span></h1>
+	<!--頁首-->
+	<div id="header">
+		<div id="header_menu">
+<?php
+include '../frame_header.php';
+?>
+		</div>
+	</div>
 
-<h2><span class="h2">== Admin ==</span></h2>
+	<!--外框架圍繞內容-->
+	<div id="wrapper">
 
+		<div id="menu_main">
+			<div class="menu_level">
+				<ul>
+					<li><a href="../index.php">Home</a></li>
+					<li><a href="../pkg.php">Package</a></li>
+					<li class="selected">View</li>
+					<li><a href="add.php">Add</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<!--側邊欄-->
+		<div id="sidebar">
+<?php
+include '../frame_sidebar.php';
+?>
+		</div>
+
+		<!--內容-->
+		<div id="content">
+
+			<!--麵包屑-->
+			<div class="breadcrumbs">
+				<a class="accesskey" href="#" accesskey="C" title="中央內容區塊">:::</a> 現在位置：<a href="../index.php">首頁</a> / 管理 / 套件清單 <br/><br/>
+			</div>
+
+			<!--段落-->
+			<div class="paragraph">
+
+				<h1>View of Admin</h1>
+
+				<p>
+				<div class="lang">
+					<form name="lang_switch" method="post" action="">
+						<select name="lang" size="1">
+							<option>----</option>
+							<option>正體中文</option>
+							<option>English</option>
+						</select>
+						<input type="submit" name="lang_switch" value="切換語系">
+					</form>
+				</div>
+				</p>
+
+				<p>
 <?php
 
 fnLoad($lang, "select a.*, b.* from record as a left join ubuntu as b on a.pid = b.pid where uid = $uid");
@@ -164,13 +210,17 @@ fnLoad($lang, "select a.*, b.* from record as a left join ubuntu as b on a.pid =
 mysql_close($connection);
 
 ?>
+				</p>
+			</div>
+		</div>
 
-<br>
-<div>
-	<span class="Comment">&quot; -------------------------------------------------------------- </span><br>
-	<span class="Comment">&quot; Now, you can manage your package list with helloTux, enjoy it. </span><br>
-	<span class="Comment">&quot; -------------------------------------------------------------- </span><br>
+		<div id="footer">
+<?php
+include '../frame_footer.php';
+?>
+		</div>
+	</div>
 </div>
 
 </body>
-<html>
+</html>
