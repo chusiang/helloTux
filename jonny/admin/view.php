@@ -4,7 +4,7 @@ session_start();
 
 # - 未登入時導回 login.php。
 if($_SESSION["login_switch"] != true) {
-	header("Location:../login.php");
+	header("Location:http://" . $_SERVER['HTTP_HOST'] . "/login.php");
 }
 
 # - 取得使用者 ID。
@@ -135,7 +135,7 @@ if(isset($_POST['chkbox'])) {
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="keyword" content="ubuntu, apt, apturl"/>
-<meta name="author" content="凍仁翔 (Chu-Siang, Lai) - jonny (at) drx.tw, CSS: Violet - violet (at) drx.tw"/>
+<meta name="author" content="Developer: 凍仁翔 - jonny (at) drx.tw; Desgin: Violet - violet (at) drx.tw"/>
 <link type="text/css" href="../include/violet.css" rel="stylesheet">
 <script type="text/javascript" src="../include/jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="../include/select-install.js"></script>

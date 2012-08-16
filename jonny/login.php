@@ -53,7 +53,7 @@ if ( isset($_POST["ID"]) && isset($_POST["passwd"]) ) {
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="keyword" content="ubuntu, apt, apturl"/>
-<meta name="author" content="凍仁翔 (Chu-Siang, Lai) - jonny (at) drx.tw, CSS: Violet - violet (at) drx.tw"/>
+<meta name="author" content="Developer: 凍仁翔 - jonny (at) drx.tw; Desgin: Violet - violet (at) drx.tw"/>
 <title>helloTux</title>
 <link href="include/violet.css" type="text/css" rel="stylesheet">
 <script type="text/javascript" src="include/md5.js"></script>

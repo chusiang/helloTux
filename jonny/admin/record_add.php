@@ -9,7 +9,7 @@ $comment="";
 
 # - 未登入時導回 login.php。
 if($_SESSION["login_switch"] != true) {
-	header("Location:../login.php");
+	header("Location:http://" . $_SERVER['HTTP_HOST'] . "/login.php");
 }
 
 # - 取得使用者 ID。
@@ -51,6 +51,6 @@ if ($pid > 0) {
 mysql_close($connection);
 
 # 導回管理頁面。
-header("Location:view.php");
+header("Location:http://" . $_SERVER['HTTP_HOST'] . "/admin/view.php");
 
 ?>

@@ -4,7 +4,7 @@ session_start();
 
 # - 未登入時導回 login.php。
 if($_SESSION["login_switch"] != true) {
-	header("Location:../login.php");
+	header("Location:http://" . $_SERVER['HTTP_HOST'] . "/login.php");
 }
 
 # - 取得使用者 ID。
@@ -21,7 +21,7 @@ if (isset($_GET["rid"]) && isset($_GET["rkey"])) {
 	$result_check = mysql_query($sql_check, $connection) or die(mysql_error());
 
 	if (mysql_num_rows($result_check) == 0) {
-		header("Location:view.php");
+		header("Location:http://" . $_SERVER['HTTP_HOST'] . "/admin/view.php");
 	}
 
 }
@@ -46,7 +46,7 @@ if (isset($_POST["btnModify"])){
 	//echo $comment_modify . "<br>" . $sql_modify;
 
 	# 導回管理頁面。
-	header("Location:view.php");
+	header("Location:http://" . $_SERVER['HTTP_HOST'] . "/admin/view.php");
 }
 
 
@@ -122,19 +122,19 @@ function fnLoad($lang, $sql_get){
 
 ?>
 
-	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-	<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw">
-	<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta name="keyword" content="ubuntu, apt, apturl"/>
-	<meta name="author" content="凍仁翔 (Chu-Siang, Lai) - jonny (at) drx.tw, CSS: Violet - violet (at) drx.tw"/>
-	<link type="text/css" href="../include/violet.css" rel="stylesheet">
-	<script type="text/javascript" src="../include/jquery-1.7.1.min.js"></script>
-	<script type="text/javascript" src="../include/select-install.js"></script>
-	<title>helloTux</title>
-	</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="keyword" content="ubuntu, apt, apturl"/>
+<meta name="author" content="Developer: 凍仁翔 - jonny (at) drx.tw; Desgin: Violet - violet (at) drx.tw"/>
+<link type="text/css" href="../include/violet.css" rel="stylesheet">
+<script type="text/javascript" src="../include/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../include/select-install.js"></script>
+<title>helloTux</title>
+</head>
 
-	<body>
+<body>
 
 	<div id="container">
 
@@ -215,5 +215,5 @@ include '../frame_footer.php';
 		</div>
 	</div>
 
-	</body>
-	</html>
+</body>
+</html>
