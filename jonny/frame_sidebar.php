@@ -22,7 +22,6 @@ echo "
 ";
 
 /*
- *<a href='http://whos.amung.us/show/um9r1aql'><img alt="Online counter" border="0" height="15" src="http://whos.amung.us/swidget/um9r1aql.gif" title="¿?¿?¿?¿?" width="80" /></a>
 
 	<ul>
 		<li><a href='#'>選單連結1</a></li>
