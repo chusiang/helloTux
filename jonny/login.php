@@ -91,8 +91,8 @@ include 'frame_header.php';
 		<div id="menu_main">
 			<div class="menu_level">
 				<ul>
-					<li><a href="index.php">Home</a></li>
-					<li><a href="pkg.php">Package</a></li>
+					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>Home</a>"; ?></li>
+					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/pkg.php>Package</a>"; ?></li>
 					<li class="selected">Login</li>
 				</ul>
 			</div>

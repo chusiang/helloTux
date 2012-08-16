@@ -23,7 +23,6 @@ if (isset($_GET["rid"]) && isset($_GET["rkey"])) {
 	if (mysql_num_rows($result_check) == 0) {
 		header("Location:http://" . $_SERVER['HTTP_HOST'] . "/admin/view.php");
 	}
-
 }
 
 # 若 $_POST["lang"] 存在，則將其值丟入 $lang。
@@ -122,19 +121,19 @@ function fnLoad($lang, $sql_get){
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="keyword" content="ubuntu, apt, apturl"/>
-<meta name="author" content="Developer: 凍仁翔 - jonny (at) drx.tw; Desgin: Violet - violet (at) drx.tw"/>
-<link type="text/css" href="../include/violet.css" rel="stylesheet">
-<script type="text/javascript" src="../include/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="../include/select-install.js"></script>
-<title>helloTux</title>
-</head>
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="keyword" content="ubuntu, apt, apturl"/>
+	<meta name="author" content="Developer: 凍仁翔 - jonny (at) drx.tw; Desgin: Violet - violet (at) drx.tw"/>
+	<link type="text/css" href="../include/violet.css" rel="stylesheet">
+	<script type="text/javascript" src="../include/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="../include/select-install.js"></script>
+	<title>helloTux</title>
+	</head>
 
-<body>
+	<body>
 
 	<div id="container">
 
@@ -153,10 +152,10 @@ include '../frame_header.php';
 			<div id="menu_main">
 				<div class="menu_level">
 					<ul>
-						<li><a href="../index.php">Home</a></li>
-						<li><a href="../pkg.php">Package</a></li>
-						<li><a href="view.php">View</a></li>
-						<li><a href="add.php">Add</a></li>
+						<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>Home</a>"; ?></li>
+						<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/pkg.php>Package</a>"; ?></li>
+						<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/admin/view.php>View</a>"; ?></li>
+						<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/admin/add.php>Add</a>"; ?></li>
 						<li class="selected">Modify</li>
 					</ul>
 				</div>

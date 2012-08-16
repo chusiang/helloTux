@@ -30,7 +30,7 @@
 			<div class="menu_level">
 				<ul>
 					<li class="selected">Home</li>
-					<li><a href="pkg.php">Package</a></li>
+					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/pkg.php>Package</a>"; ?></li>
 					<li><?php echo "<a href=https://" . $_SERVER['HTTP_HOST'] . "/login.php>Login</a>"; ?></li>
 				</ul>
 			</div>

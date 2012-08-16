@@ -53,7 +53,7 @@ function fnLoad($lang){
 		<input type=text name=search_txt id=search_txt>
 		<input type=submit name=btnSearch id=btnSearch value=$btnSearch>
 		<input type=button name=btnCancel id=btnCancel value=$btnCancel onClick=location.href='view.php'; />
-</center>
+		</center>
 		</form>";
 
 	if (isset($_POST["search_txt"])) {
@@ -81,8 +81,8 @@ function fnLoad($lang){
 			<span class=Comment># 備註: </span>
 			<input type=text name=comment id=comment size=40></textarea> <br><br>
 			<center>
-				<input type=submit name=btnAdd id=btnAdd value=$btnAdd>
-				<input type=button name=btnCancel id=btnCancel value=$btnCancel onClick=location.href='view.php'; />
+			<input type=submit name=btnAdd id=btnAdd value=$btnAdd>
+			<input type=button name=btnCancel id=btnCancel value=$btnCancel onClick=location.href='view.php'; />
 			</center>
 			<!--
 			<textarea name=comment id=comment cols=30 rows=2></textarea> 
@@ -111,66 +111,50 @@ function fnLoad($lang){
 
 <div id="container">
 
-<!--頁首-->
-<div id="header">
-	<div id="header_menu">
-<?php
-include '../frame_header.php';
-?>
-	</div>
-</div>
-
-<!--外框架圍繞內容-->
-<div id="wrapper">
-
-	<div id="menu_main">
-		<div class="menu_level">
-			<ul>
-				<li><a href="../index.php">Home</a></li>
-				<li><a href="../pkg.php">Package</a></li>
-				<li><a href="view.php">View</a></li>
-				<li class="selected">Add</li>
-			</ul>
+	<!--頁首-->
+	<div id="header">
+		<div id="header_menu">
+	<?php
+	include '../frame_header.php';
+	?>
 		</div>
 	</div>
 
-	<!--側邊欄-->
-	<div id="sidebar">
+	<!--外框架圍繞內容-->
+	<div id="wrapper">
+
+		<div id="menu_main">
+			<div class="menu_level">
+				<ul>
+					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>Home</a>"; ?></li>
+					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/pkg.php>Package</a>"; ?></li>
+					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/admin/view.php>View</a>"; ?></li>
+					<li class="selected">Add</li>
+				</ul>
+			</div>
+		</div>
+
+		<!--側邊欄-->
+		<div id="sidebar">
 <?php
 include '../frame_sidebar.php';
 ?>
-	</div>
-
-	<!--內容-->
-	<div id="content">
-
-		<!--麵包屑-->
-		<div class="breadcrumbs">
-			<a class="accesskey" href="#" accesskey="C" title="中央內容區塊">:::</a> 現在位置：<a href="../index.php">首頁</a> / <a href="view.php">套件管理</a> / 新增套件 <br/><br/>
 		</div>
 
-		<!--段落-->
-		<div class="paragraph">
+		<!--內容-->
+		<div id="content">
 
-			<h1>Add of Admin</h1>
-
-			<!--
-			<p>
-			<div class="lang">
-				<form name="lang_switch" method="post" action="">
-					<select name="lang" size="1">
-						<option>----</option>
-						<option>正體中文</option>
-						<option>English</option>
-					</select>
-					<input type="submit" name="lang_switch" value="切換語系">
-				</form>
+			<!--麵包屑-->
+			<div class="breadcrumbs">
+				<a class="accesskey" href="#" accesskey="C" title="中央內容區塊">:::</a> 現在位置：<a href="../index.php">首頁</a> / <a href="view.php">套件管理</a> / 新增套件 <br/><br/>
 			</div>
-			</p>
-			-->
 
-			<p>
+			<!--段落-->
+			<div class="paragraph">
 
+				<h1>Add of Admin</h1>
+
+				<p>
 <?php
 
 fnLoad($lang);
@@ -178,17 +162,17 @@ fnLoad($lang);
 mysql_close($connection);
 
 ?>
-			</p>
+				</p>
 
+			</div>
 		</div>
-	</div>
 
-	<div id="footer">
+		<div id="footer">
 <?php
 include '../frame_footer.php';
 ?>
+		</div>
 	</div>
-</div>
 </div>
 
 </body>

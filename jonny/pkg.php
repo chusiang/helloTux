@@ -97,7 +97,7 @@ include 'frame_header.php';
 		<div id="menu_main">
 			<div class="menu_level">
 				<ul>
-					<li><a href="index.php">Home</a></li>
+					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>Home</a>"; ?></li>
 					<li class="selected">Package</li>
 					<li><?php echo "<a href=https://" . $_SERVER['HTTP_HOST'] . "/login.php>Login</a>"; ?></li>
 				</ul>
