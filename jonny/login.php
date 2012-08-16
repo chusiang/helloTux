@@ -61,6 +61,20 @@ if (isset($_POST["ID"])) {
 <meta name="author" content="凍仁翔 (Chu-Siang, Lai) - jonny (at) drx.tw, CSS: Violet - violet (at) drx.tw"/>
 <title>helloTux</title>
 <link href="include/violet.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="include/md5.js"></script>
+<!--
+<script type="text/javascript">
+function md5() {
+	var hash = calcMD5(document.getElementById("pwd").value);
+	alert(hash);
+}
+
+function sumbit() {
+	var hash = calcMD5(document.getElementById("pwd").value);
+	alert(hash);
+}
+</script>
+-->
 </head>
 
 <body>
@@ -121,12 +135,19 @@ include 'frame_sidebar.php';
 						</tr>
 						<tr>
 							<td align="center">
+								<!--
+								<input type="text" name="passwd" id="passwd" value="">
+								<input type="submit" name="btn_login" id="btn_login" value="登 入" onCliek="md5()">
+								-->
 								<input type="submit" name="btn_login" id="btn_login" value="登 入">
 								<input type="reset" name="btn_cancel" id="btn_cancel" value="清 除">
 							</td>
 						</tr>
 					</table>
 				</form>
+
+
+
 				</p>
 			</div>
 		</div>
