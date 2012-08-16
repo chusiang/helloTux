@@ -15,11 +15,15 @@ echo "
 		<input type=submit name=btnCustom id=btnCustom value=GO>
 	</form>
 
+	 <a href='http://whos.amung.us/show/um9r1aql'><img src='http://whos.amung.us/swidget/um9r1aql.gif' alt='Online counter' title='線上人數' border='0' width='80' height='15' /></a>
+
 </div>
 
 ";
 
 /*
+ *<a href='http://whos.amung.us/show/um9r1aql'><img alt="Online counter" border="0" height="15" src="http://whos.amung.us/swidget/um9r1aql.gif" title="¿?¿?¿?¿?" width="80" /></a>
+
 	<ul>
 		<li><a href='#'>選單連結1</a></li>
 		<li><a href='#'>選單連結2</a></li>
