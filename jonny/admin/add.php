@@ -146,7 +146,7 @@ include '../frame_sidebar.php';
 
 			<!--麵包屑-->
 			<div class="breadcrumbs">
-				<a class="accesskey" href="#" accesskey="C" title="中央內容區塊">:::</a> 現在位置：<a href="../index.php">首頁</a> / <a href="view.php">套件管理</a> / 新增套件 <br/><br/>
+				<a class="accesskey" href="#" accesskey="C" title="中央內容區塊">:::</a> 現在位置：<?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>首頁</a>"; ?> / <?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/admin/view.php>套件管理</a>"; ?> / 新增套件 <br/><br/>
 			</div>
 
 			<!--段落-->
