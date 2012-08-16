@@ -30,14 +30,14 @@ if ( isset($_POST["ID"]) && isset($_POST["passwd"]) ) {
 			if ($temp == '0') {
 				$_SESSION['login_switch'] = true;
 				$_SESSION['ID'] = $ID;
-				header("Location:admin/view.php");
+				header("Location:http://" . $_SERVER['HTTP_HOST'] . "/admin/view.php");
 			}
 
 			//  - users
 			if ($temp == '1') {
 				$_SESSION['login_switch'] = true;
 				$_SESSION['ID'] = $ID;
-				header("Location:admin/view.php");
+				header("Location:http://" . $_SERVER['HTTP_HOST'] . "/admin/view.php");
 			}
 		} else {
 			echo "<script> alert('帳號或密碼錯誤') </script>";
