@@ -9,15 +9,10 @@ $_SESSION['passwd']="";
 $ID ="";
 $passwd="";
 
-if (isset($_POST["ID"])) {
+if ( isset($_POST["ID"]) && isset($_POST["passwd"]) ) {
+
 	$ID =$_POST["ID"];
-}
-
-if (isset($_POST["passwd"])) {
 	$passwd=$_POST["passwd"];
-}
-
-if (isset($_POST["ID"])) {
 
 	if ($ID !="" && $passwd!="" ) {
 		$passwd = substr(md5($passwd),0,32);
