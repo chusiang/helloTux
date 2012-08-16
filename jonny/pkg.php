@@ -99,7 +99,7 @@ include 'frame_header.php';
 				<ul>
 					<li><a href="index.php">Home</a></li>
 					<li class="selected">Package</li>
-					<li><a href="login.php">Login</a></li>
+					<li><?php echo "<a href=https://" . $_SERVER['HTTP_HOST'] . "/login.php>Login</a>"; ?></li>
 				</ul>
 			</div>
 		</div>

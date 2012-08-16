@@ -9,7 +9,7 @@ $comment="";
 
 # - 未登入時導回 login.php。
 if($_SESSION["login_switch"] != true) {
-	header("Location:http://" . $_SERVER['HTTP_HOST'] . "/login.php");
+	header("Location:https://" . $_SERVER['HTTP_HOST'] . "/login.php");
 }
 
 # - 取得使用者 ID。

@@ -112,7 +112,7 @@ include 'frame_header.php';
 					<li><a href="index.php">Home</a></li>
 					<li><a href="pkg.php">Package</a></li>
 					<li class="selected">Custom</li>
-					<li><a href="login.php">Login</a></li>
+					<li><?php echo "<a href=https://" . $_SERVER['HTTP_HOST'] . "/login.php>Login</a>"; ?></li>
 				</ul>
 			</div>
 		</div>
