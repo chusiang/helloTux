@@ -47,8 +47,6 @@ if ( isset($_POST["ID"]) && isset($_POST["passwd"]) ) {
 			}
 		} else {
 			echo "<script> alert('帳號或密碼錯誤') </script>";
-	echo $_POST['passwd'];
-
 		}
 	}
 }
