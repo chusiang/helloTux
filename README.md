@@ -10,7 +10,7 @@
 
 * 舊版網址為 [old/ubuntu-11.10.html](http://hellotux.dev.drx.tw/old/ubuntu-11.10.html)。
 
-* 目前使用到的技術有 Linux, Apache, MySQL, PHP, jQuery, CSS。
+* 目前使用到的技術有 Linux, Apache, Nginx, MySQL, PHP, jQuery, CSS。
 
  [註1] 我們改變世界了！ Hello **World** →  Hello **Tux**。
 
