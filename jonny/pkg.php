@@ -13,7 +13,7 @@ if (isset($_POST["lang"])){
 function fnLoad($lang){
 
 	$sql = "select pkg_name, name, desc_en, desc_tw from ubuntu where status = 1 order by name asc";
-	$result = mysql_query($sql);
+	$result = mysql_query($sql) or die(mysql_error());
 	$btnInstall = " 安裝 ";
 	//$btnReset = " 清除 ";
 

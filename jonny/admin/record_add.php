@@ -18,8 +18,14 @@ if (isset($_SESSION["ID"])) {
 }
 
 # - 取得使用者相關資料。
-$sql_uid = "select uid from account where id = '$ID'";
-$result_uid = mysql_query($sql_uid);
+
+#  - drop SQL Injection Attack.
+$sql_uid = sprintf("select uid from account where id = '%s'",
+            mysql_real_escape_string($ID));
+
+//$sql_uid = "select uid from account where id = '$ID'";
+
+$result_uid = mysql_query($sql_uid) or die(mysql_error());
 list($uid) = mysql_fetch_row($result_uid);
 //echo $uid . "<br>";
 

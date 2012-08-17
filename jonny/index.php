@@ -64,7 +64,7 @@ include 'frame_sidebar.php';
 
 					<li>舊版網址為 <a href="old/ubuntu-11.10.html" target="_blank">old/ubuntu-11.10.html</a>。</li>
 
-					<li>目前使用到的技術有 Linux, Apache, MySQL, PHP, jQuery, CSS。</li>
+					<li>目前使用到的技術有 Linux, Apache, Nginx, MySQL, PHP, jQuery, CSS。</li>
 				</ul>
 
 				<span class="Comment">[註1] 我們改變世界了！ Hello World → Hello Tux。</span>

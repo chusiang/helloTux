@@ -7,7 +7,12 @@ if (isset($_GET["id"])) {
 }
 
 # - 取得使用者相關資料。
-$sql_uid = "select uid, nick, mail, link from account where id = '$id'";
+#  - drop SQL Injection Attack.
+$sql_uid = sprintf("select uid, nick, mail, link from account where id = '%s'",
+            mysql_real_escape_string($id));
+
+//$sql_uid = "select uid, nick, mail, link from account where id = '$id'";
+
 $result_uid = mysql_query($sql_uid);
 list($uid, $nick, $mail, $link) = mysql_fetch_row($result_uid);
 
@@ -28,7 +33,7 @@ if (isset($_POST["lang"])){
 function fnLoad($lang, $sql){
 
 	$sql_record = $sql;
-	$result_record = mysql_query($sql_record);
+	$result_record = mysql_query($sql_record) or die(mysql_error());
 
 	$chkbox_click_all = " 全選/取消 ";
 	$btnInstall = " 安裝 ";
@@ -158,7 +163,14 @@ include 'frame_sidebar.php';
 <?php
 
 # - 合併 record 及 ubuntu 兩表格。
-fnLoad($lang, "select a.*, b.* from record as a left join ubuntu as b on a.pid = b.pid where uid = $uid");
+
+#  - drop SQL Injection Attack.
+$sql_join = sprintf("select a.*, b.* from record as a left join ubuntu as b on a.pid = b.pid where uid = '%s'",
+            mysql_real_escape_string($uid));
+
+fnLoad($lang, $sql_join);
+
+//fnLoad($lang, "select a.*, b.* from record as a left join ubuntu as b on a.pid = b.pid where uid = $uid");
 
 ?>
 				</form>

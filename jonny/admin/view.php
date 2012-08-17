@@ -20,14 +20,20 @@ if (isset($_POST["lang"])){
 }
 
 # - 取得使用者相關資料。
-$sql_uid = "select uid, nick, mail, link from account where id = '$ID'";
-$result_uid = mysql_query($sql_uid);
+
+# - drop SQL Injection Attack.
+$sql_uid = sprintf("select uid, nick, mail, link from account where id = '%s'",
+            mysql_real_escape_string($ID));
+
+//$sql_uid = "select uid, nick, mail, link from account where id = '$ID'";
+
+$result_uid = mysql_query($sql_uid) or die(mysql_error());
 list($uid, $nick, $mail, $link) = mysql_fetch_row($result_uid);
 
 # Display all record.
 function fnLoad($lang, $sql_record){
 
-	$result_record = mysql_query($sql_record);
+	$result_record = mysql_query($sql_record) or die(mysql_error());
 
 	$btnInstall = " 安裝 ";
 	$btnAdd = " 新增 ";
@@ -121,7 +127,11 @@ if(isset($_POST['chkbox'])) {
 
 		# 批次刪除
 		if(isset($_POST['btnDel'])) {
-			$sql_del = "DELETE FROM `record` WHERE `rid` = $value";
+
+			$sql_del = sprintf("DELETE FROM `record` WHERE `rid` = '%s'",
+				mysql_real_escape_string($value));
+
+			//$sql_del = "DELETE FROM `record` WHERE `rid` = $value";
 			$result_del = mysql_query($sql_del) or die(mysql_error());
 		}
 	}
@@ -205,7 +215,13 @@ include '../frame_sidebar.php';
 				<p>
 <?php
 
-fnLoad($lang, "select a.*, b.* from record as a left join ubuntu as b on a.pid = b.pid where uid = $uid");
+# - drop SQL Injection Attack.
+$sql_join = sprintf("select a.*, b.* from record as a left join ubuntu as b on a.pid = b.pid where uid = '%s'",
+            mysql_real_escape_string($uid));
+
+fnLoad($lang, $sql_join);
+
+//fnLoad($lang, "select a.*, b.* from record as a left join ubuntu as b on a.pid = b.pid where uid = $uid");
 
 mysql_close($connection);
 

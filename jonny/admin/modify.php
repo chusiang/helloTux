@@ -17,7 +17,12 @@ if (isset($_GET["rid"]) && isset($_GET["rkey"])) {
 	$rid = $_GET["rid"];
 	$rkey = $_GET["rkey"];
 
-	$sql_check = "SELECT rid, rkey FROM record WHERE rid = '$rid' AND rkey = '$rkey'";
+	# - drop SQL Injection Attack.
+	$sql_check = sprintf("SELECT rid, rkey FROM record WHERE rid = '%s' AND rkey = '%s'",
+            mysql_real_escape_string($rid),
+            mysql_real_escape_string($rkey));
+
+	//$sql_check = "SELECT rid, rkey FROM record WHERE rid = '$rid' AND rkey = '$rkey'";
 	$result_check = mysql_query($sql_check, $connection) or die(mysql_error());
 
 	if (mysql_num_rows($result_check) == 0) {
@@ -51,7 +56,7 @@ if (isset($_POST["btnModify"])){
 
 function fnLoad($lang, $sql_get){
 
-	$result_get = mysql_query($sql_get);
+	$result_get = mysql_query($sql_get) or die(mysql_error());
 	$btnModify = " 修改 ";
 	$btnCancel = " 取消 ";
 
@@ -121,19 +126,19 @@ function fnLoad($lang, $sql_get){
 
 ?>
 
-	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-	<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw">
-	<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta name="keyword" content="ubuntu, apt, apturl"/>
-	<meta name="author" content="Developer: 凍仁翔 - jonny (at) drx.tw; Desgin: Violet - violet (at) drx.tw"/>
-	<link type="text/css" href="../include/violet.css" rel="stylesheet">
-	<script type="text/javascript" src="../include/jquery-1.7.1.min.js"></script>
-	<script type="text/javascript" src="../include/select-install.js"></script>
-	<title>helloTux</title>
-	</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="keyword" content="ubuntu, apt, apturl"/>
+<meta name="author" content="Developer: 凍仁翔 - jonny (at) drx.tw; Desgin: Violet - violet (at) drx.tw"/>
+<link type="text/css" href="../include/violet.css" rel="stylesheet">
+<script type="text/javascript" src="../include/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../include/select-install.js"></script>
+<title>helloTux</title>
+</head>
 
-	<body>
+<body>
 
 	<div id="container">
 
@@ -197,7 +202,14 @@ include '../frame_sidebar.php';
 					<p>
 <?php
 
-fnLoad($lang, "select a.*, b.* from record as a left join ubuntu as b on a.pid = b.pid where rid = $rid and rkey = '$rkey'");
+# - drop SQL Injection Attack.
+$sql_join = sprintf("select a.*, b.* from record as a left join ubuntu as b on a.pid = b.pid where rid = '%s' and rkey = '%s'",
+            mysql_real_escape_string($rid),
+            mysql_real_escape_string($rkey));
+
+fnLoad($lang, $sql_join);
+
+//fnLoad($lang, "select a.*, b.* from record as a left join ubuntu as b on a.pid = b.pid where rid = $rid and rkey = '$rkey'");
 
 mysql_close($connection);
 

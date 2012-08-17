@@ -60,7 +60,7 @@ function fnLoad($lang){
 		$search_txt = $_POST["search_txt"];
 
 		$sql_search = "select pid, pkg_name, name, desc_en, desc_tw from ubuntu where pkg_name like '%" . $search_txt . "%' and status = 1";
-		$result_search = mysql_query($sql_search);
+		$result_search = mysql_query($sql_search) or die(mysql_error());
 
 		# 列出所有套件資訊。
 		echo "<br><hr>";

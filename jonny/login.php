@@ -16,7 +16,13 @@ if ( isset($_POST["ID"]) && isset($_POST["passwd"]) ) {
 
 	if ($ID !="" && $passwd!="" ) {
 		$passwd = substr(md5($passwd),0,32);
-		$sql_check_account = "SELECT id, password, level, nick FROM account WHERE id = '$ID' AND password = '$passwd'";
+
+		# - drop SQL Injection Attack.
+		//$sql_check_account = "SELECT id, password, level, nick FROM account WHERE id = '{$ID}' AND password = '{$passwd}'";
+		$sql_check_account = sprintf("SELECT id, password, level, nick FROM account WHERE id = '%s' AND password = '%s'",
+            mysql_real_escape_string($ID),
+            mysql_real_escape_string($passwd));
+
 		$result = mysql_query($sql_check_account, $connection) or die(mysql_error());
 		mysql_close($connection);
 
@@ -41,6 +47,8 @@ if ( isset($_POST["ID"]) && isset($_POST["passwd"]) ) {
 			}
 		} else {
 			echo "<script> alert('帳號或密碼錯誤') </script>";
+	echo $_POST['passwd'];
+
 		}
 	}
 }
