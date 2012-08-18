@@ -9,6 +9,12 @@ echo "
 
 <a class='accesskey' href='#' accesskey='R' title='左方相關連結區塊'>:::</a><br/>
 <div class='menu_vertical'>
+	
+<label>
+	<font size=2 color=#ffffff>
+	前往自訂頁面
+	</font>
+</label>
 
 	<form name=custom_switch method=post action=>
 		<input type=submit name=btnCustom id=btnCustom value=hello>

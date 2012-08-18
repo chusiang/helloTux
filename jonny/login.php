@@ -5,6 +5,7 @@ session_start();
 $_SESSION['login_switch']=false;
 $_SESSION['ID']="";
 $_SESSION['passwd']="";
+$_SESSION['level']="";
 
 $ID ="";
 $passwd="";
@@ -36,6 +37,7 @@ if ( isset($_POST["ID"]) && isset($_POST["passwd"]) ) {
 			if ($temp == '0') {
 				$_SESSION['login_switch'] = true;
 				$_SESSION['ID'] = $ID;
+				$_SESSION['level'] = $level;
 				header("Location:http://" . $_SERVER['HTTP_HOST'] . "/admin/view.php");
 			}
 
@@ -43,6 +45,7 @@ if ( isset($_POST["ID"]) && isset($_POST["passwd"]) ) {
 			if ($temp == '1') {
 				$_SESSION['login_switch'] = true;
 				$_SESSION['ID'] = $ID;
+				$_SESSION['level'] = $level;
 				header("Location:http://" . $_SERVER['HTTP_HOST'] . "/admin/view.php");
 			}
 		} else {
