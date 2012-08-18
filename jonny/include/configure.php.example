@@ -10,9 +10,9 @@ if (get_magic_quotes_runtime()) {
 
 # - 連結資料庫
 $dbhost = "localhost";			#資料庫網址或IP
-$dbusername = "sql_id";			#資料庫帳號
+$dbusername = "hellotuxdb";			#資料庫帳號
 $dbuserpassword = "password";	#資料庫密碼
-$default_dbname = "db_name";		#資料庫名稱
+$default_dbname = "hellotuxdb";		#資料庫名稱
 $connection = mysql_connect($dbhost, $dbusername, $dbuserpassword) or die("無法連結資料庫！");
 $db = mysql_select_db($default_dbname, $connection) or die("無法選擇資料庫");
 //echo "測試完成!!";
