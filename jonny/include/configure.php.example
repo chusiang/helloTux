@@ -1,0 +1,24 @@
+<?php
+
+# SQL Injection
+#set_magic_quotes_runtime(0);
+if (get_magic_quotes_runtime()) {
+    // Deactivate
+    set_magic_quotes_runtime(false);
+}
+
+
+# - 連結資料庫
+$dbhost = "localhost";			#資料庫網址或IP
+$dbusername = "sql_id";			#資料庫帳號
+$dbuserpassword = "password";	#資料庫密碼
+$default_dbname = "db_name";		#資料庫名稱
+$connection = mysql_connect($dbhost, $dbusername, $dbuserpassword) or die("無法連結資料庫！");
+$db = mysql_select_db($default_dbname, $connection) or die("無法選擇資料庫");
+//echo "測試完成!!";
+
+mysql_query("SET NAMES 'UTF8'");
+mysql_query("SET CHARACTER SET UTF8");
+mysql_query("SET CHARACTER_SET_RESULTS=UTF8'"); 
+
+?>
