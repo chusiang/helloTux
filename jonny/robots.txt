@@ -1,2 +1,3 @@
 Uesr-agent:	*
-Disallow:	/
+Disallow:	/admin/
+Disallow:	/include/configure.php
