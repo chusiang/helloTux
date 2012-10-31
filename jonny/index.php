@@ -70,7 +70,7 @@ include 'frame_sidebar.php';
 				<span class="Comment">[註1] 我們改變世界了！ Hello World → Hello Tux。</span>
 				</p>
 
-				<h1>About</h1>
+				<h1>Communication</h1>
 				<p>
 				<ul>
 					<li>E-mail: hellotux (at) googlegroups.com</li>
