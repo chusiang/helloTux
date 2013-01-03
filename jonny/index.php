@@ -74,7 +74,6 @@ include 'frame_sidebar.php';
 				<p>
 				<ul>
 					<li>E-mail: hellotux (at) googlegroups.com</li>
-					<li>IRC: hellotux (at) freenode.net</li>
 				</ul>
 				</p>
 
