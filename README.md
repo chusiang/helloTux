@@ -18,5 +18,3 @@
 
 * E-mail: hellotux (at) googlegroups.com
 
-* IRC: hellotux (at) freenode.net
-
