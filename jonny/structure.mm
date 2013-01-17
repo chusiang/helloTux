@@ -1,6 +1,6 @@
 <map version="0.9.0">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
-<node CREATED="1358435644415" ID="ID_1275128298" MODIFIED="1358436349700" TEXT="helloTux">
+<node CREATED="1358435644415" ID="ID_1275128298" MODIFIED="1358437194578" TEXT="helloTux.&#x3b2;">
 <node CREATED="1358435804354" ID="ID_1262415253" MODIFIED="1358435811767" POSITION="right" TEXT="Ubuntu">
 <node CREATED="1358436080319" ID="ID_1514451285" MODIFIED="1358436083349" TEXT="apt://"/>
 <node CREATED="1358436095204" ID="ID_612890402" MODIFIED="1358436113126" TEXT="selected to install"/>
