@@ -20,7 +20,8 @@ jQuery(document).ready(function() {
 			varAptList.push( $(this).val() );
 		});
 
-		alert("apt://" + varAptList.join(','));			//對話視窗。
+		//alert("apt://" + varAptList.join(','));		//對話視窗(apturl)。
+		alert("sudo apt-get install " + varAptList.join(' '));	//對話視窗。
 		location.href="apt://" + varAptList.join(',');	//導向至 URL。
 	});
 });
