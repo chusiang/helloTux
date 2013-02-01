@@ -49,7 +49,7 @@ function fnLoad($lang, $sql_record){
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link type="text/css" href="../../include/fu.css" rel="stylesheet">
 <script type="text/javascript" src="../../include/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="../../include/select-install.js"></script>
+<script type="text/javascript" src="../../include/selectd-to-install-ubuntu.js"></script>
 
 <title>helloTux dev</title>
 </head>

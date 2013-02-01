@@ -134,7 +134,7 @@ function fnLoad($lang, $sql_get){
 <meta name="author" content="Developer: 凍仁翔 - jonny (at) drx.tw; Desgin: Violet - violet (at) drx.tw"/>
 <link type="text/css" href="../include/violet.css" rel="stylesheet">
 <script type="text/javascript" src="../include/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="../include/select-install.js"></script>
+<script type="text/javascript" src="../include/selectd-to-install-ubuntu.js"></script>
 <title>helloTux</title>
 </head>
 
