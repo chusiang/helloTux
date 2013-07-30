@@ -360,21 +360,24 @@ a:b=(a+b)，a為長邊，b為短邊
 /* - 主要為套件列表所使用。*/
 .table_dark	{
 	width:			96%;
-	border:			1px;
-	/*border-collapse: collapse;*/
-	border-style:	solid;
+	border-collapse: collapse;
 
 }
 .table_dark th {
+	border:			1px;
+	border-style:	solid;
+	background-color:	#1e1e1e;
+	color:			#dddddd;
+	text-align:		center;
 	padding:		5px;
-	color:			#1c1c1c;
-	background-color:	#d0d0d0;
 }
 
 .table_dark td {
-	border-bottom:	1px solid;*/
+	border:			1px;
+	border-style:	solid;
+	vertical-align: middle;
 	/*border-bottom: 1px dotted;*/
-	padding:		5px;
+	padding:		3px 5px 3px 5px;
 }
 
 .table1	{
