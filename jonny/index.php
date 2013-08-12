@@ -1,12 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw">
-
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="keyword" content="ubuntu, apt, apturl"/>
-<meta name="author" content="Developer: 凍仁翔 - jonny (at) drx.tw; Desgin: Violet - violet (at) drx.tw"/>
-<title>helloTux</title>
-<link href="include/violet.css" type="text/css" rel="stylesheet">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="keyword" content="ubuntu, apt, apturl"/>
+	<meta name="author" content="Developer: 凍仁翔 - jonny (at) drx.tw; Desgin: Violet - violet (at) drx.tw"/>
+	<title>helloTux</title>
+	<link href="include/violet.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
@@ -14,19 +13,19 @@
 <div id="container">
 
 	<!--頁首-->
-	<div id="header">
+	<header>
 		<div id="header_menu">
 			<ul class="navigation_menu">
 				<li><a href="#" accesskey="U" title="上方功能區塊">:::</a> </li>
 				<li><a href="#">網站導覽</a></li>
 			</ul>
 		</div>
-	</div>
+	</header>
 
 	<!--外框架圍繞內容-->
 	<div id="wrapper">
 
-		<div id="menu_main">
+	<nav>
 			<div class="menu_level">
 				<ul>
 					<li class="selected">Home</li>
@@ -34,14 +33,15 @@
 					<li><?php echo "<a href=https://" . $_SERVER['HTTP_HOST'] . "/login.php>Login</a>"; ?></li>
 				</ul>
 			</div>
-		</div>
+		
+	</nav>
 
 		<!--側邊欄-->
-		<div id="sidebar">
+		<aside>
 <?php
 include 'frame_sidebar.php';
 ?>
-		</div>
+		</aside>
 
 		<!--內容-->
 		<div id="content">
@@ -56,7 +56,7 @@ include 'frame_sidebar.php';
 
 				<p>
 				<ul>
-					<li>此專案使用 <a href="http://www.gnu.org/licenses/gpl.html" target="_blank">GPL v2 or later</a> 授權，其主要目的是讓使用者直接**使用瀏覽器安裝 Linux 套件**，並**擁有專屬套件列表**，換句話說這會是個 Linux 版的 <a href="http://gfx.tw/" target="_blank">抓火狐</a>，現階段將以 Ubuntu 的 AptURL 為主，後期會試著將 OpenSUSE 的 One-Click 整合進來。</li>
+					<li>此專案使用 <a href="http://www.gnu.org/licenses/gpl.html" target="_blank">GPL v2 or later</a> 授權，其主要目的是讓使用者直接<b>使用瀏覽器安裝 Linux 套件</b>，並<b>擁有專屬套件列表</b>，換句話說這會是個 Linux 版的 <a href="http://gfx.tw/" target="_blank">抓火狐</a>，現階段將以 Ubuntu 的 AptURL 為主，後期會試著將 OpenSUSE 的 One-Click 整合進來。</li>
 
 					<li><b>helloTux</b> 一詞來自每個學程式的人都會寫到「Hello World」，而接觸 Linux 的人都知道其吉祥物的名稱是 Tux，於是「Hello Tux」就這樣誕生了！ [註1]</li>
 
@@ -80,11 +80,12 @@ include 'frame_sidebar.php';
 			</div>
 		</div>
 
-		<div id="footer">
+		<footer>
 <?php
 include 'frame_footer.php';
 ?>
-		</div>
+			
+		</footer>
 	</div>
 </div>
 
