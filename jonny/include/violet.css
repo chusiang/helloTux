@@ -75,7 +75,7 @@ a:b=(a+b)，a為長邊，b為短邊
 	background-color:	#141414;
 }
 
-#header {
+header {
 	width:			auto;
 	height:			200px;							/*指定頁首盒子高度*/
 	background-image:	url('images/header-bg.png');/*指定頁首背景圖像*/
@@ -85,7 +85,7 @@ a:b=(a+b)，a為長邊，b為短邊
 	background-color:	#141414;
 }
 
-#menu_main {
+nav {
 	width:			994px;		/*指定側邊欄寬度*/
 	float:			left;		/*指定內容版面配置:右邊*/
 	margin:			0px -15px 0px 0px;	/*指定側邊欄四周的空白尺寸*/
@@ -93,7 +93,7 @@ a:b=(a+b)，a為長邊，b為短邊
 	border:			solid 1px #222222;
 }
 
-#sidebar {
+aside {
 	float: 			right;		/*指定內容版面配置:右邊*/
 	width: 			240px;		/*指定側邊欄寬度*/
 	margin:			0;			/*指定側邊欄四周的空白尺寸*/
@@ -107,7 +107,7 @@ a:b=(a+b)，a為長邊，b為短邊
 
 }
 
-#footer {
+footer {
 	clear:			both;		/*解除頁尾的文繞圖配置，解除元素兩邊的浮動*/
 }
 
@@ -166,10 +166,6 @@ a:b=(a+b)，a為長邊，b為短邊
 	margin-top:		10px;
 	font-size:		1em;
 }
-
-#header_menu {
-	float:			right;
-} 
 
 .navigation_menu{
 	width:			auto;
