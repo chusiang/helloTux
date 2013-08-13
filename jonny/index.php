@@ -14,27 +14,24 @@
 
 	<!--頁首-->
 	<header>
-		<div id="header_menu">
-			<ul class="navigation_menu">
+		<nav id="top">
+			<ul>
 				<li><a href="#" accesskey="U" title="上方功能區塊">:::</a> </li>
 				<li><a href="#">網站導覽</a></li>
 			</ul>
-		</div>
+		</nav>
 	</header>
 
 	<!--外框架圍繞內容-->
 	<div id="wrapper">
 
-	<nav>
-			<div class="menu_level">
-				<ul>
-					<li class="selected">Home</li>
-					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/pkg.php>Package</a>"; ?></li>
-					<li><?php echo "<a href=https://" . $_SERVER['HTTP_HOST'] . "/login.php>Login</a>"; ?></li>
-				</ul>
-			</div>
-		
-	</nav>
+		<nav id="menu_h">
+			<ul>
+				<li id="selected">Home</li>
+				<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/pkg.php>Package</a>"; ?></li>
+				<li><?php echo "<a href=https://" . $_SERVER['HTTP_HOST'] . "/login.php>Login</a>"; ?></li>
+			</ul>
+		</nav>
 
 		<!--側邊欄-->
 		<aside>
@@ -45,12 +42,14 @@ include 'frame_sidebar.php';
 
 		<!--內容-->
 		<div id="content">
+
 			<!--麵包屑-->
-			<div class="breadcrumbs">
+			<section id="breadcrumbs">
 				<a class="accesskey" href="#" accesskey="C" title="中央內容區塊">:::</a> 現在位置：首頁<br/>
-			</div>
+			<section>
+
 			<!--段落-->
-			<div class="paragraph">
+			<section id="paragraph">
 
 				<h1>About</h1>
 
@@ -77,14 +76,13 @@ include 'frame_sidebar.php';
 				</ul>
 				</p>
 
-			</div>
+			</section>
 		</div>
 
 		<footer>
 <?php
 include 'frame_footer.php';
 ?>
-			
 		</footer>
 	</div>
 </div>
