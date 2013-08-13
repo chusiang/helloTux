@@ -89,8 +89,8 @@ nav {
 	width:			994px;		/*指定側邊欄寬度*/
 	float:			left;		/*指定內容版面配置:右邊*/
 	margin:			0px -15px 0px 0px;	/*指定側邊欄四周的空白尺寸*/
-	/*padding:		7px 15px 0;*/
 	border:			solid 1px #222222;
+	/*padding:		7px 15px 0;*/
 }
 
 aside {
@@ -115,13 +115,6 @@ footer {
 
 /* 【導覽選單靠標題上對齊】 */
 
-#header_inner {
-	padding:		20px;
-}
-
-#header_title {
-	float:			left;
-}
 
 #header h1 {
 	font-size:		2em;
@@ -132,31 +125,30 @@ footer {
 	font-size:		1em;
 }
 
-#header_menu {
+nav#top {
 	float:			right;
-} 
-
-.navigation_menu {
 	width:			auto;
 	border-top:		none;
 	border-bottom:	none;
 }
 
-.navigation_menu li {
+nav#top li {
 	list-style-type:	none;			/*刪除標準項目符號*/
 	float:			left;
 	margin-right:	20px;				/*指定超連結間距*/
 	font-size:		0.9em;
 }
 
-.navigation_menu li a {
-	display:		lnline-block;		/*將資料顯示在同一行,並且可設定元素的寬與高*/
+nav#top li a {
+	display:		lnline-block;	/*將資料顯示在同一行,並且可設定元素的寬與高*/
+	color: #ffffff;
+}
+
+nav#top li a:hover {
+	color: #FFDB00;
 }
 
 /* 【導覽選單靠標題下對齊】 */
-#header_title {
-	float:			left;
-}
 
 #header h1 {
 	font-size:		2em;
@@ -167,36 +159,14 @@ footer {
 	font-size:		1em;
 }
 
-.navigation_menu{
-	width:			auto;
-	border-top:		none;
-	border-bottom:	none;
-}
-
-.navigation_menu li {
-	list-style-type:	none;		/*刪除標準項目符號*/
-	float:			left;
-	margin-right:	20px;			/*指定超連結間距*/
-	font-size:		0.9em;
-}
-
-.navigation_menu li a {
-	display:		lnline-block;	/*將資料顯示在同一行,並且可設定元素的寬與高*/
-	color: #ffffff;
-}
-
-.navigation_menu li a:hover {
-	color: #FFDB00;
-}
-
 /* == menu 選單 == */
 
 /* 【水平選單】有框線區隔*/
-.menu_level	{
-	font-size:		1em;
+nav#menu_h {
+		font-size:		1em;
 }
 
-.menu_level ul {
+nav#menu_h ul {
 	list-style-type:	none;
 	font-weight: bold;
 	margin:			0;	/* 清除項目清單的外間距 */
@@ -206,13 +176,13 @@ footer {
 	*/
 }
 
-.menu_level li {
+nav#menu_h li {
 	float:			left;				/*讓條例項目呈現水平排列*/
 	padding-top:	10px;				/*刪除插入於第一個超連結左邊的空白*/
 	padding-bottom:	10px;				/*刪除插入於第一個超連結左邊的空白*/
 }
 
-.menu_level li a {
+nav#menu_h li a {
 	text-decoration:	none;		/*刪除顯示超連結時固定出現的標準底線*/
 　　/*display: block;　　/*將超連結設定為區塊模式*/
 	background-color:	#141414;
@@ -222,18 +192,15 @@ footer {
 	padding-bottom:	11px;				/*刪除插入於第一個超連結左邊的空白*/
 	color: #DDDDDD;
 }
-.menu_level li a:hover  {
+
+nav#menu_h li a:hover {
 	color:			#CC0000;
 	background-color: #262626;
 	/*border-bottom:	2px #cc0000 dotted;*/
 }
-.menu_level li.first {
-	border-left:	none;			/*刪除插入於第一個超連結左邊的邊框*/
-	margin-left:	0;				/*刪除插入於第一個超連結左邊的空白*/
-	/*padding-left:	0;*/				/*刪除插入於第一個超連結左邊的空白*/
-}
 
-.selected {
+
+nav#menu_h li#selected {
 	padding-top:	10px;				/*刪除插入於第一個超連結左邊的空白*/
 	padding-bottom:	10px;				/*刪除插入於第一個超連結左邊的空白*/
 	padding-left:	20px;				/*刪除插入於第一個超連結左邊的空白*/
@@ -243,11 +210,13 @@ footer {
 }
 
 /* 【垂直選單】圖像顯示項目符號*/
-.menu_vertical {
+
+nav#menu_v {
 	width:			auto;
 	font-size:		1.5em;
 }
-.menu_vertical li {
+
+nav#menu_v li {
 	margin-bottom:	10px;			/*指定選單各項目的間距*/
 	line-height:	1.2;			/*指定選單各項目的單行高度*/
 	list-style-type:	none;
@@ -255,11 +224,13 @@ footer {
 	background-repeat:	no-repeat;
 	padding-left:	20px;
 }	
-.menu_vertical li a {
+
+nav#menu_v li a {
 	color:			#7f7f7f;
 	text-decoration:	none;		/*刪除顯示超連結時固定出現的標準底線*/
 }
-.menu_vertical li a:hover {
+
+nav#menu_v li a:hover {
 	color:			#ffdb00;
 	border-bottom:	2px #ffdb00 dotted;
 }
@@ -267,53 +238,55 @@ footer {
 /* == text 文字 == */
 /* 快捷鍵 */
 
-.accesskey {
-	color:			#ffffff;
+section.accesskey {
+	/*color:			#ffffff;*/
+	color:			#666666;
 }
 
 /* 麵包屑 */
-.breadcrumbs {
+section#breadcrumbs {
 	color:			#666666;
 	font-family:	微軟正黑體, "Times New Roman";
 	font-size:		0.9em;
 }
 
-.breadcrumbs a {
+section#breadcrumbs a {
 	text-decoration:	none;	/*刪除顯示超連結時固定出現的標準底線*/				
 }
-.breadcrumbs a:hover {
+
+section#breadcrumbs a:hover {
 	color: #ffdb00;
 }
 
 /* 段落 */
-.paragraph {
+section#paragraph {
 	padding:		0 30px;
 	line-height:	1.5;
 	color:			#d0d0d0;
 }
-.paragraph h1 {
+section#paragraph h1 {
 	margin:			0;
 	font-size:		1.2em;
 	text-align:		center;
 	color:			#ff0000;
 }
-.paragraph h2 {
+section#paragraph h2 {
 	margin:			0;
 	margin-bottom:	10px;
 	font-size:		1em;
 	text-align:		center;
 	color:			#ffdb00;
 }
-.paragraph p {
+section#paragraph p {
 	margin: 0;
 	margin-bottom:	10px;
 	text-indent:	2em;							/*首行縮排*/
 }
 
-.paragraph ol {
+section#paragraph ol {
 	padding-left:	40px;
 }
-.paragraph ul {
+section#paragraph ul {
 	list-style-type:	none;
 	list-style:		url('images/icon_star.png');
 	/*background-image: url('images/icon_red.gif');*/
@@ -322,7 +295,7 @@ footer {
 	padding-left:	18px;
 }
 
-.paragraph li {
+section#paragraph li {
 	margin-bottom:	0.8em;	
 	/* font-size: 1.2em; */
 }
