@@ -17,7 +17,9 @@
 		<nav id="top">
 			<ul>
 				<li><a href="#" accesskey="U" title="上方功能區塊">:::</a> </li>
+				<!--
 				<li><a href="#">網站導覽</a></li>
+				-->
 			</ul>
 		</nav>
 	</header>
