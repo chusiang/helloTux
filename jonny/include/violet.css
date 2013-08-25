@@ -109,6 +109,8 @@ aside {
 
 footer {
 	clear:			both;		/*解除頁尾的文繞圖配置，解除元素兩邊的浮動*/
+	color:			#d0d0d0;
+	text-align:		center;
 }
 
 /* == Header 頁首 == */
@@ -244,17 +246,17 @@ section.accesskey {
 }
 
 /* 麵包屑 */
-section#breadcrumbs {
+div#breadcrumbs {
 	color:			#666666;
 	font-family:	微軟正黑體, "Times New Roman";
 	font-size:		0.9em;
 }
 
-section#breadcrumbs a {
+div#breadcrumbs a {
 	text-decoration:	none;	/*刪除顯示超連結時固定出現的標準底線*/				
 }
 
-section#breadcrumbs a:hover {
+div#breadcrumbs a:hover {
 	color: #ffdb00;
 }
 
@@ -327,23 +329,27 @@ section#paragraph li {
 /* == table 表格 == */
 
 /* - 主要為套件列表所使用。*/
-.table_dark	{
+table.dark {
 	width:			96%;
-	border:			1px;
-	/*border-collapse: collapse;*/
-	border-style:	solid;
-
-}
-.table_dark th {
-	padding:		5px;
-	color:			#1c1c1c;
-	background-color:	#d0d0d0;
+	border-collapse: collapse;
 }
 
-.table_dark td {
-	border-bottom:	1px solid;*/
-	/*border-bottom: 1px dotted;*/
-	padding:		5px;
+table.dark th {
+	border: 1px;
+	border-style: solid;
+	background-color:	#1E1E1E;
+	color: #dddddd;
+	text-align: center;
+	vertical-align: middle;
+	padding: 3px 5px 3px 5px;
+}
+
+table.dark td {
+	border: 1px;
+	border-style: solid;
+	color:			#d0d0d0;
+	vertical-align: middle;
+	padding: 3px 5px 3px 5px;
 }
 
 .table1	{
