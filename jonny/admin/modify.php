@@ -60,7 +60,7 @@ function fnLoad($lang, $sql_get){
 	$btnModify = " 修改 ";
 	$btnCancel = " 取消 ";
 
-	echo "<form name=modify_record method=post action=>";
+	echo "<form name='modify_record' method='post' action=''>";
 
 	switch ($lang) {
 
@@ -69,7 +69,7 @@ function fnLoad($lang, $sql_get){
 		$btnCancel = " 取消 ";
 
 		# 列出所有套件資訊。
-		echo "<table class=table_dark>";
+		echo "<table class='dark'>";
 		echo "<tr>
 			<th>套件</th>
 			<th>敘述</th>
@@ -78,11 +78,11 @@ function fnLoad($lang, $sql_get){
 
 		while (list($rid, $uid, $pid, $comment, $rkey, $pid2, $pkg, $name, $status ,$desc_en, $desc_tw) = mysql_fetch_row($result_get)) {
 			echo "<tr>
-				<input type=hidden name=rid id=rid value=$rid>
-				<input type=hidden name=rkey id=rkey value=$rkey>
-				<td><a href=apt://$pkg>$name</a></td>
+				<input type='hidden' name='rid' id='rid' value='$rid'>
+				<input type='hidden' name='rkey' id='rkey' value='$rkey'>
+				<td><a href='apt://$pkg'>$name</a></td>
 				<td>$desc_tw</td>
-				<td><textarea name=comment_modify id=comment_modify cols=30 rows=3>$comment</textarea></td>
+				<td><textarea name='comment_modify' id='comment_modify' cols='30' rows='3'>$comment</textarea></td>
 				</tr>";
 		}
 
@@ -102,11 +102,11 @@ function fnLoad($lang, $sql_get){
 
 		while (list($rid, $uid, $pid, $comment, $rkey, $pid2, $pkg, $name, $status ,$desc_en, $desc_tw) = mysql_fetch_row($result_get)) {
 			echo "<tr>
-				<input type=hidden name=rid id=rid value=$rid>
-				<input type=hidden name=rkey id=rkey value=$rkey>
-				<td><a href=apt://$pkg>$name</a></td>
+				<input type='hidden' name='rid' id='rid' value='$rid'>
+				<input type='hidden' name='rkey' id='rkey' value='$rkey'>
+				<td><a href='apt://$pkg'>$name</a></td>
 				<td>$desc_en</td>
-				<td><textarea name=comment_modify id=comment_modify cols=30 rows=3>$comment</textarea></td>
+				<td><textarea name='comment_modify' id='comment_modify' cols='30' rows='3'>$comment</textarea></td>
 				</tr>";
 		}
 
@@ -118,24 +118,24 @@ function fnLoad($lang, $sql_get){
 
 	echo "</table>";
 	echo "<br>
-		<input type=submit name=btnModify id=btnModify value=$btnModify>
-		<input type=button name=btnCancel id=btnCancel value=$btnCancel onClick=location.href='view.php'; />
+		<input type='submit' name='btnModify' id='btnModify' value='$btnModify'>
+		<input type='button' name='btnCancel' id='btnCancel' value='$btnCancel' onClick=location.href='view.php'; />
 		<br> <br>
 		</form>";
 }
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="keyword" content="ubuntu, apt, apturl"/>
-<meta name="author" content="Developer: 凍仁翔 - jonny (at) drx.tw; Desgin: Violet - violet (at) drx.tw"/>
-<link type="text/css" href="../include/violet.css" rel="stylesheet">
-<script type="text/javascript" src="../include/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="../include/selectd-to-install-ubuntu.js"></script>
-<title>helloTux</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="keyword" content="ubuntu, apt, apturl"/>
+	<meta name="author" content="Developer: 凍仁翔 - jonny (at) drx.tw; Desgin: Violet - violet (at) drx.tw"/>
+	<link type="text/css" href="../include/violet.css" rel="stylesheet">
+	<script type="text/javascript" src="../include/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="../include/selectd-to-install-ubuntu.js"></script>
+	<title>helloTux</title>
 </head>
 
 <body>
@@ -143,46 +143,44 @@ function fnLoad($lang, $sql_get){
 	<div id="container">
 
 		<!--頁首-->
-		<div id="header">
-			<div id="header_menu">
+		<header>
+			<nav id="top">
 <?php
 include '../frame_header.php';
 ?>
-			</div>
-		</div>
+			</nav>
+		</header>
 
 		<!--外框架圍繞內容-->
 		<div id="wrapper">
 
-			<div id="menu_main">
-				<div class="menu_level">
-					<ul>
-						<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>Home</a>"; ?></li>
-						<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/pkg.php>Package</a>"; ?></li>
-						<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/admin/view.php>View</a>"; ?></li>
-						<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/admin/add.php>Add</a>"; ?></li>
-						<li class="selected">Modify</li>
-					</ul>
-				</div>
-			</div>
+			<nav id="menu_h">
+				<ul>
+					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>Home</a>"; ?></li>
+					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/pkg.php>Package</a>"; ?></li>
+					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/admin/view.php>View</a>"; ?></li>
+					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/admin/add.php>Add</a>"; ?></li>
+					<li id="selected">Modify</li>
+				</ul>
+			</nav>
 
 			<!--側邊欄-->
-			<div id="sidebar">
+			<aside>
 <?php
 include '../frame_sidebar.php';
 ?>
-			</div>
+			</aside>
 
 			<!--內容-->
 			<div id="content">
 
 				<!--麵包屑-->
-				<div class="breadcrumbs">
-					<a class="accesskey" href="#" accesskey="C" title="中央內容區塊">:::</a> 現在位置：<?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>首頁</a>"; ?> / <?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/admin/view.php>套件管理</a>"; ?> / 修改備註 <br/><br/>
+				<div id="breadcrumbs">
+					<a class="accesskey" href="#" accesskey="C" title="中央內容區塊">:::</a> 現在位置：<?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>首頁</a>"; ?> / <?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/admin/view.php>個人套件管理</a>"; ?> / 修改備註 <br/><br/>
 				</div>
 
 				<!--段落-->
-				<div class="paragraph">
+				<section id="paragraph">
 
 					<h1>Modify of Admin</h1>
 
@@ -215,14 +213,14 @@ mysql_close($connection);
 
 ?>
 					</p>
-				</div>
+				</section>
 			</div>
 
-			<div id="footer">
+			<footer>
 <?php
 include '../frame_footer.php';
 ?>
-			</div>
+			</footer>
 		</div>
 	</div>
 
