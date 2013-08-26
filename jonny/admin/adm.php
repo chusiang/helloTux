@@ -12,10 +12,6 @@ if (isset($_SESSION["ID"])) {
 	$ID=$_SESSION["ID"];
 }
 
-if (isset($_SESSION["level"])) {
-	$level=$_SESSION["level"];
-}
-
 # 若 $_POST["lang"] 存在，則將其值丟入 $lang。
 $lang = "正體中文";
 
@@ -177,11 +173,6 @@ include '../frame_header.php';
 				<ul>
 					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>Home</a>"; ?></li>
 					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/pkg.php>Package</a>"; ?></li>
-<?php
-//if ($level == 0) {
-//	echo "<li><a href=http://" . $_SERVER['HTTP_HOST'] . "/admin/adm.php>Admin</a></li>";
-//}
-?>
 					<li class="selected">View</li>
 					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/admin/add.php>Add</a>"; ?></li>
 				</ul>
