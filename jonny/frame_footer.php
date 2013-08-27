@@ -1,13 +1,9 @@
 <?php
 echo "
 	<p>
-		<br>
-		<span class=Comment>凍仁翔 (Chu-Siang, Lai)</span> / 
-		<span class=Comment><a href=http://note.drx.tw target=_blank>http://note.drx.tw</a></span><br>
-		<span class=Comment><a href=https://github.com/chusiang/helloTux target=_blank>https://github.com/chusiang/helloTux</a></span>
-		<br>
-		<br>
+	<small>Coypright © from 2012-2013 <a href='http://note.drx.tw/p/about-chu-siang-lai.html' target='_blank'>chusiang</a> GPL v2 or later.</small>
 	</p>
+	<br />
 ";
 
 ?>

@@ -56,29 +56,29 @@ if ( isset($_POST["ID"]) && isset($_POST["passwd"]) ) {
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw">
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="keyword" content="ubuntu, apt, apturl"/>
-<meta name="author" content="Developer: 凍仁翔 - jonny (at) drx.tw; Desgin: Violet - violet (at) drx.tw"/>
-<title>helloTux</title>
-<link href="include/violet.css" type="text/css" rel="stylesheet">
-<script type="text/javascript" src="include/md5.js"></script>
-<!--
-<script type="text/javascript">
-function md5() {
-	var hash = calcMD5(document.getElementById("pwd").value);
-	alert(hash);
-}
-
-function sumbit() {
-	var hash = calcMD5(document.getElementById("pwd").value);
-	alert(hash);
-}
-</script>
--->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="keyword" content="ubuntu, apt, apturl"/>
+	<meta name="author" content="Developer: 凍仁翔 - jonny (at) drx.tw; Desgin: Violet - violet (at) drx.tw"/>
+	<title>helloTux</title>
+	<link href="include/violet.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="include/md5.js"></script>
+	<!--
+	<script type="text/javascript">
+	function md5() {
+		var hash = calcMD5(document.getElementById("pwd").value);
+		alert(hash);
+	}
+	
+	function sumbit() {
+		var hash = calcMD5(document.getElementById("pwd").value);
+		alert(hash);
+	}
+	</script>
+	-->
 </head>
 
 <body>
@@ -86,81 +86,67 @@ function sumbit() {
 <div id="container">
 
 	<!--頁首-->
-	<div id="header">
-		<div id="header_menu">
+	<header>
+		<nav id="top">
 <?php
 include 'frame_header.php';
 ?>
-		</div>
-	</div>
+		</nav>
+	</header>
 
 	<!--外框架圍繞內容-->
 	<div id="wrapper">
 
-		<div id="menu_main">
-			<div class="menu_level">
-				<ul>
-					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>Home</a>"; ?></li>
-					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/pkg.php>Package</a>"; ?></li>
-					<li class="selected">Login</li>
-				</ul>
-			</div>
-		</div>
+		<nav id="menu_h">
+			<ul>
+				<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>首頁</a>"; ?></li>
+				<li><a href="http://note.drx.tw" target="_blank">部落格</a></li>
+				<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/pkg.php>套件清單</a>"; ?></li>
+			</ul>
+		</nav>
 
 		<!--側邊欄-->
-		<div id="sidebar">
+		<aside>
 <?php
 include 'frame_sidebar.php';
 ?>
-		</div>
+		</aside>
 
 		<!--內容-->
 		<div id="content">
 
 			<!--麵包屑-->
-			<div class="breadcrumbs">
+			<div id="breadcrumbs">
 				<a class="accesskey" href="#" accesskey="C" title="中央內容區塊">:::</a> 現在位置：<?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>首頁</a>"; ?> / 登入 <br/><br/>
 			</div>
 
 			<!--段落-->
-			<div class="paragraph">
+			<section id="paragraph">
 
 				<h1>Login</h1>
 
-				<p align='center'>
-				<form id="form_adm" name="form_adm" method="post" action="login.php">
+				<div align="center">
+					<form id="form_adm" name="form_adm" method="post" action="login.php">
 
-					<table align="center">
-						<tr>
-							<td>帳戶 <input type="text" name="ID" id="ID"></td>
-						</tr>
-						<tr>
-							<td>密碼 <input type="password" name="passwd" id="passwd"></td>
-						</tr>
-						<tr>
-							<td align="center">
-								<!--
-								<input type="text" name="passwd" id="passwd" value="">
-								<input type="submit" name="btn_login" id="btn_login" value="登 入" onCliek="md5()">
-								-->
-								<input type="submit" name="btn_login" id="btn_login" value="登 入">
-								<input type="reset" name="btn_cancel" id="btn_cancel" value="清 除">
-							</td>
-						</tr>
-					</table>
-				</form>
+						帳戶 <input type="text" name="ID" id="ID"> <br />
+						密碼 <input type="password" name="passwd" id="passwd"> <br /> <br />
+						<!--
+							<input type="text" name="passwd" id="passwd" value="">
+							<input type="submit" name="btn_login" id="btn_login" value="登 入" onCliek="md5()">
+						-->
+						<input type="submit" name="btn_login" id="btn_login" value="登 入"> 
+						<input type="reset" name="btn_cancel" id="btn_cancel" value="清 除">
+					</form>
+				</div>
 
-
-
-				</p>
-			</div>
+			</section>
 		</div>
 
-		<div id="footer">
+		<footer>
 <?php
 include 'frame_footer.php';
 ?>
-		</div>
+		</footer>
 	</div>
 </div>
 

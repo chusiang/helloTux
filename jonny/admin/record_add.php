@@ -7,9 +7,9 @@ $ID="";
 $pid="0";	# 若無傳遞 $pid 過來時將會等於 0。
 $comment="";
 
-# - 未登入時導回 login.php。
+# - 未登入時導回 403.php。
 if($_SESSION["login_switch"] != true) {
-	header("Location:https://" . $_SERVER['HTTP_HOST'] . "/login.php");
+	header("Location:http://" . $_SERVER['HTTP_HOST'] . "/403.php");
 }
 
 # - 取得使用者 ID。

@@ -2,9 +2,9 @@
 require_once('../include/configure.php');
 session_start();
 
-# - 未登入時導回 login.php。
+# - 未登入時導回 403.php。
 if($_SESSION["login_switch"] != true) {
-	header("Location:https://" . $_SERVER['HTTP_HOST'] . "/login.php");
+	header("Location:http://" . $_SERVER['HTTP_HOST'] . "/403.php");
 }
 
 # - 取得使用者 ID。
@@ -63,9 +63,10 @@ function fnLoad($lang){
 		$result_search = mysql_query($sql_search) or die(mysql_error());
 
 		# 列出所有套件資訊。
-		echo "<br><hr>";
+		echo "<br />";
+		echo "搜尋結果: <br />";
 		echo "<form name=add_record method=post action=record_add.php>";
-		echo "<table class=table_dark>";
+		echo "<table class='dark'>";
 		echo "<tr><th></th> <th>套件</th> <th>Description</th> <th>敘述</th> </tr>";
 
 		while (list($pid, $pkg, $name, $desc_en, $desc_tw) = mysql_fetch_row($result_search)) {
@@ -78,7 +79,7 @@ function fnLoad($lang){
 		}
 
 		echo "</table><br>
-			<span class=Comment># 備註: </span>
+			個人備註:
 			<input type=text name=comment id=comment size=40></textarea> <br><br>
 			<center>
 			<input type=submit name=btnAdd id=btnAdd value=$btnAdd>
@@ -94,17 +95,16 @@ function fnLoad($lang){
 
 ?>
 
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="keyword" content="ubuntu, apt, apturl"/>
-<meta name="author" content="凍仁翔 (Chu-Siang, Lai) - jonny (at) drx.tw, CSS: Violet - violet (at) drx.tw"/>
-<link type="text/css" href="../include/violet.css" rel="stylesheet">
-<script type="text/javascript" src="../include/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="../include/selectd-to-install-ubuntu.js"></script>
-<title>helloTux</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="keyword" content="ubuntu, apt, apturl"/>
+	<meta name="author" content="凍仁翔 (Chu-Siang, Lai) - jonny (at) drx.tw, CSS: Violet - violet (at) drx.tw"/>
+	<link type="text/css" href="../include/violet.css" rel="stylesheet">
+	<script type="text/javascript" src="../include/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="../include/selectd-to-install-ubuntu.js"></script>
+	<title>helloTux</title>
 </head>
 
 <body>
@@ -112,47 +112,46 @@ function fnLoad($lang){
 <div id="container">
 
 	<!--頁首-->
-	<div id="header">
-		<div id="header_menu">
-	<?php
-	include '../frame_header.php';
-	?>
-		</div>
-	</div>
+	<header>
+		<nav id="top">
+<?php
+include '../frame_header.php';
+?>
+		</nav>
+	</header>
 
 	<!--外框架圍繞內容-->
 	<div id="wrapper">
 
-		<div id="menu_main">
-			<div class="menu_level">
-				<ul>
-					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>Home</a>"; ?></li>
-					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/pkg.php>Package</a>"; ?></li>
-					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/admin/view.php>View</a>"; ?></li>
-					<li class="selected">Add</li>
-				</ul>
-			</div>
-		</div>
+		<nav id="menu_h">
+			<ul>
+
+				<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>首頁</a>"; ?></li>
+				<li><a href="http://note.drx.tw" target="_blank">部落格</a></li>
+				<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/pkg.php>套件清單</a>"; ?></li>
+				<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/admin/view.php>個人套件管理</a>"; ?></li>
+			</ul>
+		</nav>
 
 		<!--側邊欄-->
-		<div id="sidebar">
+		<aside>
 <?php
 include '../frame_sidebar.php';
 ?>
-		</div>
+		</aside>
 
 		<!--內容-->
 		<div id="content">
 
 			<!--麵包屑-->
-			<div class="breadcrumbs">
-				<a class="accesskey" href="#" accesskey="C" title="中央內容區塊">:::</a> 現在位置：<?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>首頁</a>"; ?> / <?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/admin/view.php>套件管理</a>"; ?> / 新增套件 <br/><br/>
+			<div id="breadcrumbs">
+				<a class="accesskey" href="#" accesskey="C" title="中央內容區塊">:::</a> 現在位置：<?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>首頁</a>"; ?> / <?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/admin/view.php>個人套件管理</a>"; ?> / 新增套件 <br/><br/>
 			</div>
 
 			<!--段落-->
-			<div class="paragraph">
+			<section id="paragraph">
 
-				<h1>Add of Admin</h1>
+				<h1>Add Package with Search</h1>
 
 				<p>
 <?php
@@ -164,14 +163,14 @@ mysql_close($connection);
 ?>
 				</p>
 
-			</div>
+			</section>
 		</div>
 
-		<div id="footer">
+		<footer>
 <?php
 include '../frame_footer.php';
 ?>
-		</div>
+		</footer>
 	</div>
 </div>
 

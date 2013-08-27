@@ -12,10 +12,6 @@ if (isset($_SESSION["ID"])) {
 	$ID=$_SESSION["ID"];
 }
 
-if (isset($_SESSION["level"])) {
-	$level=$_SESSION["level"];
-}
-
 # 若 $_POST["lang"] 存在，則將其值丟入 $lang。
 $lang = "正體中文";
 
@@ -45,8 +41,8 @@ function fnLoad($lang, $sql_record){
 	$btnDel = " 刪除 ";
 	$aryRid = array();
 
-	echo "<form name='del_record' method='post' action=''>";
-	echo "<table class='dark'>";
+	echo "<form name=del_record method=post action=>";
+	echo "<table class=table_dark>";
 
 	switch ($lang) {
 
@@ -56,7 +52,7 @@ function fnLoad($lang, $sql_record){
 		$btnModify = " 修改 ";
 		$btnDel = " 刪除 ";
 
-		echo "<tr><th><input type='checkbox' name='chkClick_all' id='chkClick_all'></th> <th>套件</th> <th>敘述</th> <th colspan='2'>備註</th></tr>";
+		echo "<tr><th><input type=checkbox name=chkClick_all id=chkClick_all></th> <th>套件</th> <th>敘述</th> <th colspan=2>備註</th></tr>";
 
 		$i = 0;
 
@@ -66,11 +62,11 @@ function fnLoad($lang, $sql_record){
 			$aryRid[$i] = $rid;
 
 			echo "<tr>
-				<td align='center'><input name='chkbox[]' type='checkbox' value=$rid></td>
-				<td><a href='apt://$pkg'>$name</a></td>
+				<td align=center><input name='chkbox[]' type='checkbox' value=$rid></td>
+				<td><a href=apt://$pkg>$name</a></td>
 				<td>$desc_tw</td>
 				<td>$comment</td>
-				<td><input type='button' name='btnModify' id='btnModify' value='$btnModify' onClick=location.href='modify.php?rid=$rid&rkey=$rkey'; /></td>
+				<td><input type=button name=btnModify id=btnModify value=$btnModify onClick=location.href='modify.php?rid=$rid&rkey=$rkey'; /></td>
 
 				</tr>";
 
@@ -87,7 +83,7 @@ function fnLoad($lang, $sql_record){
 		$btnModify = " Modify ";
 		$btnDel = " Delete ";
 
-		echo "<tr><th><input type='checkbox' name='chkClick_all' id='chkClick_all'></th> <th>Package</th> <th>Description</th> <th colspan=2>comment</th></tr>";
+		echo "<tr><th><input type=checkbox name=chkClick_all id=chkClick_all></th> <th>Package</th> <th>Description</th> <th colspan=2>comment</th></tr>";
 
 		$i = 0;
 
@@ -97,11 +93,11 @@ function fnLoad($lang, $sql_record){
 			$aryRid[$i] = $rid;
 
 			echo "<tr>
-				<td align='center'><input name='chkbox[]' type='checkbox' value=$rid></td>
-				<td><a href='apt://$pkg'>$name</a></td>
+				<td align=center><input name='chkbox[]' type='checkbox' value=$rid></td>
+				<td><a href=apt://$pkg>$name</a></td>
 				<td>$desc_en</td>
 				<td>$comment</td>
-				<td><input type='button' name='btnModify' id='btnModify' value='$btnModify' onClick=location.href='modify.php?rid=$rid&rkey=$rkey'; /></td>
+				<td><input type=button name=btnModify id=btnModify value=$btnModify onClick=location.href='modify.php?rid=$rid&rkey=$rkey'; /></td>
 				</tr>";
 
 			$i ++;
@@ -117,13 +113,11 @@ function fnLoad($lang, $sql_record){
 	echo "</table>";
 
 	echo "<br>
-			<div align='center'>
-				<input type='button' name='btnAdd' id='btnAdd' value='$btnAdd' onClick=location.href='add.php'; />
-				<input type='submit' name='btnDel' id='btnDel' value='$btnDel'>
-			</div>
+		<center><input type=submit name=btnDel id=btnDel value=$btnDel></center>
 		</form>";
 
 	//<span class=Comment> ---- </span><br>
+	//<input type=button name=btnAdd id=btnAdd value=$btnAdd onClick=location.href='add.php'; />
 
 }
 
@@ -145,16 +139,17 @@ if(isset($_POST['chkbox'])) {
 
 ?>
 
-<!DOCTYPE HTML>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw">
-	<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<meta name="keyword" content="ubuntu, apt, apturl"/>
-	<meta name="author" content="Developer: 凍仁翔 - jonny (at) drx.tw; Desgin: Violet - violet (at) drx.tw"/>
-	<link type="text/css" href="../include/violet.css" rel="stylesheet">
-	<script type="text/javascript" src="../include/jquery-1.7.1.min.js"></script>
-	<script type="text/javascript" src="../include/selectd-to-install-ubuntu.js"></script>
-	<title>helloTux</title>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="keyword" content="ubuntu, apt, apturl"/>
+<meta name="author" content="Developer: 凍仁翔 - jonny (at) drx.tw; Desgin: Violet - violet (at) drx.tw"/>
+<link type="text/css" href="../include/violet.css" rel="stylesheet">
+<script type="text/javascript" src="../include/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="../include/selectd-to-install-ubuntu.js"></script>
+<title>helloTux</title>
 </head>
 
 <body>
@@ -162,50 +157,47 @@ if(isset($_POST['chkbox'])) {
 <div id="container">
 
 	<!--頁首-->
-	<header>
-		<nav id="top">
+	<div id="header">
+		<div id="header_menu">
 <?php
 include '../frame_header.php';
 ?>
-		</nav>
-	</header>
+		</div>
+	</div>
 
 	<!--外框架圍繞內容-->
 	<div id="wrapper">
 
-		<nav id="menu_h">
-			<ul>
-				<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>首頁</a>"; ?></li>
-				<li><a href="http://note.drx.tw" target="_blank">部落格</a></li>
-				<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/pkg.php>套件清單</a>"; ?></li>
-<?php
-//if ($level == 0) {
-//	echo "<li><a href=http://" . $_SERVER['HTTP_HOST'] . "/admin/adm.php>Admin</a></li>";
-//}
-?>
-				<li id="selected">個人套件管理</li>
-			</ul>
-		</nav>
+		<div id="menu_main">
+			<div class="menu_level">
+				<ul>
+					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>Home</a>"; ?></li>
+					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/pkg.php>Package</a>"; ?></li>
+					<li class="selected">View</li>
+					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/admin/add.php>Add</a>"; ?></li>
+				</ul>
+			</div>
+		</div>
 
 		<!--側邊欄-->
-		<aside>
+		<div id="sidebar">
 <?php
 include '../frame_sidebar.php';
 ?>
-		</aside>
+		</div>
 
 		<!--內容-->
 		<div id="content">
 
 			<!--麵包屑-->
-			<div id="breadcrumbs">
-				<a class="accesskey" href="#" accesskey="C" title="中央內容區塊">:::</a> 現在位置：<?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>首頁</a>"; ?> / 個人套件管理 <br/><br/>
+			<div class="breadcrumbs">
+				<a class="accesskey" href="#" accesskey="C" title="中央內容區塊">:::</a> 現在位置：<?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>首頁</a>"; ?> / 套件管理 <br/><br/>
 			</div>
 
 			<!--段落-->
-			<section id="paragraph">
+			<div class="paragraph">
 
-				<h1>Private Package List Manage</h1>
+				<h1>View of Admin</h1>
 
 				<p>
 				<div class="lang">
@@ -235,14 +227,14 @@ mysql_close($connection);
 
 ?>
 				</p>
-			</section>
+			</div>
 		</div>
 
-		<footer>
+		<div id="footer">
 <?php
 include '../frame_footer.php';
 ?>
-		</footer>
+		</div>
 	</div>
 </div>
 

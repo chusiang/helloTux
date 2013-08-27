@@ -38,14 +38,14 @@ function fnLoad($lang, $sql){
 	$chkbox_click_all = " 全選/取消 ";
 	$btnInstall = " 安裝 ";
 
-	echo "<table class=table_dark>";
+	echo "<table class='dark'>";
 
 	switch ($lang) {
 
 	case '正體中文':
 		$btnInstall = " 安裝 ";
 
-		echo "<tr><th><input type=checkbox name=chkClick_all id=chkClick_all></th> <th>套件</th> <th>敘述</th> <th>備註</th></tr>";
+		echo "<tr><th><input type='checkbox' name='chkClick_all' id='chkClick_all'></th> <th>套件</th> <th>敘述</th> <th>備註</th></tr>";
 
 		# 列出所有套件資訊。
 		while (list($rid, $uid, $pid, $comment, $rkey, $pid2, $pkg, $name, $status ,$desc_en, $desc_tw) = mysql_fetch_row($result_record)) {
@@ -57,7 +57,7 @@ function fnLoad($lang, $sql){
 	case 'English':
 		$btnInstall = " Install ";
 
-		echo "<tr><th><input type=checkbox name=chkClick_all id=chkClick_all></th> <th>Package</th> <th>Description</th> <th>Comment</th></tr>";
+		echo "<tr><th><input type='checkbox' name='chkClick_all' id='chkClick_all'></th> <th>Package</th> <th>Description</th> <th>Comment</th></tr>";
 
 		# list all package record.
 		while (list($rid, $uid, $pid, $comment, $rkey, $pid2, $pkg, $name, $status ,$desc_en, $desc_tw) = mysql_fetch_row($result_record)) {
@@ -75,24 +75,24 @@ function fnLoad($lang, $sql){
 		</table>
 		<br>
 		<p align='center'>
-		<input type=button name=btnInstall id=btnInstall value=$btnInstall>
+		<input type='button' name='btnInstall' id='btnInstall' value='$btnInstall'>
 		</p>";
 
 }
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw">
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="keyword" content="ubuntu, apt, apturl"/>
-<meta name="author" content="Developer: 凍仁翔 - jonny (at) drx.tw; Desgin: Violet - violet (at) drx.tw"/>
-<title>helloTux</title>
-<link href="include/violet.css" type="text/css" rel="stylesheet">
-<script type="text/javascript" src="include/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="include/selectd-to-install-ubuntu.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="keyword" content="ubuntu, apt, apturl"/>
+	<meta name="author" content="Developer: 凍仁翔 - jonny (at) drx.tw; Desgin: Violet - violet (at) drx.tw"/>
+	<title>helloTux</title>
+	<link href="include/violet.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="include/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="include/selectd-to-install-ubuntu.js"></script>
 </head>
 
 <body>
@@ -100,48 +100,44 @@ function fnLoad($lang, $sql){
 <div id="container">
 
 	<!--頁首-->
-	<div id="header">
-		<div id="header_menu">
+	<header>
+		<nav id="top">
 <?php
 include 'frame_header.php';
 ?>
-		</div>
-	</div>
+		</nav>
+	</header>
 
 	<!--外框架圍繞內容-->
 	<div id="wrapper">
 
-		<div id="menu_main">
-			<div class="menu_level">
-				<ul>
-					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>Home</a>"; ?></li>
-					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/pkg.php>Package</a>"; ?></li>
-					<li class="selected">Custom</li>
-					<li><?php echo "<a href=https://" . $_SERVER['HTTP_HOST'] . "/login.php>Login</a>"; ?></li>
-				</ul>
-			</div>
-		</div>
+		<nav id="menu_h">
+			<ul>
+				<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>Home</a>"; ?></li>
+				<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/pkg.php>Package</a>"; ?></li>
+				<li><?php echo "<a href=https://" . $_SERVER['HTTP_HOST'] . "/login.php>Login</a>"; ?></li>
+			</ul>
+		</nav>
 
 		<!--側邊欄-->
-		<div id="sidebar">
+		<aside>
 <?php
 include 'frame_sidebar.php';
 ?>
-		</div>
+		</aside>
 
 		<!--內容-->
 		<div id="content">
 
 			<!--麵包屑-->
-			<div class="breadcrumbs">
-				<a class="accesskey" href="#" accesskey="C" title="中央內容區塊">:::</a> 現在位置：<?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>首頁</a>"; ?> / 個人套件清單 <br/><br/>
+			<div id="breadcrumbs">
+				<a class="accesskey" href="#" accesskey="C" title="中央內容區塊">:::</a> 現在位置：<?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>首頁</a>"; ?> / 個人套件列表 <br/><br/>
 			</div>
 
 			<!--段落-->
-			<div class="paragraph">
+			<section id="paragraph">
 
-				<h1>Custom</h1>
-				<h2><?php echo $id; ?>`s Package List</h2>
+				<h1>Package List of <?php echo $id; ?></h1>
 
 				<p>
 				<div class="lang">
@@ -175,14 +171,15 @@ fnLoad($lang, $sql_join);
 ?>
 				</form>
 				</p>
-			</div>
+
+			</section>
 		</div>
 
-		<div id="footer">
+		<footer>
 <?php
 include 'frame_footer.php';
 ?>
-		</div>
+		</footer>
 	</div>
 </div>
 
