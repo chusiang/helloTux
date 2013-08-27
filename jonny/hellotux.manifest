@@ -1,0 +1,27 @@
+# v1.1
+
+CACHE MANIFEST
+
+CACHE:
+
+# HTML
+index.php
+pkg.php
+frame_footer.php
+frame_header.php
+frame_sidebar.php
+
+# CSS
+include/violet.css
+
+# Image
+favicon.ico
+include/images/body_background_dark.png
+include/images/header-bg.png
+include/images/icon_star.png
+
+NETWORK:
+login.php
+
+FALLBACK:
+404.html
