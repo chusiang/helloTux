@@ -118,12 +118,12 @@ function fnLoad($lang, $sql_record){
 
 	echo "<br>
 			<div align='center'>
+				<input type='button' name='btnAdd' id='btnAdd' value='$btnAdd' onClick=location.href='add.php'; />
 				<input type='submit' name='btnDel' id='btnDel' value='$btnDel'>
-			<?/div>
+			</div>
 		</form>";
 
 	//<span class=Comment> ---- </span><br>
-	//<input type=button name=btnAdd id=btnAdd value=$btnAdd onClick=location.href='add.php'; />
 
 }
 
@@ -144,7 +144,6 @@ if(isset($_POST['chkbox'])) {
 }
 
 ?>
-
 
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw">
@@ -176,15 +175,15 @@ include '../frame_header.php';
 
 		<nav id="menu_h">
 			<ul>
-				<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>Home</a>"; ?></li>
-				<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/pkg.php>Package</a>"; ?></li>
+				<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>首頁</a>"; ?></li>
+				<li><a href="http://note.drx.tw" target="_blank">部落格</a></li>
+				<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/pkg.php>套件清單</a>"; ?></li>
 <?php
 //if ($level == 0) {
 //	echo "<li><a href=http://" . $_SERVER['HTTP_HOST'] . "/admin/adm.php>Admin</a></li>";
 //}
 ?>
-				<li id="selected">View</li>
-				<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/admin/add.php>Add</a>"; ?></li>
+				<li id="selected">個人套件管理</li>
 			</ul>
 		</nav>
 
