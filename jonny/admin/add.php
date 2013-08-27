@@ -98,13 +98,18 @@ function fnLoad($lang){
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw">
 <head>
+	<title>helloTux</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="keyword" content="ubuntu, apt, apturl"/>
-	<meta name="author" content="凍仁翔 (Chu-Siang, Lai) - jonny (at) drx.tw, CSS: Violet - violet (at) drx.tw"/>
+	<meta name="author" content="Developer: 凍仁翔 - jonny (at) drx.tw; Desgin: Violet - violet (at) drx.tw"/>
 	<link type="text/css" href="../include/violet.css" rel="stylesheet">
 	<script type="text/javascript" src="../include/jquery-1.7.1.min.js"></script>
 	<script type="text/javascript" src="../include/selectd-to-install-ubuntu.js"></script>
-	<title>helloTux</title>
+
+	<!--[if lt IE 9]>
+		<script src="../include/html5shiv.js"></script>
+	<![endif]-->
+
 </head>
 
 <body>
