@@ -96,9 +96,9 @@ include 'frame_header.php';
 
 		<nav id="menu_h">
 			<ul>
-				<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>Home</a>"; ?></li>
-				<li id="selected">Package</li>
-				<li><?php echo "<a href=https://" . $_SERVER['HTTP_HOST'] . "/login.php>Login</a>"; ?></li>
+				<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>首頁</a>"; ?></li>
+				<li><a href="http://note.drx.tw" target="_blank">部落格</a></li>
+				<li id="selected">套件清單</li>
 			</ul>
 		</nav>
 
