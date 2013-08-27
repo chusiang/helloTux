@@ -29,9 +29,9 @@
 
 		<nav id="menu_h">
 			<ul>
-				<li id="selected">Home</li>
-				<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/pkg.php>Package</a>"; ?></li>
-				<li><?php echo "<a href=https://" . $_SERVER['HTTP_HOST'] . "/login.php>Login</a>"; ?></li>
+				<li id="selected">首頁</li>
+				<li><a href="http://note.drx.tw" target="_blank">部落格</a></li>
+				<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/pkg.php>套件清單</a>"; ?></li>
 			</ul>
 		</nav>
 
