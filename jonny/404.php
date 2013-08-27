@@ -60,7 +60,7 @@ include 'frame_sidebar.php';
 
 				<p>
 					<ul>
-						<li>您要求的網頁 "<?php echo $_SERVER["REQUEST_URI"]; ?>" 不存在。</li>
+						<li>您要求的網頁不存在。</li>
 						<li>請使用 <input type ="button" onclick="history.back()" value="回上頁" class="form-submit" ></input> 或 <input type ="button" onclick="location.href='http://<?php echo $_SERVER['HTTP_HOST']; ?>';" value="回首頁" class="form-submit" ></input> 按鈕移至其他連結。</li>
 						<!--
 						<li>若持續出現此錯誤畫面請<a href="contact.php">聯絡我們</a>，謝謝。</li>
