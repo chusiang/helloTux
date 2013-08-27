@@ -140,64 +140,63 @@ function fnLoad($lang, $sql_get){
 
 <body>
 
-	<div id="container">
+<div id="container">
 
-		<!--頁首-->
-		<header>
-			<nav id="top">
+	<!--頁首-->
+	<header>
+		<nav id="top">
 <?php
 include '../frame_header.php';
 ?>
-			</nav>
-		</header>
+		</nav>
+	</header>
 
-		<!--外框架圍繞內容-->
-		<div id="wrapper">
+	<!--外框架圍繞內容-->
+	<div id="wrapper">
 
-			<nav id="menu_h">
-				<ul>
-					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>Home</a>"; ?></li>
-					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/pkg.php>Package</a>"; ?></li>
-					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/admin/view.php>View</a>"; ?></li>
-					<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/admin/add.php>Add</a>"; ?></li>
-					<li id="selected">Modify</li>
-				</ul>
-			</nav>
+		<nav id="menu_h">
+			<ul>
+				<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>首頁</a>"; ?></li>
+				<li><a href="http://note.drx.tw" target="_blank">部落格</a></li>
+				<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/pkg.php>套件清單</a>"; ?></li>
+				<li><?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/admin/view.php>個人套件管理</a>"; ?></li>
+			</ul>
+		</nav>
 
-			<!--側邊欄-->
-			<aside>
+		<!--側邊欄-->
+		<aside>
 <?php
 include '../frame_sidebar.php';
 ?>
-			</aside>
+		</aside>
 
-			<!--內容-->
-			<div id="content">
+		<!--內容-->
+		<div id="content">
 
-				<!--麵包屑-->
-				<div id="breadcrumbs">
-					<a class="accesskey" href="#" accesskey="C" title="中央內容區塊">:::</a> 現在位置：<?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>首頁</a>"; ?> / <?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/admin/view.php>個人套件管理</a>"; ?> / 修改備註 <br/><br/>
+			<!--麵包屑-->
+			<div id="breadcrumbs">
+				<a class="accesskey" href="#" accesskey="C" title="中央內容區塊">:::</a> 現在位置：<?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>首頁</a>"; ?> / <?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/admin/view.php>個人套件管理</a>"; ?> / 修改備註 <br/><br/>
+			</div>
+
+			<!--段落-->
+			<section id="paragraph">
+
+				<h1>Modify of Admin</h1>
+
+				<p>
+				<div class="lang">
+					<form name="lang_switch" method="post" action="">
+						<select name="lang" size="1">
+							<option>----</option>
+							<option>正體中文</option>
+							<option>English</option>
+						</select>
+						<input type="submit" name="lang_switch" value="切換語系">
+					</form>
 				</div>
+				</p>
 
-				<!--段落-->
-				<section id="paragraph">
-
-					<h1>Modify of Admin</h1>
-
-					<p>
-					<div class="lang">
-						<form name="lang_switch" method="post" action="">
-							<select name="lang" size="1">
-								<option>----</option>
-								<option>正體中文</option>
-								<option>English</option>
-							</select>
-							<input type="submit" name="lang_switch" value="切換語系">
-						</form>
-					</div>
-					</p>
-
-					<p>
+				<p>
 <?php
 
 # - drop SQL Injection Attack.
@@ -212,17 +211,17 @@ fnLoad($lang, $sql_join);
 mysql_close($connection);
 
 ?>
-					</p>
-				</section>
-			</div>
+				</p>
+			</section>
+		</div>
 
-			<footer>
+		<footer>
 <?php
 include '../frame_footer.php';
 ?>
-			</footer>
-		</div>
+		</footer>
 	</div>
+</div>
 
 </body>
 </html>
