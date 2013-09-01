@@ -6,7 +6,9 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="keyword" content="ubuntu, apt, apturl"/>
 	<meta name="author" content="Developer: 凍仁翔 - jonny (at) drx.tw; Desgin: Violet - violet (at) drx.tw"/>
+	<link href="include/bootstrap.min.css" type="text/css" rel="stylesheet">
 	<link href="include/violet.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="include/jquery-1.7.1.min.js"></script>
 
 	<!--[if lt IE 9]>
 		<script src="include/html5shiv.js"></script>
