@@ -51,12 +51,12 @@ function fnLoad($lang, $sql_record){
 	switch ($lang) {
 
 	case '正體中文':
-		$btnInstall = " 安裝 ";
-		$btnAdd = " 新增 ";
-		$btnModify = " 修改 ";
-		$btnDel = " 刪除 ";
+		$btnInstall = "安裝";
+		$btnAdd = "新增";
+		$btnModify = "修改";
+		$btnDel = "刪除";
 
-		echo "<tr><th><input type='checkbox' name='chkClick_all' id='chkClick_all'></th> <th>套件</th> <th>敘述</th> <th colspan='2'>備註</th></tr>";
+		echo "<tr><th><input type='checkbox' name='chkClick_all' id='chkClick_all'></th> <th>套件</th> <th>敘述</th> <th>備註</th></tr>";
 
 		$i = 0;
 
@@ -67,10 +67,9 @@ function fnLoad($lang, $sql_record){
 
 			echo "<tr>
 				<td align='center'><input name='chkbox[]' type='checkbox' value=$rid></td>
-				<td><a href='apt://$pkg'>$name</a></td>
+				<td><a href='apt://$pkg'>$name</a> <br /> <button type='button' name='btnModify' id='btnModify' class='btn' onClick=location.href='modify.php?rid=$rid&rkey=$rkey';>$btnModify</button> </td>
 				<td>$desc_tw</td>
 				<td>$comment</td>
-				<td><input type='button' name='btnModify' id='btnModify' value='$btnModify' onClick=location.href='modify.php?rid=$rid&rkey=$rkey'; /></td>
 
 				</tr>";
 
@@ -82,10 +81,10 @@ function fnLoad($lang, $sql_record){
 		break;
 
 	case 'English':
-		$btnInstall = " Install ";
-		$btnAdd = " Add ";
-		$btnModify = " Modify ";
-		$btnDel = " Delete ";
+		$btnInstall = "Install";
+		$btnAdd = "Add";
+		$btnModify = "Modify";
+		$btnDel = "Delete";
 
 		echo "<tr><th><input type='checkbox' name='chkClick_all' id='chkClick_all'></th> <th>Package</th> <th>Description</th> <th colspan=2>comment</th></tr>";
 
@@ -98,10 +97,9 @@ function fnLoad($lang, $sql_record){
 
 			echo "<tr>
 				<td align='center'><input name='chkbox[]' type='checkbox' value=$rid></td>
-				<td><a href='apt://$pkg'>$name</a></td>
+				<td><a href='apt://$pkg'>$name</a> <br /> <button type='button' name='btnModify' id='btnModify' class='btn' onClick=location.href='modify.php?rid=$rid&rkey=$rkey';>$btnModify</button> </td>
 				<td>$desc_en</td>
 				<td>$comment</td>
-				<td><input type='button' name='btnModify' id='btnModify' value='$btnModify' onClick=location.href='modify.php?rid=$rid&rkey=$rkey'; /></td>
 				</tr>";
 
 			$i ++;
@@ -118,8 +116,8 @@ function fnLoad($lang, $sql_record){
 
 	echo "<br>
 			<div align='center'>
-				<input type='button' name='btnAdd' id='btnAdd' value='$btnAdd' onClick=location.href='add.php'; />
-				<input type='submit' name='btnDel' id='btnDel' value='$btnDel'>
+				<button type='button' name='btnAdd' id='btnAdd' class='btn' onClick=location.href='add.php'; />$btnAdd</button>
+				<button type='submit' name='btnDel' id='btnDel' class='btn btn-danger'>$btnDel</button>
 			</div>
 		</form>";
 
@@ -152,8 +150,10 @@ if(isset($_POST['chkbox'])) {
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="keyword" content="ubuntu, apt, apturl"/>
 	<meta name="author" content="Developer: 凍仁翔 - jonny (at) drx.tw; Desgin: Violet - violet (at) drx.tw"/>
-	<link type="text/css" href="../include/violet.css" rel="stylesheet">
+	<link href="../include/bootstrap.min.css" type="text/css" rel="stylesheet">
+	<link href="../include/violet.css" type="text/css" rel="stylesheet">
 	<script type="text/javascript" src="../include/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="../include/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../include/selectd-to-install-ubuntu.js"></script>
 
 	<!--[if lt IE 9]>
@@ -215,12 +215,12 @@ include '../frame_sidebar.php';
 				<p>
 				<div class="lang">
 					<form name="lang_switch" method="post" action="">
-						<select name="lang" size="1">
+						<select name="lang" size="1" style="width: 110px;">
 							<option>----</option>
 							<option>正體中文</option>
 							<option>English</option>
 						</select>
-						<input type="submit" name="lang_switch" value="切換語系">
+						<button type="submit" name="lang_switch" class="btn">切換語系</button>
 					</form>
 				</div>
 				</p>
