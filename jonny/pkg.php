@@ -14,16 +14,13 @@ function fnLoad($lang){
 
 	$sql = "select pkg_name, name, desc_en, desc_tw from ubuntu where status = 1 order by name asc";
 	$result = mysql_query($sql) or die(mysql_error());
-	$btnInstall = " 安裝 ";
-	//$btnReset = " 清除 ";
-
+	$btnInstall = "安裝";
 
 
 	switch ($lang) {
 
 	case '正體中文':
-		$btnInstall = " 安裝 ";
-		//$btnReset = " 清除 ";
+		$btnInstall = "安裝";
 
 		echo "<span class=Comment># 目前只支援有預裝 AptURL 的 Ubuntu。</span> <br>";
 		echo "<table class=dark>";
@@ -36,7 +33,7 @@ function fnLoad($lang){
 		break;
 
 	case 'English':
-		$btnInstall = " Install ";
+		$btnInstall = "Install";
 		//$btnReset = " Reset ";
 
 		echo "<span class=Comment># Now, The site only support Ubuntu with AptURL.</span> <br>";
@@ -57,10 +54,8 @@ function fnLoad($lang){
 		</table>
 		<br>
 		<p align=center>
-		<input type=button name=btnInstall id=btnInstall value=$btnInstall>
+		<input type='button' name='btnInstall' id='btnInstall' value='$btnInstall' class='btn'>
 		</p>";
-
-	//<input type=reset name=btnReset id=btnReset value=$btnReset>
 }
 
 ?>
@@ -73,8 +68,10 @@ function fnLoad($lang){
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="keyword" content="ubuntu, apt, apturl"/>
 	<meta name="author" content="Developer: 凍仁翔 - jonny (at) drx.tw; Desgin: Violet - violet (at) drx.tw"/>
+	<link href="include/bootstrap.min.css" type="text/css" rel="stylesheet">
 	<link href="include/violet.css" type="text/css" rel="stylesheet">
 	<script type="text/javascript" src="include/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="include/bootstrap.min.js"></script>
 	<script type="text/javascript" src="include/selectd-to-install-ubuntu.js"></script>
 
 	<!--[if lt IE 9]>
@@ -130,13 +127,13 @@ include 'frame_sidebar.php';
 				<p>
 				<div class="lang">
 					<form name="lang_switch" method="post" action="">
-
-						<select name="lang" size="1">
+						<select name="lang" size="1" style="width: 110px;">
 							<option>----</option>
 							<option>正體中文</option>
 							<option>English</option>
 						</select>
-						<input type="submit" name="lang_switch" value="切換語系">
+						<br />
+						<input type="submit" name="lang_switch" value="切換語系" class="btn">
 					</form>
 				</div>
 				</p>
