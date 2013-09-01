@@ -39,10 +39,10 @@ function fnLoad($lang, $sql_record){
 
 	$result_record = mysql_query($sql_record) or die(mysql_error());
 
-	$btnInstall = " 安裝 ";
-	$btnAdd = " 新增 ";
-	$btnModify = " 修改 ";
-	$btnDel = " 刪除 ";
+	$btnInstall = "安裝";
+	$btnAdd = "新增";
+	$btnModify = "修改";
+	$btnDel = "刪除";
 	$aryRid = array();
 
 	echo "<form name='del_record' method='post' action=''>";
