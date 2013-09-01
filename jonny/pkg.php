@@ -132,7 +132,6 @@ include 'frame_sidebar.php';
 							<option>正體中文</option>
 							<option>English</option>
 						</select>
-						<br />
 						<input type="submit" name="lang_switch" value="切換語系" class="btn">
 					</form>
 				</div>
