@@ -57,19 +57,19 @@ if (isset($_POST["btnModify"])){
 function fnLoad($lang, $sql_get){
 
 	$result_get = mysql_query($sql_get) or die(mysql_error());
-	$btnModify = " 修改 ";
-	$btnCancel = " 取消 ";
+	$btnModify = "修改";
+	$btnCancel = "取消";
 
 	echo "<form name='modify_record' method='post' action=''>";
+	echo "<table class='dark'>";
 
 	switch ($lang) {
 
 	case '正體中文':
-		$btnModify = " 修改 ";
-		$btnCancel = " 取消 ";
+		$btnModify = "修改";
+		$btnCancel = "取消";
 
 		# 列出所有套件資訊。
-		echo "<table class='dark'>";
 		echo "<tr>
 			<th>套件</th>
 			<th>敘述</th>
@@ -82,18 +82,17 @@ function fnLoad($lang, $sql_get){
 				<input type='hidden' name='rkey' id='rkey' value='$rkey'>
 				<td><a href='apt://$pkg'>$name</a></td>
 				<td>$desc_tw</td>
-				<td><textarea name='comment_modify' id='comment_modify' cols='30' rows='3'>$comment</textarea></td>
+				<td><textarea name='comment_modify' id='comment_modify' rows='5'>$comment</textarea></td>
 				</tr>";
 		}
 
 		break;
 
 	case 'English':
-		$btnModify = " Modify ";
-		$btnCancel = " Cancel ";
+		$btnModify = "Modify";
+		$btnCancel = "Cancel";
 
 		# 列出所有套件資訊。
-		echo "<table class=table_dark>";
 		echo "<tr>
 			<th>Package</th>
 			<th>Description</th>
@@ -106,7 +105,7 @@ function fnLoad($lang, $sql_get){
 				<input type='hidden' name='rkey' id='rkey' value='$rkey'>
 				<td><a href='apt://$pkg'>$name</a></td>
 				<td>$desc_en</td>
-				<td><textarea name='comment_modify' id='comment_modify' cols='30' rows='3'>$comment</textarea></td>
+				<td><textarea name='comment_modify' id='comment_modify' rows='5'>$comment</textarea></td>
 				</tr>";
 		}
 
@@ -118,9 +117,10 @@ function fnLoad($lang, $sql_get){
 
 	echo "</table>";
 	echo "<br>
-		<input type='submit' name='btnModify' id='btnModify' value='$btnModify'>
-		<input type='button' name='btnCancel' id='btnCancel' value='$btnCancel' onClick=location.href='view.php'; />
-		<br> <br>
+	<div align='center'>
+		<button type='submit' name='btnModify' id='btnModify' class='btn'>$btnModify</button>
+		<button type='button' name='btnCancel' id='btnCancel' class='btn' onClick=location.href='view.php';>$btnCancel</button>
+	</div>
 		</form>";
 }
 
@@ -133,9 +133,10 @@ function fnLoad($lang, $sql_get){
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="keyword" content="ubuntu, apt, apturl"/>
 	<meta name="author" content="Developer: 凍仁翔 - jonny (at) drx.tw; Desgin: Violet - violet (at) drx.tw"/>
-	<link type="text/css" href="../include/violet.css" rel="stylesheet">
+	<link href="../include/bootstrap.min.css" type="text/css" rel="stylesheet">
+	<link href="../include/violet.css" type="text/css" rel="stylesheet">
 	<script type="text/javascript" src="../include/jquery-1.7.1.min.js"></script>
-	<script type="text/javascript" src="../include/selectd-to-install-ubuntu.js"></script>
+	<script type="text/javascript" src="../include/bootstrap.min.js"></script>
 
 	<!--[if lt IE 9]>
 		<script src="../include/html5shiv.js"></script>
@@ -191,12 +192,12 @@ include '../frame_sidebar.php';
 				<p>
 				<div class="lang">
 					<form name="lang_switch" method="post" action="">
-						<select name="lang" size="1">
+						<select name="lang" size="1" style="width: 110px;">
 							<option>----</option>
 							<option>正體中文</option>
 							<option>English</option>
 						</select>
-						<input type="submit" name="lang_switch" value="切換語系">
+						<button type="submit" name="lang_switch" class="btn">切換語系</button>
 					</form>
 				</div>
 				</p>

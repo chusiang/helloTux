@@ -22,38 +22,17 @@ $lang = "正體中文";
 
 function fnLoad($lang){
 
-	$btnInstall = " 安裝 ";
+	$btnInstall = "安裝";
 	$btnSearch = "搜尋";
-	$btnCancel = " 取消 ";
-	$btnAdd = " 新增 ";
+	$btnCancel = "取消";
+	$btnAdd = "新增";
 
-	echo "<form name=search_record method=post action=>";
-
-	switch ($lang) {
-
-	case '正體中文':
-		$btnSearch = "搜尋";
-		$btnCancel = " 取消 ";
-		$btnInstall = " 安裝 ";
-		$btnAdd = " 新增 ";
-		break;
-
-	case 'English':
-		$btnSearch = " Search ";
-		$btnCancel = " Cancel ";
-		$btnInstall = " Install ";
-		$btnAdd = " Add ";
-		break;
-
-	default:
-		break;
-	}
-
-	echo "<center>
-		<input type=text name=search_txt id=search_txt>
-		<input type=submit name=btnSearch id=btnSearch value=$btnSearch>
-		<input type=button name=btnCancel id=btnCancel value=$btnCancel onClick=location.href='view.php'; />
-		</center>
+	echo "<form name='search_record' method='post' action=''>
+			<div align='center'>
+				<input type='text' name='search_txt id='search_txt' class='search-query'>
+				<button type='submit' name='btnSearch' id='btnSearch' class='btn'>$btnSearch</button>
+				<button type='button' name='btnCancel' id='btnCancel' class='btn' onClick=location.href='view.php';>$btnCancel</button>
+			</div>
 		</form>";
 
 	if (isset($_POST["search_txt"])) {
@@ -65,7 +44,7 @@ function fnLoad($lang){
 		# 列出所有套件資訊。
 		echo "<br />";
 		echo "搜尋結果: <br />";
-		echo "<form name=add_record method=post action=record_add.php>";
+		echo "<form name='add_record' method='post' action='record_add.php'>";
 		echo "<table class='dark'>";
 		echo "<tr><th></th> <th>套件</th> <th>Description</th> <th>敘述</th> </tr>";
 
@@ -80,14 +59,8 @@ function fnLoad($lang){
 
 		echo "</table><br>
 			個人備註:
-			<input type=text name=comment id=comment size=40></textarea> <br><br>
-			<center>
-			<input type=submit name=btnAdd id=btnAdd value=$btnAdd>
-			<input type=button name=btnCancel id=btnCancel value=$btnCancel onClick=location.href='view.php'; />
-			</center>
-			<!--
-			<textarea name=comment id=comment cols=30 rows=2></textarea> 
-			-->
+			<input type='text' name='comment' id='comment' placeholder='個人備註' style='width: 480px;'>
+			<button type='submit' name='btnAdd' id='btnAdd' class='btn'>建立</button>
 			</form>";
 	}
 }
@@ -103,8 +76,10 @@ function fnLoad($lang){
 	<meta name="keyword" content="ubuntu, apt, apturl"/>
 	<meta name="author" content="Developer: 凍仁翔 - jonny (at) drx.tw; Desgin: Violet - violet (at) drx.tw"/>
 	<link type="text/css" href="../include/violet.css" rel="stylesheet">
+	<link href="../include/bootstrap.min.css" type="text/css" rel="stylesheet">
+	<link href="../include/violet.css" type="text/css" rel="stylesheet">
 	<script type="text/javascript" src="../include/jquery-1.7.1.min.js"></script>
-	<script type="text/javascript" src="../include/selectd-to-install-ubuntu.js"></script>
+	<script type="text/javascript" src="../include/bootstrap.min.js"></script>
 
 	<!--[if lt IE 9]>
 		<script src="../include/html5shiv.js"></script>

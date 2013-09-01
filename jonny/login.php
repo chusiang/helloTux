@@ -64,7 +64,10 @@ if ( isset($_POST["ID"]) && isset($_POST["passwd"]) ) {
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="keyword" content="ubuntu, apt, apturl"/>
 	<meta name="author" content="Developer: 凍仁翔 - jonny (at) drx.tw; Desgin: Violet - violet (at) drx.tw"/>
+	<link href="include/bootstrap.min.css" type="text/css" rel="stylesheet">
 	<link href="include/violet.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="include/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="include/bootstrap.min.js"></script>
 
 	<!--[if lt IE 9]>
 		<script src="include/html5shiv.js"></script>
@@ -123,7 +126,7 @@ include 'frame_sidebar.php';
 
 			<!--麵包屑-->
 			<div id="breadcrumbs">
-				<a class="accesskey" href="#" accesskey="C" title="中央內容區塊">:::</a> 現在位置：<?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>首頁</a>"; ?> / 登入 <br/><br/>
+				<a class="accesskey" href="#" accesskey="C" title="中央內容區塊">:::</a> 現在位置：<?php echo "<a href=http://" . $_SERVER['HTTP_HOST'] . "/index.php>首頁</a>"; ?> / 登錄 <br/><br/>
 			</div>
 
 			<!--段落-->
@@ -131,18 +134,30 @@ include 'frame_sidebar.php';
 
 				<h1>Login</h1>
 
-				<div align="center">
-					<form id="form_adm" name="form_adm" method="post" action="login.php">
-
-						帳戶 <input type="text" name="ID" id="ID"> <br />
-						密碼 <input type="password" name="passwd" id="passwd"> <br /> <br />
-						<!--
-							<input type="text" name="passwd" id="passwd" value="">
-							<input type="submit" name="btn_login" id="btn_login" value="登 入" onCliek="md5()">
-						-->
-						<input type="submit" name="btn_login" id="btn_login" value="登 入"> 
-						<input type="reset" name="btn_cancel" id="btn_cancel" value="清 除">
-					</form>
+				<div>
+					
+				<form id="form_adm" name="form_adm" method="post" action="login.php" class="form-horizontal">
+					<div class="control-group">
+						<label class="control-label" for="ID">帳號</label>
+						<div class="controls">
+							<input type="text" name="ID" id="ID" placeholder="ID">
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="passwd">密碼</label>
+						<div class="controls">
+							<input type="password" name="passwd" id="passwd" placeholder="Password">
+						</div>
+					</div>
+					<div class="control-group">
+						<div class="controls">
+							<label class="checkbox">
+								<input type="checkbox"> 記住我
+							</label>
+							<button type="submit" name="btn_login" id="btn_login" class="btn">登錄</button>
+						</div>
+					</div>
+				</form>
 				</div>
 
 			</section>
