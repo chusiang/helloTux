@@ -33,7 +33,7 @@ if (isset($_SESSION["ID"]) && $_SESSION["ID"] !="") {
 				前往自訂頁面 <br />
 			
 				<form name='custom_switch' method='post' action=''>
-					<input type='text' name='custom_id' id='custom_id' value='tux' class='input-small search-query' style='width: 70px;'>
+					<input type='text' name='custom_id' id='custom_id' value='tux' class='input-small search-query' style='width: 60px;'>
 					<button type='submit' name='btnCustom' id='btnCustom' class='btn'>hello</button>
 				</form>
 				
