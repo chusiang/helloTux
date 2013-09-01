@@ -9,6 +9,7 @@
 	<link href="include/bootstrap.min.css" type="text/css" rel="stylesheet">
 	<link href="include/violet.css" type="text/css" rel="stylesheet">
 	<script type="text/javascript" src="include/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="include/bootstrap.min.js"></script>
 
 	<!--[if lt IE 9]>
 		<script src="include/html5shiv.js"></script>
