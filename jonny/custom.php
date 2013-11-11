@@ -49,19 +49,19 @@ function fnLoad($lang, $sql){
 
 		# 列出所有套件資訊。
 		while (list($rid, $uid, $pid, $comment, $rkey, $pid2, $pkg, $name, $status ,$desc_en, $desc_tw) = mysql_fetch_row($result_record)) {
-			echo "<tr><td align=center><input name='chkbox[]' type='checkbox' value=$pkg></td> <td><a href=apt://$pkg>$name</a></td> <td>$desc_tw </td><td>$comment</td></tr>";
+			echo "<tr><td align='center'><input name='chkbox[]' type='checkbox' value='$pkg'></td> <td><a href='apt://$pkg'>$name</a></td> <td>$desc_tw </td><td>$comment</td></tr>";
 		}
 
 		break;
 
 	case 'English':
-		$btnInstall = " Install ";
+		$btnInstall = "Install";
 
 		echo "<tr><th><input type='checkbox' name='chkClick_all' id='chkClick_all'></th> <th>Package</th> <th>Description</th> <th>Comment</th></tr>";
 
 		# list all package record.
 		while (list($rid, $uid, $pid, $comment, $rkey, $pid2, $pkg, $name, $status ,$desc_en, $desc_tw) = mysql_fetch_row($result_record)) {
-			echo "<tr><td align=center><input name='chkbox[]' type='checkbox' value=$pkg></td> <td><a href=apt://$pkg>$name</a></td> <td>$desc_en </td> <td>$comment</td> </tr>";
+			echo "<tr><td align='center'><input name='chkbox[]' type='checkbox' value='$pkg'></td> <td><a href='apt://$pkg'>$name</a></td> <td>$desc_en</td> <td>$comment</td> </tr>";
 		}
 
 		break;
@@ -75,7 +75,7 @@ function fnLoad($lang, $sql){
 		</table>
 		<br>
 		<p align='center'>
-		<input type='button' name='btnInstall' id='btnInstall' value='$btnInstall'>
+		<input type='button' name='btnInstall' id='btnInstall' value='$btnInstall' class='btn'>
 		</p>";
 
 }
@@ -90,8 +90,10 @@ function fnLoad($lang, $sql){
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="keyword" content="ubuntu, apt, apturl"/>
 	<meta name="author" content="Developer: 凍仁翔 - jonny (at) drx.tw; Desgin: Violet - violet (at) drx.tw"/>
+	<link href="include/bootstrap.min.css" type="text/css" rel="stylesheet">
 	<link href="include/violet.css" type="text/css" rel="stylesheet">
 	<script type="text/javascript" src="include/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="include/bootstrap.min.js"></script>
 	<script type="text/javascript" src="include/selectd-to-install-ubuntu.js"></script>
 
 	<!--[if lt IE 9]>
@@ -148,12 +150,12 @@ include 'frame_sidebar.php';
 				<div class="lang">
 					<form name="lang_switch" method="post" action="custom.php?id=<?php echo $id; ?>">
 
-						<select name="lang" size="1">
+						<select name="lang" size="1" style="width: 110px;">
 							<option>----</option>
 							<option>正體中文</option>
 							<option>English</option>
 						</select>
-						<input type="submit" name="lang_switch" value="切換語系">
+						<input type="submit" name="lang_switch" value="切換語系" class="btn">
 					</form>
 				</div>
 				</p>
