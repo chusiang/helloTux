@@ -74,10 +74,12 @@ include 'frame_sidebar.php';
 		<footer>
 <?php
 include 'frame_footer.php';
+include 'ga.php';
 ?>
 		</footer>
 	</div>
 </div>
+
 
 </body>
 </html>

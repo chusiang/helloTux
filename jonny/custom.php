@@ -185,6 +185,7 @@ fnLoad($lang, $sql_join);
 		<footer>
 <?php
 include 'frame_footer.php';
+include 'ga.php';
 ?>
 		</footer>
 	</div>
