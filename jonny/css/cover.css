@@ -160,3 +160,10 @@ body {
     width: 992px;
   }
 }
+
+
+/* Custom by chusiang */
+.thumbnail h3 {
+  color: #000;
+  text-align: center;
+}
