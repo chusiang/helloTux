@@ -1,5 +1,7 @@
 # helloTux
 
+注意：此專案已不再維護，請改至 [gUBT](http://chusiang.github.io/gubt/) 專案。
+
 ## About
 
 * 此專案使用 [GPL v2 or later](http://www.gnu.org/licenses/gpl.html) 授權，其主要目的是讓使用者直接 **使用瀏覽器安裝 Linux 套件** 並 **擁有專屬套件列表** ，換句話說這會是個 Linux 版的[抓火狐](http://gfx.tw/)，現階段將以 Ubuntu 的 AptURL 為主，後期會試著將 OpenSUSE 的 One-Click 整合進來。
