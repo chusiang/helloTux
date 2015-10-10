@@ -1,6 +1,6 @@
 # helloTux
 
-> 請注意！此專案已不再維護，請改至 [gUBT](http://chusiang.github.io/gubt/) 專案。
+> 請注意！此專案已不再維護，請改至 [gup](http://chusiang.github.io/gup/) 專案。
 >
 > -凍仁翔 @ Sat Oct 10 01:31:20 CST 2015
 
