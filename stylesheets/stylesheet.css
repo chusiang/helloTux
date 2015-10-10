@@ -58,14 +58,15 @@ header h1 {
 }
 
 header h1:before {
-  content: "./ ";
+  content: "$ ./";
   font-size: 24px;
 }
 
 header h2 {
   font-size: 18px;
   font-weight: 300;
-  color: #666;
+  color: #ccc;
+  margin: 20px 0 20px 0;
 }
 
 #downloads .btn {
@@ -209,6 +210,14 @@ hr {
   background: -webkit-linear-gradient(top, rgba(40, 40, 40, 0.6), rgba(35, 35, 35, 0.6) 50%, rgba(10, 10, 10, 0.8) 50%, rgba(0, 0, 0, 0.8));
 }
 
+.btn-red {
+  background-color: red;
+}
+
+.btn-grey {
+  background-color: grey;
+}
+
 .btn .icon {
   display: inline-block;
   width: 16px;
@@ -244,4 +253,11 @@ a {
 
 .cf {
   zoom:1;
+}
+
+footer {
+  border-top: 1px dashed #b5e853;
+  text-align: center;
+  padding: 20px 0;
+  margin: 0px 0 20px 0;
 }
